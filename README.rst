@@ -1,5 +1,7 @@
 jctconv
 =========
+.. image:: https://travis-ci.org/ikegami-yukino/jctconv.png?branch=master
+    :target: https://travis-ci.org/ikegami-yukino/jctconv
 
 jctconv (Japanese Character Type CONVerter) はひらがな・カタカナ・全角・半角の文字種変換を高速に行います。
 Pythonのみで実装されているので、Cコンパイラが使えない環境でも使えます。
