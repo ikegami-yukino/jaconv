@@ -10,7 +10,8 @@ install:
 script:
   - nosetests
 notifications:
-  emails:
-    - yukino0131@me.com
-  on_success: always
-  on_failure: always
+  email:
+    recipients:
+      - yukino0131@me.com
+    on_success: always
+    on_failure: always
