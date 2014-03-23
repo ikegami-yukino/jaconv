@@ -1,9 +1,12 @@
 jctconv
-=========
+==========
+.. image:: https://badge.fury.io/py/jctconv.png
+    :target: http://badge.fury.io/py/jctconv
+
 .. image:: https://travis-ci.org/ikegami-yukino/jctconv.png?branch=master
     :target: https://travis-ci.org/ikegami-yukino/jctconv
 
-jctconv (Japanese Character Type CONVerter) はひらがな・カタカナ・全角・半角の文字種変換を高速に行います。
+jctconv (Japanese Character Type Converter) はひらがな・カタカナ・全角・半角の文字種変換を高速に行います。
 Pythonのみで実装されているので、Cコンパイラが使えない環境でも使えます。
 
 normalizeメソッドは、unicodedata.normalizeを日本語処理向けに特化した拡張を行っています。
@@ -18,8 +21,16 @@ normalizeメソッドは、unicodedata.normalizeを日本語処理向けに特�
   u'―' -> '-',
   u'‐' -> '-'
 
-実行例
-===========
+INSTALLATION
+==============
+
+::
+
+ $ pip install jctconv
+
+
+USAGE
+============
 
 >>> import jctconv
 >>> jctconv.hira2kata(u'ともえまみ')
