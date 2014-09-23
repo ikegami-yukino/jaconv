@@ -5,7 +5,6 @@ from distutils.core import setup
 setup(
     name = 'jctconv',
     py_modules = ['jctconv'], 
-    scripts = ['jctconv.py'], 
     version = '0.0.7',
     license = 'MIT License',        
     platforms = ['POSIX', 'Windows', 'Unix', 'MacOS'],
