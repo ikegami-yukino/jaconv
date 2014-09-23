@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 import unicodedata
 
-"""
-jctconv 0.0.6 - 全角・半角・ひらがな・カタカナ等相互変換モジュール
+u"""
+jctconv
+
+This module provides Japanese and ASCII character interconverting between
+Hiragana and full-/half-width Katakana/ASCII characters.
 
 Author:
     Yukino Ikegami
