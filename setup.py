@@ -29,4 +29,5 @@ setup(
         'Topic :: Text Processing'
         ],
     long_description = open('README.rst').read() + '\n\n' + open('CHANGES.rst').read()
+    data_files=[('', ['README.rst', 'CHANGES.rst'])],
 )
