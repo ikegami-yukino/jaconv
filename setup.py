@@ -5,7 +5,7 @@ from distutils.core import setup
 setup(
     name = 'jctconv',
     py_modules = ['jctconv'], 
-    version = '0.0.7',
+    version = '0.0.7.2',
     license = 'MIT License',        
     platforms = ['POSIX', 'Windows', 'Unix', 'MacOS'],
     description = 'Pure-Python Japanese character interconverter for Hiragana, Katakana, Hankaku and Zenkaku',
