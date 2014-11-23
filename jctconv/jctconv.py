@@ -25,8 +25,10 @@ def hira2kata(text, ignore=''):
     Return:
         <unicode> converted_text
     """
-    h2k_hash = _exclude_ignorechar(ignore, H2K_TABLE)
-    return _convert(text, h2k_hash)
+    if ignore:
+        h2k_map = _exclude_ignorechar(ignore, H2K_TABLE.copy())
+        return _convert(text, h2k_map)
+    return _convert(text, H2K_TABLE)
 
 
 def hira2hkata(text, ignore=''):
@@ -38,8 +40,10 @@ def hira2hkata(text, ignore=''):
     Return:
         <unicode> converted_text
     """
-    h2hk_hash = _exclude_ignorechar(ignore, H2HK_TABLE)
-    return _convert(text, h2hk_hash)
+    if ignore:
+        h2hk_map = _exclude_ignorechar(ignore, H2HK_TABLE.copy())
+        return _convert(text, h2hk_map)
+    return _convert(text, H2HK_TABLE)
 
 
 def kata2hira(text, ignore=''):
@@ -51,8 +55,10 @@ def kata2hira(text, ignore=''):
     Return:
         <unicode> converted_text
     """
-    k2h_hash = _exclude_ignorechar(ignore, K2H_TABLE)
-    return _convert(text, k2h_hash)
+    if ignore:
+        k2h_map = _exclude_ignorechar(ignore, K2H_TABLE.copy())
+        return _convert(text, k2h_map)
+    return _convert(text, K2H_TABLE)
 
 
 def h2z(text, ignore='', kana=True, ascii=False, digit=False):
@@ -85,24 +91,25 @@ def h2z(text, ignore='', kana=True, ascii=False, digit=False):
     if ascii:
         if digit:
             if kana:
-                h2z_hash = H2Z_ALL
+                h2z_map = H2Z_ALL
             else:
-                h2z_hash = H2Z_AD
+                h2z_map = H2Z_AD
         elif kana:
-            h2z_hash = H2Z_AK
+            h2z_map = H2Z_AK
         else:
-            h2z_hash = H2Z_A
+            h2z_map = H2Z_A
     elif digit:
         if kana:
-            h2z_hash = H2Z_DK
+            h2z_map = H2Z_DK
         else:
-            h2z_hash = H2Z_D
+            h2z_map = H2Z_D
     else:
-        h2z_hash = H2Z_K
+        h2z_map = H2Z_K
     if kana:
         text = _conv_dakuten(text)
-    h2z_hash = _exclude_ignorechar(ignore, h2z_hash)
-    return _convert(text, h2z_hash)
+    if ignore:
+        h2z_map = _exclude_ignorechar(ignore, h2z_map.copy())
+    return _convert(text, h2z_map)
 
 
 def z2h(text, ignore='', kana=True, ascii=False, digit=False):
@@ -117,22 +124,23 @@ def z2h(text, ignore='', kana=True, ascii=False, digit=False):
     if ascii:
         if digit:
             if kana:
-                z2h_hash = Z2H_ALL
+                z2h_map = Z2H_ALL
             else:
-                z2h_hash = Z2H_AD
+                z2h_map = Z2H_AD
         elif kana:
-            z2h_hash = Z2H_AK
+            z2h_map = Z2H_AK
         else:
-            z2h_hash = Z2H_A
+            z2h_map = Z2H_A
     elif digit:
         if kana:
-            z2h_hash = Z2H_DK
+            z2h_map = Z2H_DK
         else:
-            z2h_hash = Z2H_D
+            z2h_map = Z2H_D
     else:
-        z2h_hash = Z2H_K
-    z2h_hash = _exclude_ignorechar(ignore, z2h_hash)
-    return _convert(text, z2h_hash)
+        z2h_map = Z2H_K
+    if ignore:
+        z2h_map = _exclude_ignorechar(ignore, z2h_map.copy())
+    return _convert(text, z2h_map)
 
 
 def normalize(text, mode='NFKC', ignore=''):
