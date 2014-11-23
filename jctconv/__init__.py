@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from . import jctconv
 u"""jctconv
 

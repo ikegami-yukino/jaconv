@@ -33,15 +33,15 @@ def test_kata2hira():
 def test_h2z():
     assert_equal(jctconv.h2z(u'ﾃｨﾛﾌｨﾅｰﾚ'), u'ティロフィナーレ')
     assert_equal(jctconv.h2z(HALF_KANA), FULL_KANA)
-    assert_equal(jctconv.h2z(HALF_ASCII, mode='ASCII'), FULL_ASCII)
-    assert_equal(jctconv.h2z(HALF_DIGIT, mode='DIGIT'), FULL_DIGIT)
+    assert_equal(jctconv.h2z(HALF_ASCII, ascii=True), FULL_ASCII)
+    assert_equal(jctconv.h2z(HALF_DIGIT, digit=True), FULL_DIGIT)
 
 
 def test_z2h():
     assert_equal(jctconv.z2h(u'ティロフィナーレ'), u'ﾃｨﾛﾌｨﾅｰﾚ')
     assert_equal(jctconv.z2h(FULL_KANA), HALF_KANA)
-    assert_equal(jctconv.z2h(FULL_ASCII, mode='ASCII'), HALF_ASCII)
-    assert_equal(jctconv.z2h(FULL_DIGIT, mode='DIGIT'), HALF_DIGIT)
+    assert_equal(jctconv.z2h(FULL_ASCII, ascii=True), HALF_ASCII)
+    assert_equal(jctconv.z2h(FULL_DIGIT, digit=True), HALF_DIGIT)
 
 
 def test_normalize():
