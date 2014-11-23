@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from .compat import map, zip
 
 HIRAGANA = list(u'ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすず'
                 u'せぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴ'

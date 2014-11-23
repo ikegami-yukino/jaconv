@@ -3,6 +3,7 @@ import unicodedata
 from .conv_table import (H2K_TABLE, H2HK_TABLE, K2H_TABLE, H2Z_A, H2Z_AD,
                          H2Z_AK, H2Z_D, H2Z_K, H2Z_DK, H2Z_ALL, Z2H_A, Z2H_AD,
                          Z2H_AK, Z2H_D, Z2H_K, Z2H_DK, Z2H_ALL)
+from .compat import map
 
 
 def _exclude_ignorechar(ignore, conv_map):
