@@ -1,11 +1,16 @@
 # -*- coding: utf-8 -*-
+import os
+import re
 from distutils.core import setup
 
+with open(os.path.join('jctconv', '__init__.py'), 'r') as f:
+    version = re.compile(
+            r".*__version__ = '(.*?)'", re.S).match(f.read()).group(1)
 
 setup(
     name='jctconv',
-    py_modules=['jctconv'],
-    version='0.0.7.3',
+    packages=['jctconv'],
+    version=version,
     license='MIT License',
     platforms=['POSIX', 'Windows', 'Unix', 'MacOS'],
     description='Pure-Python Japanese character interconverter for '

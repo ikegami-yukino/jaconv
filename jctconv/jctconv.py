@@ -18,11 +18,10 @@ Usage:
     jctconv.hira2kata(text, [ignore]) # ひらがなを全角カタカナに変換
     jctconv.hira2hkata(text, [ignore]) # ひらがなを半角カタカナに変換
     jctconv.kata2hira(text, [ignore]) # 全角カタカナをひらがなに変換
-    jctconv.h2z(text, [mode, ignore]) # 半角文字を全角文字に変換
-    jctconv.z2h(text, [mode, ignore]) # 全角文字を半角文字に変換
+    jctconv.h2z(text, [ignore, kana, ascii, digit]) # 半角文字を全角文字に変換
+    jctconv.z2h(text, [ignore, kana, ascii, digit]) # 全角文字を半角文字に変換
     jctconv.normalize(text, [nomalizemode]) # 半角カナを全角カナへ、全角英数字を半角英数字に変換
 
-    modeで変換対象文字種(ALL, ASCII, DIGIT, KANA)を組み合わせて指定可能
     nomalizemodeはNFC, NFKC, NKD, NFKDから指定可能
     ignoreで変換除外文字を指定可能
 """
@@ -167,8 +166,7 @@ def kata2hira(text, ignore=''):
 K2H = kata2hira  # kata2hiraの別名
 
 
-def hankaku2zenkaku(text, mode='KANA', ignore='',
-                    kana=True, ascii=False, digit=False):
+def hankaku2zenkaku(text, ignore='', kana=True, ascii=False, digit=False):
     """Convert Half-width (Hankaku) Katakana to Full-width (Zenkaku) Katakana
 
     Params:
@@ -183,14 +181,7 @@ def hankaku2zenkaku(text, mode='KANA', ignore='',
         """
         return text.replace(u"ｶﾞ", u"ガ").replace(u"ｷﾞ", u"ギ").replace(u"ｸﾞ", u"グ").replace(u"ｹﾞ", u"ゲ").replace(u"ｺﾞ", u"ゴ").replace(u"ｻﾞ", u"ザ").replace(u"ｼﾞ", u"ジ").replace(u"ｽﾞ", u"ズ").replace(u"ｾﾞ", u"ゼ").replace(u"ｿﾞ", u"ゾ").replace(u"ﾀﾞ", u"ダ").replace(u"ﾁﾞ", u"ヂ").replace(u"ﾂﾞ", u"ヅ").replace(u"ﾃﾞ", u"デ").replace(u"ﾄﾞ", u"ド").replace(u"ﾊﾞ", u"バ").replace(u"ﾋﾞ", u"ビ").replace(u"ﾌﾞ", u"ブ").replace(u"ﾍﾞ", u"ベ").replace(u"ﾎﾞ", u"ボ").replace(u"ﾊﾟ", u"パ").replace(u"ﾋﾟ", u"ピ").replace(u"ﾌﾟ", u"プ").replace(u"ﾍﾟ", u"ペ").replace(u"ﾎﾟ", u"ポ").replace(u"ｳﾞ", u"ヴ")
 
-    mode = mode.upper()
-    if 'KANA' in mode:
-        kana = True
-    if 'ASCII' in mode:
-        ascii = True
-    if 'DIGIT' in mode:
-        digit = True
-    if (kana and ascii and digit) or mode == 'ALL':
+    if kana and ascii and digit:
         h2z_hash = __CONV_TABLE['H2Z_ALL']
         text = _conv_dakuten(text)
     else:
@@ -220,8 +211,7 @@ def hankaku2zenkaku(text, mode='KANA', ignore='',
 h2z = hankaku2zenkaku  # hankaku2zenkakuの別名
 
 
-def zenkaku2hankaku(text, mode='', ignore='',
-                    kana=True, ascii=False, digit=False):
+def zenkaku2hankaku(text, ignore='', kana=True, ascii=False, digit=False):
     """Convert Full-width (Zenkaku) Katakana to Half-width (Hankaku) Katakana
 
     Params:
@@ -230,14 +220,7 @@ def zenkaku2hankaku(text, mode='', ignore='',
     Return:
         <unicode> converted_text
     """
-    mode = mode.upper()
-    if 'KANA' in mode:
-        kana = True
-    if 'ASCII' in mode:
-        ascii = True
-    if 'DIGIT' in mode:
-        digit = True
-    if (kana and ascii and digit) or mode == 'ALL':
+    if kana and ascii and digit:
         z2h_hash = __CONV_TABLE['Z2H_ALL']
     else:
         if ascii:
@@ -281,8 +264,8 @@ def normalize(text, mode='NFKC', ignore=''):
 
 
 def _exclude_ignorechar(ignore, conv_hash):
-    for character in ignore:
-        conv_hash[ord(character)] = character
+    for character in map(ord, ignore):
+        conv_hash[character] = character
     return conv_hash
 
 
