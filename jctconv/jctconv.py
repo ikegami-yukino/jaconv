@@ -135,7 +135,6 @@ def hira2kata(text, ignore=''):
     """
     h2k_hash = _exclude_ignorechar(ignore, __CONV_TABLE['H2K_TABLE'])
     return _convert(text, h2k_hash)
-H2K = hira2kata  # hira2kataの別名
 
 
 def hira2hkata(text, ignore=''):
@@ -149,7 +148,6 @@ def hira2hkata(text, ignore=''):
     """
     h2hk_hash = _exclude_ignorechar(ignore, __CONV_TABLE['H2HK_TABLE'])
     return _convert(text, h2hk_hash)
-H2hK = hira2hkata  # hira2hkataの別名
 
 
 def kata2hira(text, ignore=''):
@@ -163,10 +161,9 @@ def kata2hira(text, ignore=''):
     """
     k2h_hash = _exclude_ignorechar(ignore, __CONV_TABLE['K2H_TABLE'])
     return _convert(text, k2h_hash)
-K2H = kata2hira  # kata2hiraの別名
 
 
-def hankaku2zenkaku(text, ignore='', kana=True, ascii=False, digit=False):
+def h2z(text, ignore='', kana=True, ascii=False, digit=False):
     """Convert Half-width (Hankaku) Katakana to Full-width (Zenkaku) Katakana
 
     Params:
@@ -208,10 +205,9 @@ def hankaku2zenkaku(text, ignore='', kana=True, ascii=False, digit=False):
             text = _conv_dakuten(text)
     h2z_hash = _exclude_ignorechar(ignore, h2z_hash)
     return _convert(text, h2z_hash)
-h2z = hankaku2zenkaku  # hankaku2zenkakuの別名
 
 
-def zenkaku2hankaku(text, ignore='', kana=True, ascii=False, digit=False):
+def z2h(text, ignore='', kana=True, ascii=False, digit=False):
     """Convert Full-width (Zenkaku) Katakana to Half-width (Hankaku) Katakana
 
     Params:
@@ -242,7 +238,6 @@ def zenkaku2hankaku(text, ignore='', kana=True, ascii=False, digit=False):
             z2h_hash = __CONV_TABLE['Z2H_K']
     z2h_hash = _exclude_ignorechar(ignore, z2h_hash)
     return _convert(text, z2h_hash)
-z2h = zenkaku2hankaku  # zenkaku2hankakuの別名
 
 
 def normalize(text, mode='NFKC', ignore=''):
