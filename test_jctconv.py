@@ -51,7 +51,7 @@ def test_hira2hkata():
 
 def test_kata2hira():
     assert_equal(jctconv.kata2hira(u'巴マミ'), u'巴まみ')
-    assert_equal(jctconv.kata2hira(u'マミサン', ignore='ン'), u'まみさン')
+    assert_equal(jctconv.kata2hira(u'マミサン', ignore=u'ン'), u'まみさン')
     _compare(jctconv.kata2hira, FULL_KANA, HIRAGANA)
 
 
