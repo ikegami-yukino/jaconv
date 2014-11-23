@@ -13,7 +13,7 @@ jctconv
 jctconv (Japanese Character Type Converter) はひらがな・カタカナ・全角・半角の文字種変換を高速に行います。
 Pythonのみで実装されているので、Cコンパイラが使えない環境でも利用できます。
 
-normalizeメソッドは、unicodedata.normalizeを日本語処理向けに特化した拡張を行っています。
+normalizeメソッドは、unicodedata.normalize を日本語処理向けに特化した拡張を行っています。
 具体的には以下のように変換します。
 
 ::
