@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 from . import jctconv
-u"""jctconv
+"""jctconv
 
 This module provides Japanese and ASCII character interconverting between
 Hiragana and full-/half-width Katakana/ASCII characters.
