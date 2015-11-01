@@ -1,13 +1,6 @@
 jctconv
 ==========
-.. image:: https://badge.fury.io/py/jctconv.png
-    :target: http://badge.fury.io/py/jctconv
-
-.. image:: https://travis-ci.org/ikegami-yukino/jctconv.png?branch=master
-    :target: https://travis-ci.org/ikegami-yukino/jctconv
-
-.. image:: https://coveralls.io/repos/ikegami-yukino/jctconv/badge.png
-    :target: https://coveralls.io/r/ikegami-yukino/jctconv
+|travis| |coveralls| |downloads| |version| |license|
 
 
 jctconv (Japanese Character Type Converter) はひらがな・カタカナ・全角・半角の文字種変換を高速に行います。
@@ -63,3 +56,24 @@ USAGE
   # => u'アabc123'
   jctconv.normalize(u'ティロ･フィナ〜レ', 'NFKC')
   # => u'ティロ・フィナーレ'
+
+
+.. |travis| image:: https://travis-ci.org/ikegami-yukino/jctconv.svg?branch=master
+    :target: https://travis-ci.org/ikegami-yukino/jctconv
+    :alt: travis-ci.org
+
+.. |coveralls| image:: https://coveralls.io/repos/ikegami-yukino/jctconv/badge.svg?branch=master&service=github
+    :target: https://coveralls.io/github/ikegami-yukino/jctconv?branch=master
+    :alt: coveralls.io
+
+.. |downloads| image:: https://img.shields.io/pypi/dm/jctconv.svg
+    :target: http://pypi.python.org/pypi/jctconv/
+    :alt: downloads
+
+.. |version| image:: https://img.shields.io/pypi/v/jctconv.svg
+    :target: http://pypi.python.org/pypi/jctconv/
+    :alt: latest version
+
+.. |license| image:: https://img.shields.io/pypi/l/jctconv.svg
+    :target: http://pypi.python.org/pypi/jctconv/
+    :alt: license
