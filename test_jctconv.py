@@ -47,6 +47,7 @@ def test_hira2kata():
 
 def test_hira2hkata():
     assert_equal(jctconv.hira2hkata('ともえまみ'), 'ﾄﾓｴﾏﾐ')
+    assert_equal(jctconv.hira2hkata('ともえまみ', ignore='み'), 'ﾄﾓｴﾏみ')
     _compare(jctconv.hira2hkata, HIRAGANA, HALF_KANA)
 
 
@@ -62,9 +63,16 @@ def test_h2z():
     _compare(jctconv.h2z, HALF_KANA, FULL_KANA)
     _compare(partial(jctconv.h2z, ascii=True), HALF_ASCII, FULL_ASCII)
     _compare(partial(jctconv.h2z, digit=True), HALF_DIGIT, FULL_DIGIT)
-    assert_equal(jctconv.h2z(_concat(HALF_KANA, HALF_ASCII, HALF_DIGIT),
-                             ascii=True, digit=True, kana=True),
-                 _concat(FULL_KANA, FULL_ASCII, FULL_DIGIT))
+
+    for ascii in (True, False):
+        for digit in (True, False):
+            for kana in (True, False):
+                assert_equal(
+                    jctconv.h2z(_concat(HALF_KANA if kana else FULL_KANA,
+                                        HALF_ASCII if ascii else FULL_ASCII,
+                                        HALF_DIGIT if digit else FULL_DIGIT),
+                                ascii=ascii, digit=digit, kana=kana),
+                    _concat(FULL_KANA, FULL_ASCII, FULL_DIGIT))
 
 
 def test_z2h():
@@ -73,9 +81,16 @@ def test_z2h():
     _compare(partial(jctconv.z2h, kana=True), FULL_KANA, HALF_KANA)
     _compare(partial(jctconv.z2h, ascii=True), FULL_ASCII, HALF_ASCII)
     _compare(partial(jctconv.z2h, digit=True), FULL_DIGIT, HALF_DIGIT)
-    assert_equal(jctconv.z2h(_concat(FULL_KANA, FULL_ASCII, FULL_DIGIT),
-                             ascii=True, digit=True, kana=True),
-                 _concat(HALF_KANA, HALF_ASCII, HALF_DIGIT))
+
+    for ascii in (True, False):
+        for digit in (True, False):
+            for kana in (True, False):
+                assert_equal(
+                    jctconv.z2h(_concat(FULL_KANA if kana else HALF_KANA,
+                                        FULL_ASCII if ascii else HALF_ASCII,
+                                        FULL_DIGIT if digit else HALF_DIGIT),
+                                ascii=ascii, digit=digit, kana=kana),
+                    _concat(HALF_KANA, HALF_ASCII, HALF_DIGIT))
 
 
 def test_normalize():
