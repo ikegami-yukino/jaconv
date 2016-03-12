@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
+from codecs import open
 import os
 import re
 from setuptools import setup
 
-with open(os.path.join('jctconv', '__init__.py'), 'r') as f:
+with open(os.path.join('jctconv', '__init__.py'), 'r', encoding='utf8') as f:
     version = re.compile(
         r".*__version__ = '(.*?)'", re.S).match(f.read()).group(1)
 
@@ -37,7 +38,7 @@ setup(
         'Topic :: Text Processing'
         ],
     data_files=[('', ['README.rst', 'CHANGES.rst'])],
-    long_description='%s\n\n%s' % (open('README.rst').read(),
-                                   open('CHANGES.rst').read())
+    long_description='%s\n\n%s' % (open('README.rst', encoding='utf8').read(),
+                                   open('CHANGES.rst', encoding='utf8').read()),
     test_suite = 'nose.collector'
 )
