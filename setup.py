@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import re
-from distutils.core import setup
+from setuptools import setup
 
 with open(os.path.join('jctconv', '__init__.py'), 'r') as f:
     version = re.compile(
@@ -38,4 +38,5 @@ setup(
     data_files=[('', ['README.rst', 'CHANGES.rst'])],
     long_description='%s\n\n%s' % (open('README.rst').read(),
                                    open('CHANGES.rst').read())
+    test_suite = 'nose.collector'
 )
