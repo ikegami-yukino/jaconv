@@ -1,6 +1,6 @@
 jctconv
 ==========
-|travis| |coveralls| |downloads| |version| |license|
+|travis| |coveralls| |downloads| |Python2.7| |Python3.5| |version| |license|
 
 
 jctconv (Japanese Character Type Converter) はひらがな・カタカナ・全角・半角の文字種変換を高速に行います。
@@ -69,6 +69,10 @@ USAGE
 .. |downloads| image:: https://img.shields.io/pypi/dm/jctconv.svg
     :target: http://pypi.python.org/pypi/jctconv/
     :alt: downloads
+
+.. |Python2.7| image:: https://img.shields.io/badge/python-2.7-blue.svg
+
+.. |Python3.5| image:: https://img.shields.io/badge/python-3.5-blue.svg
 
 .. |version| image:: https://img.shields.io/pypi/v/jctconv.svg
     :target: http://pypi.python.org/pypi/jctconv/
