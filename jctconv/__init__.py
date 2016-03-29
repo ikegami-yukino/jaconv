@@ -22,8 +22,8 @@ Usage:
     jctconv.normalize(text, [nomalizemode]) # 半角カナを全角カナへ、全角英数字を半角英数字に変換
 """
 
-VERSION = (0, 1, 1)
-__version__ = '0.1.1'
+VERSION = (0, 1, 2)
+__version__ = '0.1.2'
 __all__ = ['hira2kata', 'hira2hkata', 'kata2hira', 'h2z', 'z2h', 'normalize']
 
 hira2kata = jctconv.hira2kata
