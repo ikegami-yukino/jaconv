@@ -22,7 +22,7 @@ INSTALLATION
 
 ::
 
- $ pip install jctconv
+ $ pip install jaconv
 
 
 USAGE
@@ -30,51 +30,51 @@ USAGE
 
 .. code:: python
 
-  import jctconv
-  jctconv.hira2kata(u'ともえまみ')
+  import jaconv
+  jaconv.hira2kata(u'ともえまみ')
   # => u'トモエマミ'
-  jctconv.hira2hkata(u'ともえまみ')
+  jaconv.hira2hkata(u'ともえまみ')
   # => u'ﾄﾓｴﾏﾐ'
-  jctconv.kata2hira(u'巴マミ')
+  jaconv.kata2hira(u'巴マミ')
   # => u'巴まみ'
-  jctconv.h2z(u'ﾃｨﾛ･ﾌｨﾅｰﾚ')
+  jaconv.h2z(u'ﾃｨﾛ･ﾌｨﾅｰﾚ')
   # => u'ティロ･フィナーレ'
-  jctconv.h2z(u'abc', ascii=True)
+  jaconv.h2z(u'abc', ascii=True)
   # => u'ａｂｃ'
-  jctconv.h2z(u'123', digit=True)
+  jaconv.h2z(u'123', digit=True)
   # => u'１２３'
-  jctconv.h2z(u'ｱabc123', kana=False, digit=True, ascii=True)
+  jaconv.h2z(u'ｱabc123', kana=False, digit=True, ascii=True)
   # => u'ｱａｂｃ１２３'
-  jctconv.z2h(u'ティロ・フィナーレ')
+  jaconv.z2h(u'ティロ・フィナーレ')
   # => u'ﾃｨﾛ・ﾌｨﾅｰﾚ'
-  jctconv.z2h(u'ａｂｃ', ascii=True)
+  jaconv.z2h(u'ａｂｃ', ascii=True)
   # => u'abc'
-  jctconv.z2h(u'１２３', digit=True)
+  jaconv.z2h(u'１２３', digit=True)
   # => u'123'
-  jctconv.z2h(u'アａｂｃ１２３', kana=False, digit=True, ascii=True)
+  jaconv.z2h(u'アａｂｃ１２３', kana=False, digit=True, ascii=True)
   # => u'アabc123'
-  jctconv.normalize(u'ティロ･フィナ〜レ', 'NFKC')
+  jaconv.normalize(u'ティロ･フィナ〜レ', 'NFKC')
   # => u'ティロ・フィナーレ'
 
 
-.. |travis| image:: https://travis-ci.org/ikegami-yukino/jctconv.svg?branch=master
-    :target: https://travis-ci.org/ikegami-yukino/jctconv
+.. |travis| image:: https://travis-ci.org/ikegami-yukino/jaconv.svg?branch=master
+    :target: https://travis-ci.org/ikegami-yukino/jaconv
     :alt: travis-ci.org
 
-.. |coveralls| image:: https://coveralls.io/repos/ikegami-yukino/jctconv/badge.svg?branch=master&service=github
-    :target: https://coveralls.io/github/ikegami-yukino/jctconv?branch=master
+.. |coveralls| image:: https://coveralls.io/repos/ikegami-yukino/jaconv/badge.svg?branch=master&service=github
+    :target: https://coveralls.io/github/ikegami-yukino/jaconv?branch=master
     :alt: coveralls.io
 
-.. |downloads| image:: https://img.shields.io/pypi/dm/jctconv.svg
-    :target: http://pypi.python.org/pypi/jctconv/
+.. |downloads| image:: https://img.shields.io/pypi/dm/jaconv.svg
+    :target: http://pypi.python.org/pypi/jaconv/
     :alt: downloads
 
-.. |pyversion| image:: https://img.shields.io/pypi/pyversions/jctconv.svg
+.. |pyversion| image:: https://img.shields.io/pypi/pyversions/jaconv.svg
 
-.. |version| image:: https://img.shields.io/pypi/v/jctconv.svg
-    :target: http://pypi.python.org/pypi/jctconv/
+.. |version| image:: https://img.shields.io/pypi/v/jaconv.svg
+    :target: http://pypi.python.org/pypi/jaconv/
     :alt: latest version
 
-.. |license| image:: https://img.shields.io/pypi/l/jctconv.svg
-    :target: http://pypi.python.org/pypi/jctconv/
+.. |license| image:: https://img.shields.io/pypi/l/jaconv.svg
+    :target: http://pypi.python.org/pypi/jaconv/
     :alt: license
