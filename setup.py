@@ -4,13 +4,13 @@ import os
 import re
 from setuptools import setup
 
-with open(os.path.join('jctconv', '__init__.py'), 'r', encoding='utf8') as f:
+with open(os.path.join('jaconv', '__init__.py'), 'r', encoding='utf8') as f:
     version = re.compile(
         r".*__version__ = '(.*?)'", re.S).match(f.read()).group(1)
 
 setup(
-    name='jctconv',
-    packages=['jctconv'],
+    name='jaconv',
+    packages=['jaconv'],
     version=version,
     license='MIT License',
     platforms=['POSIX', 'Windows', 'Unix', 'MacOS'],
@@ -18,7 +18,7 @@ setup(
                 'Hiragana, Katakana, Hankaku and Zenkaku',
     author='Yukino Ikegami',
     author_email='yukino0131@me.com',
-    url='https://github.com/ikegami-yukino/jctconv',
+    url='https://github.com/ikegami-yukino/jaconv',
     keywords=['japanese converter', 'half-width kana', 'Hiragana', 'Katakana',
               'Hankaku', 'Zenkaku'],
     classifiers=[

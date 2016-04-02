@@ -34,6 +34,8 @@ FULL_KANA = list('ァアィイゥウェエォオカガキギクグケゲコゴ�
 FULL_KANA_SEION = list('ァアィイゥウェエォオカキクケコサシスセソタチッツテト'
                        'ナニヌネノハヒフヘホマミムメモャヤュユョヨラリルレロ'
                        'ワヲンーヮヰヱヵヶヽヾ・「」。、')
+HEPBURN = list('aiueoaieon')
+HEPBURN_KANA = list('あいうえおぁぃぇぉん')
 
 
 def _to_ord_list(chars):
@@ -76,6 +78,8 @@ Z2H_K = _to_dict(FULL_KANA_ORD, HALF_KANA)
 Z2H_DK = _to_dict(FULL_DIGIT_ORD+FULL_KANA_ORD, HALF_DIGIT+HALF_KANA)
 Z2H_ALL = _to_dict(FULL_ASCII_ORD+FULL_DIGIT_ORD+FULL_KANA_ORD,
                    HALF_ASCII+HALF_DIGIT+HALF_KANA)
+KANA2HEP = _to_dict(_to_ord_list(HEPBURN_KANA), HEPBURN)
+HEP2KANA = _to_dict(_to_ord_list(HEPBURN), HEPBURN_KANA)
 
 del _to_ord_list
 del _to_dict
@@ -96,3 +100,5 @@ del HALF_KANA_SEION_ORD
 del HALF_KANA_SEION
 del FULL_KANA_SEION_ORD
 del FULL_KANA_SEION
+del HEPBURN
+del HEPBURN_KANA
