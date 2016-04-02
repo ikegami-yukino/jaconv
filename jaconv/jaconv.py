@@ -162,8 +162,10 @@ def normalize(text, mode='NFKC', ignore=''):
     text = text.replace('―', '-').replace('‐', '-').replace('˗', '-').replace('֊', '-')
     text = text.replace('‐', '-').replace('‑', '-').replace('‒', '-').replace('–', '-')
     text = text.replace('⁃', '-').replace('⁻', '-').replace('₋', '-').replace('−', '-')
+    text = text.replace('﹣', 'ー').replace('－', 'ー').replace('—', 'ー').replace('―', 'ー')
+    text = text.replace('━', 'ー').replace('─', 'ー')
     return unicodedata.normalize(mode, text)
-'−'
+
 
 def kana2alphabet(text):
     """Convert hiragana to hepburn-style alphabets
