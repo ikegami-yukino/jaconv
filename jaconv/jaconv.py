@@ -163,7 +163,7 @@ def normalize(text, mode='NFKC', ignore=''):
     return unicodedata.normalize(mode, text)
 
 
-def kana_to_alphabet(text):
+def kana2alphabet(text):
     """Convert hiragana to hepburn-style alphabets
 
     Params:
@@ -243,7 +243,7 @@ def alphabet2kana(text):
     text = text.replace('zo', 'ぞ').replace('da', 'だ').replace('ji', 'ぢ').replace('di', 'ぢ')
     text = text.replace('zu', 'づ').replace('de', 'で').replace('do', 'ど')
     text = text.replace('ba', 'ば').replace('bi', 'び').replace('bu', 'ぶ')
-    text = text.replace('be', 'べ').replace('no', 'ぼ').replace('pa', 'ぱ')
+    text = text.replace('be', 'べ').replace('bo', 'ぼ').replace('pa', 'ぱ')
     text = text.replace('pi', 'ぴ').replace('pu', 'ぷ').replace('pe', 'ぺ')
     text = text.replace('po', 'ぽ').replace('dha', 'でゃ').replace('dhi', 'でぃ')
     text = text.replace('dhu', 'でゅ').replace('dhe', 'でぇ').replace('dho', 'でょ')
