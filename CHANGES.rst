@@ -1,6 +1,12 @@
 CHANGES
 =======
 
+0.2 (2015-04-02)
+------------------
+
+- Change module name jctconv -> jaconv
+- Add alphabet and hiragana interconvert (alphabet2kana, kana2alphabet)
+
 0.1.1 (2015-03-12)
 ------------------
 
