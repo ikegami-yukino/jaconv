@@ -2,12 +2,7 @@ jaconv
 ==========
 |travis| |coveralls| |downloads| |pyversion| |version| |license|
 
-jaconv (Japanese Converter) はひらがな・カタカナ・全角・半角の文字種変換を高速に行います。
-Pythonのみで実装されているので、Cコンパイラが使えない環境でも利用できます。
-
-normalizeメソッドは、unicodedata.normalize を日本語処理向けに特化した拡張を行っています。
-具体的には以下のように変換します。
-
+jaconv (Japanese Converter) is interconverter for Hiragana, Katakana, Hankaku (half-width character) and Zenkaku (full-width character)
 
 INSTALLATION
 ==============
@@ -24,47 +19,53 @@ USAGE
 
   import jaconv
 
-  # ひらがな to カタカナ
+  # Hiragana to Katakana
   jaconv.hira2kata(u'ともえまみ')
   # => u'トモエマミ'
 
-  # ひらがな to 半角カタカナ
+  # Hiragana to half-width Katakana
   jaconv.hira2hkata(u'ともえまみ')
   # => u'ﾄﾓｴﾏﾐ'
 
-  # カタカナ to ひらがな
+  # Katakana to Hiragana
   jaconv.kata2hira(u'巴マミ')
   # => u'巴まみ'
 
-  # 半角文字 to 全角文字
+  # half-width character to full-width character
   jaconv.h2z(u'ﾃｨﾛ･ﾌｨﾅｰﾚ')
   # => u'ティロ･フィナーレ'
 
-  # ASCII以外の半角文字 to 全角文字
+  # half-width character to full-width character
+  # but only ascii characters
   jaconv.h2z(u'abc', ascii=True)
   # => u'ａｂｃ'
 
-  # 数字以外の半角文字 to 全角文字
+  # half-width character to full-width character
+  # but only digit characters
   jaconv.h2z(u'123', digit=True)
   # => u'１２３'
 
-  # カタカナ以外の半角文字 to 全角文字
+  # half-width character to full-width character
+  # except half-width Katakana
   jaconv.h2z(u'ｱabc123', kana=False, digit=True, ascii=True)
   # => u'ｱａｂｃ１２３'
 
-  # 全角文字 to 半角文字
+  # full-width character to half-width character
   jaconv.z2h(u'ティロ・フィナーレ')
   # => u'ﾃｨﾛ・ﾌｨﾅｰﾚ'
 
-  # ASCII以外の全角文字 to 半角文字
+  # full-width character to half-width character
+  # but only ascii characters
   jaconv.z2h(u'ａｂｃ', ascii=True)
   # => u'abc'
 
-  # 数字以外の全角文字 to 半角文字
+  # full-width character to half-width character
+  # but only digit characters
   jaconv.z2h(u'１２３', digit=True)
   # => u'123'
 
-  # カタカナ以外の全角文字 to 半角文字
+  # full-width character to half-width character
+  # except full-width Katakana
   jaconv.z2h(u'アａｂｃ１２３', kana=False, digit=True, ascii=True)
   # => u'アabc123'
 
@@ -72,17 +73,19 @@ USAGE
   jaconv.normalize(u'ティロ･フィナ〜レ', 'NFKC')
   # => u'ティロ・フィナーレ'
 
-  # ひらがな to アルファベット
+  # Hiragana to alphabet
   jaconv.kana2alphabet(u'じゃぱん')
   # => japan
 
-  # アルファベット to ひらがな
+  # Alphabet to Hiragana
   jaconv.alphabet2kana(u'japan')
   # => じゃぱん
 
 
 NOTE
 ============
+
+jaconv.normalize method expand unicodedata.normalize for Japanese language processing.
 
 .. code::
 
@@ -109,6 +112,9 @@ NOTE
     '―' => 'ー'
     '━' => 'ー'
     '─' => 'ー'
+
+
+
 
 
 .. |travis| image:: https://travis-ci.org/ikegami-yukino/jaconv.svg?branch=master
