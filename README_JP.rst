@@ -1,6 +1,6 @@
 jaconv
 ==========
-|travis| |coveralls| |downloads| |pyversion| |version| |license|
+|travis| |coveralls| |pyversion| |version| |license|
 
 jaconv (Japanese Converter) はひらがな・カタカナ・全角・半角の文字種変換を高速に行います。
 Pythonのみで実装されているので、Cコンパイラが使えない環境でも利用できます。
@@ -118,10 +118,6 @@ NOTE
 .. |coveralls| image:: https://coveralls.io/repos/ikegami-yukino/jaconv/badge.svg?branch=master&service=github
     :target: https://coveralls.io/github/ikegami-yukino/jaconv?branch=master
     :alt: coveralls.io
-
-.. |downloads| image:: https://img.shields.io/pypi/dm/jaconv.svg
-    :target: http://pypi.python.org/pypi/jaconv/
-    :alt: downloads
 
 .. |pyversion| image:: https://img.shields.io/pypi/pyversions/jaconv.svg
 
