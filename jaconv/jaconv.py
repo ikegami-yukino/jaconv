@@ -175,6 +175,7 @@ def kana2alphabet(text):
     Return:
         <unicode> converted_text
     """
+    text = text.replace('きゃ', 'kya').replace('きゅ', 'kyu').replace('きょ', 'kyo')
     text = text.replace('ぎゃ', 'gya').replace('ぎゅ', 'gyu').replace('ぎょ', 'gyo')
     text = text.replace('しゃ', 'sha').replace('しゅ', 'shu').replace('しょ', 'sho')
     text = text.replace('じゃ', 'ja').replace('じゅ', 'ju').replace('じょ', 'jo')
@@ -182,7 +183,7 @@ def kana2alphabet(text):
     text = text.replace('にゃ', 'nya').replace('にゅ', 'nyu').replace('にょ', 'nyo')
     text = text.replace('ひゃ', 'hya').replace('ひゅ', 'hyu').replace('ひょ', 'hyo')
     text = text.replace('みゃ', 'mya').replace('みゅ', 'myu').replace('みょ', 'myo')
-    text = text.replace('りゃ', 'rya').replace('りゅ', 'rya').replace('りょ', 'ryo')
+    text = text.replace('りゃ', 'rya').replace('りゅ', 'ryu').replace('りょ', 'ryo')
     text = text.replace('びゃ', 'bya').replace('びゅ', 'byu').replace('びょ', 'byo')
     text = text.replace('ぴゃ', 'pya').replace('ぴゅ', 'pyu').replace('ぴょ', 'pyo')
     text = text.replace('が', 'ga').replace('ぎ', 'gi').replace('ぐ', 'gu')
@@ -228,6 +229,7 @@ def alphabet2kana(text):
     Return:
         <unicode> converted_text
     """
+    text = text.replace('kya', 'きゃ').replace('kyu', 'きゅ').replace('kyo', 'きょ')
     text = text.replace('gya', 'ぎゃ').replace('gyu', 'ぎゅ').replace('gyo', 'ぎょ')
     text = text.replace('sha', 'しゃ').replace('shu', 'しゅ').replace('sho', 'しょ')
     text = text.replace('zya', 'じゃ').replace('zyu', 'じゅ').replace('zyo', 'じょ')
@@ -239,7 +241,7 @@ def alphabet2kana(text):
     text = text.replace('nya', 'にゃ').replace('nyu', 'にゅ').replace('nyo', 'にょ')
     text = text.replace('hya', 'ひゃ').replace('hyu', 'ひゅ').replace('hyo', 'ひょ')
     text = text.replace('mya', 'みゃ').replace('myu', 'みゅ').replace('myo', 'みょ')
-    text = text.replace('rya', 'りゃ').replace('rya', 'りゅ').replace('ryo', 'りょ')
+    text = text.replace('rya', 'りゃ').replace('ryu', 'りゅ').replace('ryo', 'りょ')
     text = text.replace('bya', 'びゃ').replace('byu', 'びゅ').replace('byo', 'びょ')
     text = text.replace('pya', 'ぴゃ').replace('pyu', 'ぴゅ').replace('pyo', 'ぴょ')
     text = text.replace('oh', 'おお')
