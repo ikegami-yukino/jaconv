@@ -102,6 +102,8 @@ def test_normalize():
 def test_kana_to_hepburn():
     assert_equal(jaconv.kana2alphabet('まみさん'), 'mamisan')
     assert_equal(jaconv.kana2alphabet('はっとり'), 'hattori')
+    assert_equal(jaconv.kana2alphabet('はっ'), 'haxtsu')
+    assert_equal(jaconv.kana2alphabet('ぽっ'), 'poxtsu')      
 
 
 def test_alphabet2kana():
