@@ -215,7 +215,7 @@ def kana2alphabet(text):
         text = list(text)
         tsu_pos = text.index('っ')
         if len(text) <= tsu_pos + 1:
-            return str(text[:-1]) + 'xtsu'
+            return ''.join(text[:-1]) + 'xtsu'
         text[tsu_pos] = text[tsu_pos + 1]
         text = ''.join(text)
     return text
