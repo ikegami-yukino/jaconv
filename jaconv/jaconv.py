@@ -181,6 +181,8 @@ def kana2alphabet(text):
     text = text.replace('じゃ', 'ja').replace('じゅ', 'ju').replace('じょ', 'jo')
     text = text.replace('ちゃ', 'cha').replace('ちゅ', 'chu').replace('ちょ', 'cho')
     text = text.replace('にゃ', 'nya').replace('にゅ', 'nyu').replace('にょ', 'nyo')
+    text = text.replace('ふぁ', 'fa').replace('ふぃ', 'fi').replace('ふぇ', 'fe')
+    text = text.replace('ふぉ', 'fo')
     text = text.replace('ひゃ', 'hya').replace('ひゅ', 'hyu').replace('ひょ', 'hyo')
     text = text.replace('みゃ', 'mya').replace('みゅ', 'myu').replace('みょ', 'myo')
     text = text.replace('りゃ', 'rya').replace('りゅ', 'ryu').replace('りょ', 'ryo')
