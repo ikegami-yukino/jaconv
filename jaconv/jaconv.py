@@ -194,7 +194,7 @@ def kana2alphabet(text):
     text = text.replace('ぞ', 'zo').replace('だ', 'da').replace('ぢ', 'ji')
     text = text.replace('づ', 'zu').replace('で', 'de').replace('ど', 'do')
     text = text.replace('ば', 'ba').replace('び', 'bi').replace('ぶ', 'bu')
-    text = text.replace('べ', 'be').replace('ぼ', 'no').replace('ぱ', 'pa')
+    text = text.replace('べ', 'be').replace('ぼ', 'bo').replace('ぱ', 'pa')
     text = text.replace('ぴ', 'pi').replace('ぷ', 'pu').replace('ぺ', 'pe')
     text = text.replace('ぽ', 'po')
     text = text.replace('か', 'ka').replace('き', 'ki').replace('く', 'ku')
