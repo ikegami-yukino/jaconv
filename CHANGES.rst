@@ -1,6 +1,11 @@
 CHANGES
 =======
 
+0.2.2 (2018-01-22)
+-------------------
+- Fix bug (kana2alphabet) thanks @kokimame
+- Support Python 3.6
+
 0.2.1 (2017-09-14)
 -------------------
 - Fix bugs (alphabet2kana, kana2alphabet)

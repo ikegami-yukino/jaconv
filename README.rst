@@ -4,6 +4,8 @@ jaconv
 
 jaconv (Japanese Converter) is interconverter for Hiragana, Katakana, Hankaku (half-width character) and Zenkaku (full-width character)
 
+`Japanese README <https://github.com/ikegami-yukino/jaconv/blob/master/README_JP.rst>`_ is available.
+
 INSTALLATION
 ==============
 
