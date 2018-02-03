@@ -1,9 +1,9 @@
 CHANGES
 =======
 
-0.2.2 (2018-01-22)
+0.2.2 (2018-02-03)
 -------------------
-- Fix bug (kana2alphabet) thanks @letuananh
+- Fix bugs (alphabet2kana, kana2alphabet) thanks @letuananh
 
 0.2.2 (2018-01-22)
 -------------------
