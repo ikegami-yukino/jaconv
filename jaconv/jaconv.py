@@ -210,8 +210,8 @@ def kana2alphabet(text):
     text = text.replace('ら', 'ra').replace('り', 'ri').replace('る', 'ru')
     text = text.replace('れ', 're').replace('ろ', 'ro')
     text = text.replace('や', 'ya').replace('ゆ', 'yu').replace('よ', 'yo')
-    text = text.replace('わ', 'wa').replace('ゐ', 'we').replace('を', 'we')
-    text = text.replace('ゑ', 'wo')
+    text = text.replace('わ', 'wa').replace('ゐ', 'wi').replace('を', 'wo')
+    text = text.replace('ゑ', 'we')
     text = _convert(text, KANA2HEP)
     while 'っ' in text:
         text = list(text)
