@@ -19,13 +19,26 @@ def _convert(text, conv_map):
 
 
 def hira2kata(text, ignore=''):
-    """Convert Hiragana to Full-width (Zenkaku) Katakana
+    """Convert Hiragana to Full-width (Zenkaku) Katakana.
 
-    Params:
-        <unicode> text
-        <unicode> ignore
-    Return:
-        <unicode> converted_text
+    Parameters
+    ----------
+    text : str
+        Hiragana string.
+    ignore : str
+        The characters to be ignored in converting.
+
+    Return
+    ------
+    str
+        Katakana string.
+
+    Examples
+    --------
+    >>> print(jaconv.hira2kata('ともえまみ'))
+    トモエマミ
+    >>> print(jaconv.hira2kata('まどまぎ', ignore='ど'))
+    マどマギ
     """
     if ignore:
         h2k_map = _exclude_ignorechar(ignore, H2K_TABLE.copy())
@@ -36,11 +49,17 @@ def hira2kata(text, ignore=''):
 def hira2hkata(text, ignore=''):
     """Convert Hiragana to Half-width (Hankaku) Katakana
 
-    Params:
-        <unicode> text
-        <unicode> ignore
-    Return:
-        <unicode> converted_text
+    Parameters
+    ----------
+    text : str
+        Hiragana string.
+    ignore : str
+        The characters to be ignored in converting.
+
+    Return
+    ------
+    str
+        Half-width Katakana string.
     """
     if ignore:
         h2hk_map = _exclude_ignorechar(ignore, H2HK_TABLE.copy())
@@ -51,11 +70,17 @@ def hira2hkata(text, ignore=''):
 def kata2hira(text, ignore=''):
     """Convert Full-width Katakana to Hiragana
 
-    Params:
-        <unicode> text
-        <unicode> ignore
-    Return:
-        <unicode> converted_text
+    Parameters
+    ----------
+    text : str
+        Full-width Katakana string.
+    ignore : str
+        The characters to be ignored in converting.
+
+    Return
+    ------
+    str
+        Hiragana string.
     """
     if ignore:
         k2h_map = _exclude_ignorechar(ignore, K2H_TABLE.copy())
@@ -66,11 +91,17 @@ def kata2hira(text, ignore=''):
 def h2z(text, ignore='', kana=True, ascii=False, digit=False):
     """Convert Half-width (Hankaku) Katakana to Full-width (Zenkaku) Katakana
 
-    Params:
-        <unicode> text
-        <unicode> ignore
-    Return:
-        <unicode> converted_text
+    Parameters
+    ----------
+    text : str
+        Half-width Katakana string.
+    ignore : str
+        The characters to be ignored in converting.
+
+    Return
+    ------
+    str
+        Full-width Katakana string.
     """
     def _conv_dakuten(text):
         """
@@ -117,11 +148,17 @@ def h2z(text, ignore='', kana=True, ascii=False, digit=False):
 def z2h(text, ignore='', kana=True, ascii=False, digit=False):
     """Convert Full-width (Zenkaku) Katakana to Half-width (Hankaku) Katakana
 
-    Params:
-        <unicode> text
-        <unicode> ignore
-    Return:
-        <unicode> converted_text
+    Parameters
+    ----------
+    text : str
+        Full-width Katakana string.
+    ignore : str
+        The characters to be ignored in converting.
+
+    Return
+    ------
+    str
+        Half-width Katakana string.
     """
     if ascii:
         if digit:
@@ -151,11 +188,19 @@ def normalize(text, mode='NFKC', ignore=''):
     and DIGIT.
     Additionally, Full-width wave dash (〜) etc. are normalized
 
-    Params:
-        <unicode> text
-        <unicode> ignore
-    Return:
-        <unicode> converted_text
+    Parameters
+    ----------
+    text : str
+        Source string.
+    mode : str
+        Unicode normalization mode.
+    ignore : str
+        The characters to be ignored in converting.
+
+    Return
+    ------
+    str
+        Normalized string.
     """
     text = text.replace('〜', 'ー').replace('～', 'ー')
     text = text.replace("’", "'").replace('”', '"').replace('“', '``')
@@ -168,12 +213,17 @@ def normalize(text, mode='NFKC', ignore=''):
 
 
 def kana2alphabet(text):
-    """Convert hiragana to hepburn-style alphabets
+    """Convert Hiragana to hepburn-style alphabets
 
-    Params:
-        <unicode> text
-    Return:
-        <unicode> converted_text
+    Parameters
+    ----------
+    text : str
+        Hiragana string.
+
+    Return
+    ------
+    str
+        hepburn-style alphabets string.
     """
     text = text.replace('きゃ', 'kya').replace('きゅ', 'kyu').replace('きょ', 'kyo')
     text = text.replace('ぎゃ', 'gya').replace('ぎゅ', 'gyu').replace('ぎょ', 'gyo')
@@ -224,12 +274,17 @@ def kana2alphabet(text):
 
 
 def alphabet2kana(text):
-    """Convert alphabets to hiragana
+    """Convert alphabets to Hiragana
 
-    Params:
-        <unicode> text
-    Return:
-        <unicode> converted_text
+    Parameters
+    ----------
+    text : str
+        Alphabets string.
+
+    Return
+    ------
+    str
+        Hiragana string.
     """
     text = text.replace('kya', 'きゃ').replace('kyu', 'きゅ').replace('kyo', 'きょ')
     text = text.replace('gya', 'ぎゃ').replace('gyu', 'ぎゅ').replace('gyo', 'ぎょ')
