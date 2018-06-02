@@ -1,0 +1,194 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jaconv package &#8212; jaconv  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to jaconv’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-jaconv">
+<span id="jaconv-package"></span><h1>jaconv package<a class="headerlink" href="#module-jaconv" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="jaconv.hira2kata">
+<code class="descclassname">jaconv.</code><code class="descname">hira2kata</code><span class="sig-paren">(</span><em>text</em>, <em>ignore=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jaconv/jaconv.html#hira2kata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jaconv.hira2kata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert Hiragana to Full-width (Zenkaku) Katakana</p>
+<dl class="docutils">
+<dt>Params:</dt>
+<dd>&lt;unicode&gt; text
+&lt;unicode&gt; ignore</dd>
+<dt>Return:</dt>
+<dd>&lt;unicode&gt; converted_text</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="jaconv.hira2hkata">
+<code class="descclassname">jaconv.</code><code class="descname">hira2hkata</code><span class="sig-paren">(</span><em>text</em>, <em>ignore=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jaconv/jaconv.html#hira2hkata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jaconv.hira2hkata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert Hiragana to Half-width (Hankaku) Katakana</p>
+<dl class="docutils">
+<dt>Params:</dt>
+<dd>&lt;unicode&gt; text
+&lt;unicode&gt; ignore</dd>
+<dt>Return:</dt>
+<dd>&lt;unicode&gt; converted_text</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="jaconv.kata2hira">
+<code class="descclassname">jaconv.</code><code class="descname">kata2hira</code><span class="sig-paren">(</span><em>text</em>, <em>ignore=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jaconv/jaconv.html#kata2hira"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jaconv.kata2hira" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert Full-width Katakana to Hiragana</p>
+<dl class="docutils">
+<dt>Params:</dt>
+<dd>&lt;unicode&gt; text
+&lt;unicode&gt; ignore</dd>
+<dt>Return:</dt>
+<dd>&lt;unicode&gt; converted_text</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="jaconv.h2z">
+<code class="descclassname">jaconv.</code><code class="descname">h2z</code><span class="sig-paren">(</span><em>text</em>, <em>ignore=''</em>, <em>kana=True</em>, <em>ascii=False</em>, <em>digit=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jaconv/jaconv.html#h2z"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jaconv.h2z" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert Half-width (Hankaku) Katakana to Full-width (Zenkaku) Katakana</p>
+<dl class="docutils">
+<dt>Params:</dt>
+<dd>&lt;unicode&gt; text
+&lt;unicode&gt; ignore</dd>
+<dt>Return:</dt>
+<dd>&lt;unicode&gt; converted_text</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="jaconv.z2h">
+<code class="descclassname">jaconv.</code><code class="descname">z2h</code><span class="sig-paren">(</span><em>text</em>, <em>ignore=''</em>, <em>kana=True</em>, <em>ascii=False</em>, <em>digit=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jaconv/jaconv.html#z2h"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jaconv.z2h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert Full-width (Zenkaku) Katakana to Half-width (Hankaku) Katakana</p>
+<dl class="docutils">
+<dt>Params:</dt>
+<dd>&lt;unicode&gt; text
+&lt;unicode&gt; ignore</dd>
+<dt>Return:</dt>
+<dd>&lt;unicode&gt; converted_text</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="jaconv.normalize">
+<code class="descclassname">jaconv.</code><code class="descname">normalize</code><span class="sig-paren">(</span><em>text</em>, <em>mode='NFKC'</em>, <em>ignore=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jaconv/jaconv.html#normalize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jaconv.normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert Half-width (Hankaku) Katakana to Full-width (Zenkaku) Katakana,
+Full-width (Zenkaku) ASCII and DIGIT to Half-width (Hankaku) ASCII
+and DIGIT.
+Additionally, Full-width wave dash (〜) etc. are normalized</p>
+<dl class="docutils">
+<dt>Params:</dt>
+<dd>&lt;unicode&gt; text
+&lt;unicode&gt; ignore</dd>
+<dt>Return:</dt>
+<dd>&lt;unicode&gt; converted_text</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="jaconv.kana2alphabet">
+<code class="descclassname">jaconv.</code><code class="descname">kana2alphabet</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jaconv/jaconv.html#kana2alphabet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jaconv.kana2alphabet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert hiragana to hepburn-style alphabets</p>
+<dl class="docutils">
+<dt>Params:</dt>
+<dd>&lt;unicode&gt; text</dd>
+<dt>Return:</dt>
+<dd>&lt;unicode&gt; converted_text</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="jaconv.alphabet2kana">
+<code class="descclassname">jaconv.</code><code class="descname">alphabet2kana</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jaconv/jaconv.html#alphabet2kana"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jaconv.alphabet2kana" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert alphabets to hiragana</p>
+<dl class="docutils">
+<dt>Params:</dt>
+<dd>&lt;unicode&gt; text</dd>
+<dt>Return:</dt>
+<dd>&lt;unicode&gt; converted_text</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to jaconv’s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Author.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/jaconv.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
