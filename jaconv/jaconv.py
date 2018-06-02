@@ -91,9 +91,9 @@ def kata2hira(text, ignore=''):
 
     Examples
     --------
-    >>> print(jaconv.hira2hkata('巴マミ'))
+    >>> print(jaconv.kata2hira('巴マミ'))
     巴まみ
-    >>> print(jaconv.hira2hkata('マミサン', ignore='ン'))
+    >>> print(jaconv.kata2hira('マミサン', ignore='ン'))
     まみさン
     """
     if ignore:
