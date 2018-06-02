@@ -26,7 +26,7 @@ def hira2kata(text, ignore=''):
     text : str
         Hiragana string.
     ignore : str
-        The characters to be ignored in converting.
+        Characters to be ignored in converting.
 
     Return
     ------
@@ -54,12 +54,19 @@ def hira2hkata(text, ignore=''):
     text : str
         Hiragana string.
     ignore : str
-        The characters to be ignored in converting.
+        Characters to be ignored in converting.
 
     Return
     ------
     str
         Half-width Katakana string.
+
+    Examples
+    --------
+    >>> print(jaconv.hira2hkata('ともえまみ'))
+    ﾄﾓｴﾏﾐ
+    >>> print(jaconv.hira2hkata('ともえまみ', ignore='み'))
+    ﾄﾓｴﾏみ
     """
     if ignore:
         h2hk_map = _exclude_ignorechar(ignore, H2HK_TABLE.copy())
@@ -75,12 +82,19 @@ def kata2hira(text, ignore=''):
     text : str
         Full-width Katakana string.
     ignore : str
-        The characters to be ignored in converting.
+        Characters to be ignored in converting.
 
     Return
     ------
     str
         Hiragana string.
+
+    Examples
+    --------
+    >>> print(jaconv.hira2hkata('巴マミ'))
+    巴まみ
+    >>> print(jaconv.hira2hkata('マミサン', ignore='ン'))
+    まみさン
     """
     if ignore:
         k2h_map = _exclude_ignorechar(ignore, K2H_TABLE.copy())
@@ -95,6 +109,8 @@ def h2z(text, ignore='', kana=True, ascii=False, digit=False):
     ----------
     text : str
         Half-width Katakana string.
+    ignore : str
+        Characters to be ignored in converting.
     kana : bool
         Either converting Kana or not.
     ascii : bool
@@ -106,10 +122,20 @@ def h2z(text, ignore='', kana=True, ascii=False, digit=False):
     ------
     str
         Full-width Katakana string.
+
+    Examples
+    --------
+    >>> print(jaconv.h2z('ﾃｨﾛﾌｨﾅｰﾚ'))
+    ティロフィナーレ
+    >>> print(jaconv.h2z('ﾃｨﾛﾌｨﾅｰﾚ', ignore='ｨ'))
+    テｨロフｨナーレ
+    >>> print(jaconv.h2z('abcd', ascii=True))
+    ＡＢＣＤ
+    >>> print(jaconv.h2z('1234', digit=True))
+    １２３４
     """
     def _conv_dakuten(text):
-        """
-        半角濁点カナを全角に変換
+        """Convert Hankaku Dakuten Kana to Zenkaku Dakuten Kana
         """
         text = text.replace("ｶﾞ", "ガ").replace("ｷﾞ", "ギ")
         text = text.replace("ｸﾞ", "グ").replace("ｹﾞ", "ゲ")
@@ -156,6 +182,8 @@ def z2h(text, ignore='', kana=True, ascii=False, digit=False):
     ----------
     text : str
         Full-width Katakana string.
+    ignore : str
+        Characters to be ignored in converting.
     kana : bool
         Either converting Kana or not.
     ascii : bool
@@ -167,6 +195,17 @@ def z2h(text, ignore='', kana=True, ascii=False, digit=False):
     ------
     str
         Half-width Katakana string.
+
+    Examples
+    --------
+    >>> print(jaconv.z2h('ティロフィナーレ'))
+    ﾃｨﾛﾌｨﾅｰﾚ
+    >>> print(jaconv.z2h('ティロフィナーレ', ignore='ィ'))
+    ﾃィﾛﾌィﾅｰﾚ
+    >>> print(jaconv.z2h('ＡＢＣＤ', ascii=True))
+    abcd
+    >>> print(jaconv.z2h('１２３４', digit=True))
+    1234
     """
     if ascii:
         if digit:
@@ -203,12 +242,17 @@ def normalize(text, mode='NFKC', ignore=''):
     mode : str
         Unicode normalization mode.
     ignore : str
-        The characters to be ignored in converting.
+        Characters to be ignored in converting.
 
     Return
     ------
     str
         Normalized string.
+
+    Examples
+    --------
+    >>> print(jaconv.normalize('ﾃｨﾛ･フィナ〜レ', 'NFKC'))
+    ティロ・フィナーレ
     """
     text = text.replace('〜', 'ー').replace('～', 'ー')
     text = text.replace("’", "'").replace('”', '"').replace('“', '``')
@@ -231,7 +275,12 @@ def kana2alphabet(text):
     Return
     ------
     str
-        hepburn-style alphabets string.
+        Hepburn-style alphabets string.
+
+    Examples
+    --------
+    >>> print(jaconv.kana2alphabet('まみさん'))
+    mamisan
     """
     text = text.replace('きゃ', 'kya').replace('きゅ', 'kyu').replace('きょ', 'kyo')
     text = text.replace('ぎゃ', 'gya').replace('ぎゅ', 'gyu').replace('ぎょ', 'gyo')
@@ -293,6 +342,11 @@ def alphabet2kana(text):
     ------
     str
         Hiragana string.
+
+    Examples
+    --------
+    >>> print(jaconv.alphabet2kana('mamisan'))
+    まみさん
     """
     text = text.replace('kya', 'きゃ').replace('kyu', 'きゅ').replace('kyo', 'きょ')
     text = text.replace('gya', 'ぎゃ').replace('gyu', 'ぎゅ').replace('gyo', 'ぎょ')
