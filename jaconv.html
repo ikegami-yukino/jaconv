@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>jaconv package &#8212; jaconv  documentation</title>
+    <title>jaconv package &#8212; jaconv 0.2.3 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '',
+        VERSION:     '0.2.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -44,66 +44,170 @@
 <dl class="function">
 <dt id="jaconv.hira2kata">
 <code class="descclassname">jaconv.</code><code class="descname">hira2kata</code><span class="sig-paren">(</span><em>text</em>, <em>ignore=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jaconv/jaconv.html#hira2kata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jaconv.hira2kata" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert Hiragana to Full-width (Zenkaku) Katakana</p>
-<dl class="docutils">
-<dt>Params:</dt>
-<dd>&lt;unicode&gt; text
-&lt;unicode&gt; ignore</dd>
-<dt>Return:</dt>
-<dd>&lt;unicode&gt; converted_text</dd>
-</dl>
+<dd><p>Convert Hiragana to Full-width (Zenkaku) Katakana.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>text</strong> (<em>str</em>) – Hiragana string.</li>
+<li><strong>ignore</strong> (<em>str</em>) – Characters to be ignored in converting.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Katakana string.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">jaconv</span><span class="o">.</span><span class="n">hira2kata</span><span class="p">(</span><span class="s1">&#39;ともえまみ&#39;</span><span class="p">))</span>
+<span class="go">トモエマミ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">jaconv</span><span class="o">.</span><span class="n">hira2kata</span><span class="p">(</span><span class="s1">&#39;まどまぎ&#39;</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="s1">&#39;ど&#39;</span><span class="p">))</span>
+<span class="go">マどマギ</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
 <dt id="jaconv.hira2hkata">
 <code class="descclassname">jaconv.</code><code class="descname">hira2hkata</code><span class="sig-paren">(</span><em>text</em>, <em>ignore=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jaconv/jaconv.html#hira2hkata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jaconv.hira2hkata" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert Hiragana to Half-width (Hankaku) Katakana</p>
-<dl class="docutils">
-<dt>Params:</dt>
-<dd>&lt;unicode&gt; text
-&lt;unicode&gt; ignore</dd>
-<dt>Return:</dt>
-<dd>&lt;unicode&gt; converted_text</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>text</strong> (<em>str</em>) – Hiragana string.</li>
+<li><strong>ignore</strong> (<em>str</em>) – Characters to be ignored in converting.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Half-width Katakana string.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">jaconv</span><span class="o">.</span><span class="n">hira2hkata</span><span class="p">(</span><span class="s1">&#39;ともえまみ&#39;</span><span class="p">))</span>
+<span class="go">ﾄﾓｴﾏﾐ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">jaconv</span><span class="o">.</span><span class="n">hira2hkata</span><span class="p">(</span><span class="s1">&#39;ともえまみ&#39;</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="s1">&#39;み&#39;</span><span class="p">))</span>
+<span class="go">ﾄﾓｴﾏみ</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
 <dt id="jaconv.kata2hira">
 <code class="descclassname">jaconv.</code><code class="descname">kata2hira</code><span class="sig-paren">(</span><em>text</em>, <em>ignore=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jaconv/jaconv.html#kata2hira"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jaconv.kata2hira" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert Full-width Katakana to Hiragana</p>
-<dl class="docutils">
-<dt>Params:</dt>
-<dd>&lt;unicode&gt; text
-&lt;unicode&gt; ignore</dd>
-<dt>Return:</dt>
-<dd>&lt;unicode&gt; converted_text</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>text</strong> (<em>str</em>) – Full-width Katakana string.</li>
+<li><strong>ignore</strong> (<em>str</em>) – Characters to be ignored in converting.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Hiragana string.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">jaconv</span><span class="o">.</span><span class="n">hira2hkata</span><span class="p">(</span><span class="s1">&#39;巴マミ&#39;</span><span class="p">))</span>
+<span class="go">巴まみ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">jaconv</span><span class="o">.</span><span class="n">hira2hkata</span><span class="p">(</span><span class="s1">&#39;マミサン&#39;</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="s1">&#39;ン&#39;</span><span class="p">))</span>
+<span class="go">まみさン</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
 <dt id="jaconv.h2z">
 <code class="descclassname">jaconv.</code><code class="descname">h2z</code><span class="sig-paren">(</span><em>text</em>, <em>ignore=''</em>, <em>kana=True</em>, <em>ascii=False</em>, <em>digit=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jaconv/jaconv.html#h2z"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jaconv.h2z" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert Half-width (Hankaku) Katakana to Full-width (Zenkaku) Katakana</p>
-<dl class="docutils">
-<dt>Params:</dt>
-<dd>&lt;unicode&gt; text
-&lt;unicode&gt; ignore</dd>
-<dt>Return:</dt>
-<dd>&lt;unicode&gt; converted_text</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>text</strong> (<em>str</em>) – Half-width Katakana string.</li>
+<li><strong>ignore</strong> (<em>str</em>) – Characters to be ignored in converting.</li>
+<li><strong>kana</strong> (<em>bool</em>) – Either converting Kana or not.</li>
+<li><strong>ascii</strong> (<em>bool</em>) – Either converting ascii or not.</li>
+<li><strong>digit</strong> (<em>bool</em>) – Either converting digit or not.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Full-width Katakana string.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">jaconv</span><span class="o">.</span><span class="n">h2z</span><span class="p">(</span><span class="s1">&#39;ﾃｨﾛﾌｨﾅｰﾚ&#39;</span><span class="p">))</span>
+<span class="go">ティロフィナーレ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">jaconv</span><span class="o">.</span><span class="n">h2z</span><span class="p">(</span><span class="s1">&#39;ﾃｨﾛﾌｨﾅｰﾚ&#39;</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="s1">&#39;ｨ&#39;</span><span class="p">))</span>
+<span class="go">テｨロフｨナーレ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">jaconv</span><span class="o">.</span><span class="n">h2z</span><span class="p">(</span><span class="s1">&#39;abcd&#39;</span><span class="p">,</span> <span class="n">ascii</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="go">ＡＢＣＤ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">jaconv</span><span class="o">.</span><span class="n">h2z</span><span class="p">(</span><span class="s1">&#39;1234&#39;</span><span class="p">,</span> <span class="n">digit</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="go">１２３４</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
 <dt id="jaconv.z2h">
 <code class="descclassname">jaconv.</code><code class="descname">z2h</code><span class="sig-paren">(</span><em>text</em>, <em>ignore=''</em>, <em>kana=True</em>, <em>ascii=False</em>, <em>digit=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jaconv/jaconv.html#z2h"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jaconv.z2h" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert Full-width (Zenkaku) Katakana to Half-width (Hankaku) Katakana</p>
-<dl class="docutils">
-<dt>Params:</dt>
-<dd>&lt;unicode&gt; text
-&lt;unicode&gt; ignore</dd>
-<dt>Return:</dt>
-<dd>&lt;unicode&gt; converted_text</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>text</strong> (<em>str</em>) – Full-width Katakana string.</li>
+<li><strong>ignore</strong> (<em>str</em>) – Characters to be ignored in converting.</li>
+<li><strong>kana</strong> (<em>bool</em>) – Either converting Kana or not.</li>
+<li><strong>ascii</strong> (<em>bool</em>) – Either converting ascii or not.</li>
+<li><strong>digit</strong> (<em>bool</em>) – Either converting digit or not.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Half-width Katakana string.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">jaconv</span><span class="o">.</span><span class="n">z2h</span><span class="p">(</span><span class="s1">&#39;ティロフィナーレ&#39;</span><span class="p">))</span>
+<span class="go">ﾃｨﾛﾌｨﾅｰﾚ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">jaconv</span><span class="o">.</span><span class="n">z2h</span><span class="p">(</span><span class="s1">&#39;ティロフィナーレ&#39;</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="s1">&#39;ィ&#39;</span><span class="p">))</span>
+<span class="go">ﾃィﾛﾌィﾅｰﾚ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">jaconv</span><span class="o">.</span><span class="n">z2h</span><span class="p">(</span><span class="s1">&#39;ＡＢＣＤ&#39;</span><span class="p">,</span> <span class="n">ascii</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="go">abcd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">jaconv</span><span class="o">.</span><span class="n">z2h</span><span class="p">(</span><span class="s1">&#39;１２３４&#39;</span><span class="p">,</span> <span class="n">digit</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="go">1234</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -113,37 +217,76 @@
 Full-width (Zenkaku) ASCII and DIGIT to Half-width (Hankaku) ASCII
 and DIGIT.
 Additionally, Full-width wave dash (〜) etc. are normalized</p>
-<dl class="docutils">
-<dt>Params:</dt>
-<dd>&lt;unicode&gt; text
-&lt;unicode&gt; ignore</dd>
-<dt>Return:</dt>
-<dd>&lt;unicode&gt; converted_text</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>text</strong> (<em>str</em>) – Source string.</li>
+<li><strong>mode</strong> (<em>str</em>) – Unicode normalization mode.</li>
+<li><strong>ignore</strong> (<em>str</em>) – Characters to be ignored in converting.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Normalized string.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">jaconv</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="s1">&#39;ﾃｨﾛ･フィナ〜レ&#39;</span><span class="p">,</span> <span class="s1">&#39;NFKC&#39;</span><span class="p">))</span>
+<span class="go">ティロ・フィナーレ</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
 <dt id="jaconv.kana2alphabet">
 <code class="descclassname">jaconv.</code><code class="descname">kana2alphabet</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jaconv/jaconv.html#kana2alphabet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jaconv.kana2alphabet" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert hiragana to hepburn-style alphabets</p>
-<dl class="docutils">
-<dt>Params:</dt>
-<dd>&lt;unicode&gt; text</dd>
-<dt>Return:</dt>
-<dd>&lt;unicode&gt; converted_text</dd>
-</dl>
+<dd><p>Convert Hiragana to hepburn-style alphabets</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>text</strong> (<em>str</em>) – Hiragana string.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Hepburn-style alphabets string.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">jaconv</span><span class="o">.</span><span class="n">kana2alphabet</span><span class="p">(</span><span class="s1">&#39;まみさん&#39;</span><span class="p">))</span>
+<span class="go">mamisan</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
 <dt id="jaconv.alphabet2kana">
 <code class="descclassname">jaconv.</code><code class="descname">alphabet2kana</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jaconv/jaconv.html#alphabet2kana"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jaconv.alphabet2kana" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert alphabets to hiragana</p>
-<dl class="docutils">
-<dt>Params:</dt>
-<dd>&lt;unicode&gt; text</dd>
-<dt>Return:</dt>
-<dd>&lt;unicode&gt; converted_text</dd>
-</dl>
+<dd><p>Convert alphabets to Hiragana</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>text</strong> (<em>str</em>) – Alphabets string.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Hiragana string.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">jaconv</span><span class="o">.</span><span class="n">alphabet2kana</span><span class="p">(</span><span class="s1">&#39;mamisan&#39;</span><span class="p">))</span>
+<span class="go">まみさん</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
@@ -176,7 +319,7 @@ Additionally, Full-width wave dash (〜) etc. are normalized</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2018, Author.
+      &copy;2018, Yukino Ikegami.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>

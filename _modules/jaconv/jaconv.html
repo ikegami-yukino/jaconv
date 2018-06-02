@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>jaconv.jaconv &#8212; jaconv  documentation</title>
+    <title>jaconv.jaconv &#8212; jaconv 0.2.3 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '',
+        VERSION:     '0.2.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -59,14 +59,27 @@
     <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">conv_map</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="hira2kata"><a class="viewcode-back" href="../../jaconv.html#jaconv.jaconv.hira2kata">[docs]</a><span class="k">def</span> <span class="nf">hira2kata</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Convert Hiragana to Full-width (Zenkaku) Katakana</span>
+<div class="viewcode-block" id="hira2kata"><a class="viewcode-back" href="../../jaconv.html#jaconv.hira2kata">[docs]</a><span class="k">def</span> <span class="nf">hira2kata</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert Hiragana to Full-width (Zenkaku) Katakana.</span>
 
-<span class="sd">    Params:</span>
-<span class="sd">        &lt;unicode&gt; text</span>
-<span class="sd">        &lt;unicode&gt; ignore</span>
-<span class="sd">    Return:</span>
-<span class="sd">        &lt;unicode&gt; converted_text</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    text : str</span>
+<span class="sd">        Hiragana string.</span>
+<span class="sd">    ignore : str</span>
+<span class="sd">        Characters to be ignored in converting.</span>
+
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    str</span>
+<span class="sd">        Katakana string.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; print(jaconv.hira2kata(&#39;ともえまみ&#39;))</span>
+<span class="sd">    トモエマミ</span>
+<span class="sd">    &gt;&gt;&gt; print(jaconv.hira2kata(&#39;まどまぎ&#39;, ignore=&#39;ど&#39;))</span>
+<span class="sd">    マどマギ</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">ignore</span><span class="p">:</span>
         <span class="n">h2k_map</span> <span class="o">=</span> <span class="n">_exclude_ignorechar</span><span class="p">(</span><span class="n">ignore</span><span class="p">,</span> <span class="n">H2K_TABLE</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
@@ -74,14 +87,27 @@
     <span class="k">return</span> <span class="n">_convert</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">H2K_TABLE</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="hira2hkata"><a class="viewcode-back" href="../../jaconv.html#jaconv.jaconv.hira2hkata">[docs]</a><span class="k">def</span> <span class="nf">hira2hkata</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="hira2hkata"><a class="viewcode-back" href="../../jaconv.html#jaconv.hira2hkata">[docs]</a><span class="k">def</span> <span class="nf">hira2hkata</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Convert Hiragana to Half-width (Hankaku) Katakana</span>
 
-<span class="sd">    Params:</span>
-<span class="sd">        &lt;unicode&gt; text</span>
-<span class="sd">        &lt;unicode&gt; ignore</span>
-<span class="sd">    Return:</span>
-<span class="sd">        &lt;unicode&gt; converted_text</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    text : str</span>
+<span class="sd">        Hiragana string.</span>
+<span class="sd">    ignore : str</span>
+<span class="sd">        Characters to be ignored in converting.</span>
+
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    str</span>
+<span class="sd">        Half-width Katakana string.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; print(jaconv.hira2hkata(&#39;ともえまみ&#39;))</span>
+<span class="sd">    ﾄﾓｴﾏﾐ</span>
+<span class="sd">    &gt;&gt;&gt; print(jaconv.hira2hkata(&#39;ともえまみ&#39;, ignore=&#39;み&#39;))</span>
+<span class="sd">    ﾄﾓｴﾏみ</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">ignore</span><span class="p">:</span>
         <span class="n">h2hk_map</span> <span class="o">=</span> <span class="n">_exclude_ignorechar</span><span class="p">(</span><span class="n">ignore</span><span class="p">,</span> <span class="n">H2HK_TABLE</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
@@ -89,14 +115,27 @@
     <span class="k">return</span> <span class="n">_convert</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">H2HK_TABLE</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="kata2hira"><a class="viewcode-back" href="../../jaconv.html#jaconv.jaconv.kata2hira">[docs]</a><span class="k">def</span> <span class="nf">kata2hira</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="kata2hira"><a class="viewcode-back" href="../../jaconv.html#jaconv.kata2hira">[docs]</a><span class="k">def</span> <span class="nf">kata2hira</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Convert Full-width Katakana to Hiragana</span>
 
-<span class="sd">    Params:</span>
-<span class="sd">        &lt;unicode&gt; text</span>
-<span class="sd">        &lt;unicode&gt; ignore</span>
-<span class="sd">    Return:</span>
-<span class="sd">        &lt;unicode&gt; converted_text</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    text : str</span>
+<span class="sd">        Full-width Katakana string.</span>
+<span class="sd">    ignore : str</span>
+<span class="sd">        Characters to be ignored in converting.</span>
+
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    str</span>
+<span class="sd">        Hiragana string.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; print(jaconv.hira2hkata(&#39;巴マミ&#39;))</span>
+<span class="sd">    巴まみ</span>
+<span class="sd">    &gt;&gt;&gt; print(jaconv.hira2hkata(&#39;マミサン&#39;, ignore=&#39;ン&#39;))</span>
+<span class="sd">    まみさン</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">ignore</span><span class="p">:</span>
         <span class="n">k2h_map</span> <span class="o">=</span> <span class="n">_exclude_ignorechar</span><span class="p">(</span><span class="n">ignore</span><span class="p">,</span> <span class="n">K2H_TABLE</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
@@ -104,18 +143,40 @@
     <span class="k">return</span> <span class="n">_convert</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">K2H_TABLE</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="h2z"><a class="viewcode-back" href="../../jaconv.html#jaconv.jaconv.h2z">[docs]</a><span class="k">def</span> <span class="nf">h2z</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">kana</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">digit</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="h2z"><a class="viewcode-back" href="../../jaconv.html#jaconv.h2z">[docs]</a><span class="k">def</span> <span class="nf">h2z</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">kana</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">digit</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Convert Half-width (Hankaku) Katakana to Full-width (Zenkaku) Katakana</span>
 
-<span class="sd">    Params:</span>
-<span class="sd">        &lt;unicode&gt; text</span>
-<span class="sd">        &lt;unicode&gt; ignore</span>
-<span class="sd">    Return:</span>
-<span class="sd">        &lt;unicode&gt; converted_text</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    text : str</span>
+<span class="sd">        Half-width Katakana string.</span>
+<span class="sd">    ignore : str</span>
+<span class="sd">        Characters to be ignored in converting.</span>
+<span class="sd">    kana : bool</span>
+<span class="sd">        Either converting Kana or not.</span>
+<span class="sd">    ascii : bool</span>
+<span class="sd">        Either converting ascii or not.</span>
+<span class="sd">    digit : bool</span>
+<span class="sd">        Either converting digit or not.</span>
+
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    str</span>
+<span class="sd">        Full-width Katakana string.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; print(jaconv.h2z(&#39;ﾃｨﾛﾌｨﾅｰﾚ&#39;))</span>
+<span class="sd">    ティロフィナーレ</span>
+<span class="sd">    &gt;&gt;&gt; print(jaconv.h2z(&#39;ﾃｨﾛﾌｨﾅｰﾚ&#39;, ignore=&#39;ｨ&#39;))</span>
+<span class="sd">    テｨロフｨナーレ</span>
+<span class="sd">    &gt;&gt;&gt; print(jaconv.h2z(&#39;abcd&#39;, ascii=True))</span>
+<span class="sd">    ＡＢＣＤ</span>
+<span class="sd">    &gt;&gt;&gt; print(jaconv.h2z(&#39;1234&#39;, digit=True))</span>
+<span class="sd">    １２３４</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">_conv_dakuten</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        半角濁点カナを全角に変換</span>
+        <span class="sd">&quot;&quot;&quot;Convert Hankaku Dakuten Kana to Zenkaku Dakuten Kana</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ｶﾞ&quot;</span><span class="p">,</span> <span class="s2">&quot;ガ&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ｷﾞ&quot;</span><span class="p">,</span> <span class="s2">&quot;ギ&quot;</span><span class="p">)</span>
         <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ｸﾞ&quot;</span><span class="p">,</span> <span class="s2">&quot;グ&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ｹﾞ&quot;</span><span class="p">,</span> <span class="s2">&quot;ゲ&quot;</span><span class="p">)</span>
@@ -155,14 +216,37 @@
     <span class="k">return</span> <span class="n">_convert</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">h2z_map</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="z2h"><a class="viewcode-back" href="../../jaconv.html#jaconv.jaconv.z2h">[docs]</a><span class="k">def</span> <span class="nf">z2h</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">kana</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">digit</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="z2h"><a class="viewcode-back" href="../../jaconv.html#jaconv.z2h">[docs]</a><span class="k">def</span> <span class="nf">z2h</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">kana</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">digit</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Convert Full-width (Zenkaku) Katakana to Half-width (Hankaku) Katakana</span>
 
-<span class="sd">    Params:</span>
-<span class="sd">        &lt;unicode&gt; text</span>
-<span class="sd">        &lt;unicode&gt; ignore</span>
-<span class="sd">    Return:</span>
-<span class="sd">        &lt;unicode&gt; converted_text</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    text : str</span>
+<span class="sd">        Full-width Katakana string.</span>
+<span class="sd">    ignore : str</span>
+<span class="sd">        Characters to be ignored in converting.</span>
+<span class="sd">    kana : bool</span>
+<span class="sd">        Either converting Kana or not.</span>
+<span class="sd">    ascii : bool</span>
+<span class="sd">        Either converting ascii or not.</span>
+<span class="sd">    digit : bool</span>
+<span class="sd">        Either converting digit or not.</span>
+
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    str</span>
+<span class="sd">        Half-width Katakana string.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; print(jaconv.z2h(&#39;ティロフィナーレ&#39;))</span>
+<span class="sd">    ﾃｨﾛﾌｨﾅｰﾚ</span>
+<span class="sd">    &gt;&gt;&gt; print(jaconv.z2h(&#39;ティロフィナーレ&#39;, ignore=&#39;ィ&#39;))</span>
+<span class="sd">    ﾃィﾛﾌィﾅｰﾚ</span>
+<span class="sd">    &gt;&gt;&gt; print(jaconv.z2h(&#39;ＡＢＣＤ&#39;, ascii=True))</span>
+<span class="sd">    abcd</span>
+<span class="sd">    &gt;&gt;&gt; print(jaconv.z2h(&#39;１２３４&#39;, digit=True))</span>
+<span class="sd">    1234</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">ascii</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">digit</span><span class="p">:</span>
@@ -186,17 +270,30 @@
     <span class="k">return</span> <span class="n">_convert</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">z2h_map</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="normalize"><a class="viewcode-back" href="../../jaconv.html#jaconv.jaconv.normalize">[docs]</a><span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;NFKC&#39;</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="normalize"><a class="viewcode-back" href="../../jaconv.html#jaconv.normalize">[docs]</a><span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;NFKC&#39;</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Convert Half-width (Hankaku) Katakana to Full-width (Zenkaku) Katakana,</span>
 <span class="sd">    Full-width (Zenkaku) ASCII and DIGIT to Half-width (Hankaku) ASCII</span>
 <span class="sd">    and DIGIT.</span>
 <span class="sd">    Additionally, Full-width wave dash (〜) etc. are normalized</span>
 
-<span class="sd">    Params:</span>
-<span class="sd">        &lt;unicode&gt; text</span>
-<span class="sd">        &lt;unicode&gt; ignore</span>
-<span class="sd">    Return:</span>
-<span class="sd">        &lt;unicode&gt; converted_text</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    text : str</span>
+<span class="sd">        Source string.</span>
+<span class="sd">    mode : str</span>
+<span class="sd">        Unicode normalization mode.</span>
+<span class="sd">    ignore : str</span>
+<span class="sd">        Characters to be ignored in converting.</span>
+
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    str</span>
+<span class="sd">        Normalized string.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; print(jaconv.normalize(&#39;ﾃｨﾛ･フィナ〜レ&#39;, &#39;NFKC&#39;))</span>
+<span class="sd">    ティロ・フィナーレ</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;〜&#39;</span><span class="p">,</span> <span class="s1">&#39;ー&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;～&#39;</span><span class="p">,</span> <span class="s1">&#39;ー&#39;</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;’&quot;</span><span class="p">,</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;”&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;“&#39;</span><span class="p">,</span> <span class="s1">&#39;``&#39;</span><span class="p">)</span>
@@ -208,13 +305,23 @@
     <span class="k">return</span> <span class="n">unicodedata</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="kana2alphabet"><a class="viewcode-back" href="../../jaconv.html#jaconv.jaconv.kana2alphabet">[docs]</a><span class="k">def</span> <span class="nf">kana2alphabet</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Convert hiragana to hepburn-style alphabets</span>
+<div class="viewcode-block" id="kana2alphabet"><a class="viewcode-back" href="../../jaconv.html#jaconv.kana2alphabet">[docs]</a><span class="k">def</span> <span class="nf">kana2alphabet</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert Hiragana to hepburn-style alphabets</span>
 
-<span class="sd">    Params:</span>
-<span class="sd">        &lt;unicode&gt; text</span>
-<span class="sd">    Return:</span>
-<span class="sd">        &lt;unicode&gt; converted_text</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    text : str</span>
+<span class="sd">        Hiragana string.</span>
+
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    str</span>
+<span class="sd">        Hepburn-style alphabets string.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; print(jaconv.kana2alphabet(&#39;まみさん&#39;))</span>
+<span class="sd">    mamisan</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;きゃ&#39;</span><span class="p">,</span> <span class="s1">&#39;kya&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;きゅ&#39;</span><span class="p">,</span> <span class="s1">&#39;kyu&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;きょ&#39;</span><span class="p">,</span> <span class="s1">&#39;kyo&#39;</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ぎゃ&#39;</span><span class="p">,</span> <span class="s1">&#39;gya&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ぎゅ&#39;</span><span class="p">,</span> <span class="s1">&#39;gyu&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ぎょ&#39;</span><span class="p">,</span> <span class="s1">&#39;gyo&#39;</span><span class="p">)</span>
@@ -235,7 +342,7 @@
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ぞ&#39;</span><span class="p">,</span> <span class="s1">&#39;zo&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;だ&#39;</span><span class="p">,</span> <span class="s1">&#39;da&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ぢ&#39;</span><span class="p">,</span> <span class="s1">&#39;ji&#39;</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;づ&#39;</span><span class="p">,</span> <span class="s1">&#39;zu&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;で&#39;</span><span class="p">,</span> <span class="s1">&#39;de&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ど&#39;</span><span class="p">,</span> <span class="s1">&#39;do&#39;</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ば&#39;</span><span class="p">,</span> <span class="s1">&#39;ba&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;び&#39;</span><span class="p">,</span> <span class="s1">&#39;bi&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ぶ&#39;</span><span class="p">,</span> <span class="s1">&#39;bu&#39;</span><span class="p">)</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;べ&#39;</span><span class="p">,</span> <span class="s1">&#39;be&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ぼ&#39;</span><span class="p">,</span> <span class="s1">&#39;no&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ぱ&#39;</span><span class="p">,</span> <span class="s1">&#39;pa&#39;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;べ&#39;</span><span class="p">,</span> <span class="s1">&#39;be&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ぼ&#39;</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ぱ&#39;</span><span class="p">,</span> <span class="s1">&#39;pa&#39;</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ぴ&#39;</span><span class="p">,</span> <span class="s1">&#39;pi&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ぷ&#39;</span><span class="p">,</span> <span class="s1">&#39;pu&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ぺ&#39;</span><span class="p">,</span> <span class="s1">&#39;pe&#39;</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ぽ&#39;</span><span class="p">,</span> <span class="s1">&#39;po&#39;</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;か&#39;</span><span class="p">,</span> <span class="s1">&#39;ka&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;き&#39;</span><span class="p">,</span> <span class="s1">&#39;ki&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;く&#39;</span><span class="p">,</span> <span class="s1">&#39;ku&#39;</span><span class="p">)</span>
@@ -251,8 +358,8 @@
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ら&#39;</span><span class="p">,</span> <span class="s1">&#39;ra&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;り&#39;</span><span class="p">,</span> <span class="s1">&#39;ri&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;る&#39;</span><span class="p">,</span> <span class="s1">&#39;ru&#39;</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;れ&#39;</span><span class="p">,</span> <span class="s1">&#39;re&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ろ&#39;</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;や&#39;</span><span class="p">,</span> <span class="s1">&#39;ya&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ゆ&#39;</span><span class="p">,</span> <span class="s1">&#39;yu&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;よ&#39;</span><span class="p">,</span> <span class="s1">&#39;yo&#39;</span><span class="p">)</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;わ&#39;</span><span class="p">,</span> <span class="s1">&#39;wa&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ゐ&#39;</span><span class="p">,</span> <span class="s1">&#39;we&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;を&#39;</span><span class="p">,</span> <span class="s1">&#39;we&#39;</span><span class="p">)</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ゑ&#39;</span><span class="p">,</span> <span class="s1">&#39;wo&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;を&#39;</span><span class="p">,</span> <span class="s1">&#39;wo&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;を&#39;</span><span class="p">,</span> <span class="s1">&#39;wo&#39;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;わ&#39;</span><span class="p">,</span> <span class="s1">&#39;wa&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ゐ&#39;</span><span class="p">,</span> <span class="s1">&#39;wi&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;を&#39;</span><span class="p">,</span> <span class="s1">&#39;wo&#39;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ゑ&#39;</span><span class="p">,</span> <span class="s1">&#39;we&#39;</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">_convert</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">KANA2HEP</span><span class="p">)</span>
     <span class="k">while</span> <span class="s1">&#39;っ&#39;</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
         <span class="n">text</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
@@ -264,13 +371,23 @@
     <span class="k">return</span> <span class="n">text</span></div>
 
 
-<div class="viewcode-block" id="alphabet2kana"><a class="viewcode-back" href="../../jaconv.html#jaconv.jaconv.alphabet2kana">[docs]</a><span class="k">def</span> <span class="nf">alphabet2kana</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Convert alphabets to hiragana</span>
+<div class="viewcode-block" id="alphabet2kana"><a class="viewcode-back" href="../../jaconv.html#jaconv.alphabet2kana">[docs]</a><span class="k">def</span> <span class="nf">alphabet2kana</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert alphabets to Hiragana</span>
 
-<span class="sd">    Params:</span>
-<span class="sd">        &lt;unicode&gt; text</span>
-<span class="sd">    Return:</span>
-<span class="sd">        &lt;unicode&gt; converted_text</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    text : str</span>
+<span class="sd">        Alphabets string.</span>
+
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    str</span>
+<span class="sd">        Hiragana string.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; print(jaconv.alphabet2kana(&#39;mamisan&#39;))</span>
+<span class="sd">    まみさん</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;kya&#39;</span><span class="p">,</span> <span class="s1">&#39;きゃ&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;kyu&#39;</span><span class="p">,</span> <span class="s1">&#39;きゅ&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;kyo&#39;</span><span class="p">,</span> <span class="s1">&#39;きょ&#39;</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;gya&#39;</span><span class="p">,</span> <span class="s1">&#39;ぎゃ&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;gyu&#39;</span><span class="p">,</span> <span class="s1">&#39;ぎゅ&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;gyo&#39;</span><span class="p">,</span> <span class="s1">&#39;ぎょ&#39;</span><span class="p">)</span>
@@ -315,8 +432,8 @@
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ra&#39;</span><span class="p">,</span> <span class="s1">&#39;ら&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ri&#39;</span><span class="p">,</span> <span class="s1">&#39;り&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ru&#39;</span><span class="p">,</span> <span class="s1">&#39;る&#39;</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;re&#39;</span><span class="p">,</span> <span class="s1">&#39;れ&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="s1">&#39;ろ&#39;</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ya&#39;</span><span class="p">,</span> <span class="s1">&#39;や&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;yu&#39;</span><span class="p">,</span> <span class="s1">&#39;ゆ&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;yo&#39;</span><span class="p">,</span> <span class="s1">&#39;よ&#39;</span><span class="p">)</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;wa&#39;</span><span class="p">,</span> <span class="s1">&#39;わ&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;we&#39;</span><span class="p">,</span> <span class="s1">&#39;ゐ&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;we&#39;</span><span class="p">,</span> <span class="s1">&#39;を&#39;</span><span class="p">)</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;wo&#39;</span><span class="p">,</span> <span class="s1">&#39;ゑ&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;wo&#39;</span><span class="p">,</span> <span class="s1">&#39;を&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;wo&#39;</span><span class="p">,</span> <span class="s1">&#39;を&#39;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;wa&#39;</span><span class="p">,</span> <span class="s1">&#39;わ&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;wi&#39;</span><span class="p">,</span> <span class="s1">&#39;ゐ&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;we&#39;</span><span class="p">,</span> <span class="s1">&#39;ゑ&#39;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;wo&#39;</span><span class="p">,</span> <span class="s1">&#39;を&#39;</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;nn&#39;</span><span class="p">,</span> <span class="s1">&#39;ん&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;tu&#39;</span><span class="p">,</span> <span class="s1">&#39;つ&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;hu&#39;</span><span class="p">,</span> <span class="s1">&#39;ふ&#39;</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;fa&#39;</span><span class="p">,</span> <span class="s1">&#39;ふぁ&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;fi&#39;</span><span class="p">,</span> <span class="s1">&#39;ふぃ&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;fe&#39;</span><span class="p">,</span> <span class="s1">&#39;ふぇ&#39;</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;fo&#39;</span><span class="p">,</span> <span class="s1">&#39;ふぉ&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;ー&#39;</span><span class="p">)</span>
@@ -357,7 +474,7 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2018, Author.
+      &copy;2018, Yukino Ikegami.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>
