@@ -17,6 +17,8 @@ INSTALLATION
 USAGE
 ============
 
+See also `document <http://ikegami-yukino.github.io/jaconv/jaconv.html>`_
+
 .. code:: python
 
   import jaconv
