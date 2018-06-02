@@ -95,8 +95,12 @@ def h2z(text, ignore='', kana=True, ascii=False, digit=False):
     ----------
     text : str
         Half-width Katakana string.
-    ignore : str
-        The characters to be ignored in converting.
+    kana : bool
+        Either converting Kana or not.
+    ascii : bool
+        Either converting ascii or not.
+    digit : bool
+        Either converting digit or not.
 
     Return
     ------
@@ -152,8 +156,12 @@ def z2h(text, ignore='', kana=True, ascii=False, digit=False):
     ----------
     text : str
         Full-width Katakana string.
-    ignore : str
-        The characters to be ignored in converting.
+    kana : bool
+        Either converting Kana or not.
+    ascii : bool
+        Either converting ascii or not.
+    digit : bool
+        Either converting digit or not.
 
     Return
     ------
