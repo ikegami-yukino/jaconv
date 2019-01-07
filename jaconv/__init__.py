@@ -19,7 +19,11 @@ Usage:
     jaconv.kata2hira(text, [ignore]) # 全角カタカナをひらがなに変換
     jaconv.h2z(text, [ignore, kana, ascii, digit]) # 半角文字を全角文字に変換
     jaconv.z2h(text, [ignore, kana, ascii, digit]) # 全角文字を半角文字に変換
+    jaconv.han2zen(text, [ignore, kana, ascii, digit]) # 半角文字を全角文字に変換
+    jaconv.zen2han(text, [ignore, kana, ascii, digit]) # 全角文字を半角文字に変換
     jaconv.normalize(text, [nomalizemode]) # 半角カナを全角カナへ、全角英数字を半角英数字に変換
+    jaconv.kana2alphabet(text) # かなをヘボン式アルファベットに変換
+    jaconv.alphabet2kana(text) # アルファベットをかなに変換
 """
 
 VERSION = (0, 2, 3)
@@ -32,6 +36,8 @@ hira2hkata = jaconv.hira2hkata
 kata2hira = jaconv.kata2hira
 h2z = jaconv.h2z
 z2h = jaconv.z2h
+han2zen = jaconv.h2z  # an alias of h2z
+zen2han = jaconv.z2h  # an alias of z2h
 normalize = jaconv.normalize
 kana2alphabet = jaconv.kana2alphabet
 alphabet2kana = jaconv.alphabet2kana
