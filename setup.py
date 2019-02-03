@@ -17,7 +17,7 @@ setup(
     description='Pure-Python Japanese character interconverter for '
                 'Hiragana, Katakana, Hankaku and Zenkaku',
     author='Yukino Ikegami',
-    author_email='yukino0131@me.com',
+    author_email='yknikgm@gmail.com',
     url='https://github.com/ikegami-yukino/jaconv',
     keywords=['japanese converter', 'half-width kana', 'Hiragana', 'Katakana',
               'Hankaku', 'Zenkaku'],
