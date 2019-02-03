@@ -99,12 +99,13 @@ def test_normalize():
                  ''.join(FULL_KANA)+''.join(HALF_DIGIT))
 
 
-def test_kana_to_hepburn():
+def test_kana2alphabet():
     assert_equal(jaconv.kana2alphabet('まみさん'), 'mamisan')
     assert_equal(jaconv.kana2alphabet('はっとり'), 'hattori')
     assert_equal(jaconv.kana2alphabet('はっ'), 'haxtsu')
     assert_equal(jaconv.kana2alphabet('ぽっ'), 'poxtsu')
     assert_equal(jaconv.kana2alphabet('ふぁふぃふぇふぉ'), 'fafifefo')
+    assert_equal(jaconv.kana2alphabet('っって'), 'xtsutte')
 
 
 def test_alphabet2kana():
