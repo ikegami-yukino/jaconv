@@ -1,7 +1,14 @@
 CHANGES
 =======
 
-0.2.2 (2018-02-03)
+0.2.4 (2018-02-04)
+-------------------
+- Fix bug (kana2alphabet)
+- Support Python 3.7
+- No longer support Python 2.6
+- Add aliases of z2h -> zenkaku2hankaku and h2z -> hankaku2zenkaku
+
+0.2.3 (2018-02-03)
 -------------------
 - Fix bugs (alphabet2kana, kana2alphabet) thanks @letuananh
 

@@ -26,8 +26,8 @@ Usage:
     jaconv.alphabet2kana(text) # アルファベットをかなに変換
 """
 
-VERSION = (0, 2, 3)
-__version__ = '0.2.3'
+VERSION = (0, 2, 4)
+__version__ = '0.2.4'
 __all__ = ['hira2kata', 'hira2hkata', 'kata2hira', 'h2z', 'z2h', 'normalize',
            'kana2alphabet', 'alphabet2kana']
 
