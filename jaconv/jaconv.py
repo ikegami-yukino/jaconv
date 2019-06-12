@@ -229,7 +229,7 @@ def z2h(text, ignore='', kana=True, ascii=False, digit=False):
     return _convert(text, z2h_map)
 
 
-def normalize(text, mode='NFKC', ignore=''):
+def normalize(text, mode='NFKC'):
     """Convert Half-width (Hankaku) Katakana to Full-width (Zenkaku) Katakana,
     Full-width (Zenkaku) ASCII and DIGIT to Half-width (Hankaku) ASCII
     and DIGIT.
@@ -241,8 +241,6 @@ def normalize(text, mode='NFKC', ignore=''):
         Source string.
     mode : str
         Unicode normalization mode.
-    ignore : str
-        Characters to be ignored in converting.
 
     Return
     ------
