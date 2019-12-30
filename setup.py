@@ -15,7 +15,7 @@ setup(
     license='MIT License',
     platforms=['POSIX', 'Windows', 'Unix', 'MacOS'],
     description='Pure-Python Japanese character interconverter for '
-                'Hiragana, Katakana, Hankaku and Zenkaku',
+                'Hiragana, Katakana, Hankaku, Zenkaku and more',
     author='Yukino Ikegami',
     author_email='yknikgm@gmail.com',
     url='https://github.com/ikegami-yukino/jaconv',
@@ -31,11 +31,11 @@ setup(
         'Operating System :: Microsoft',
         'Operating System :: POSIX',
         'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
         'Topic :: Text Processing'
         ],
     data_files=[('', ['README.rst', 'CHANGES.rst'])],
