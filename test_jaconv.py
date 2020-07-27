@@ -116,3 +116,4 @@ def test_alphabet2kana():
     assert_equal(jaconv.alphabet2kana('atsui'), 'あつい')
     assert_equal(jaconv.alphabet2kana('itoh'), 'いとう')
     assert_equal(jaconv.alphabet2kana('ohtaku'), 'おおたく')
+    assert_equal(jaconv.alphabet2kana('namba'), 'なんば')
