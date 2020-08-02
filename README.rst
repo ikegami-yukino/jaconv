@@ -41,12 +41,12 @@ See also `document <http://ikegami-yukino.github.io/jaconv/jaconv.html>`_
 
   # half-width character to full-width character
   # but only ascii characters
-  jaconv.h2z(u'abc', ascii=True)
+  jaconv.h2z(u'abc', kana=False, ascii=True, digit=False)
   # => u'ａｂｃ'
 
   # half-width character to full-width character
   # but only digit characters
-  jaconv.h2z(u'123', digit=True)
+  jaconv.h2z(u'123', kana=False, ascii=False, digit=True)
   # => u'１２３'
 
   # half-width character to full-width character
@@ -60,12 +60,12 @@ See also `document <http://ikegami-yukino.github.io/jaconv/jaconv.html>`_
 
   # full-width character to half-width character
   # but only ascii characters
-  jaconv.z2h(u'ａｂｃ', ascii=True)
+  jaconv.z2h(u'ａｂｃ', kana=False, ascii=True, digit=False)
   # => u'abc'
 
   # full-width character to half-width character
   # but only digit characters
-  jaconv.z2h(u'１２３', digit=True)
+  jaconv.z2h(u'１２３', kana=False, ascii=False, digit=True)
   # => u'123'
 
   # full-width character to half-width character

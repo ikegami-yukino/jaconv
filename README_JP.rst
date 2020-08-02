@@ -33,32 +33,32 @@ USAGE
   jaconv.kata2hira(u'巴マミ')
   # => u'巴まみ'
 
-  # 半角文字 to 全角文字
+  # 半角かな文字 to 全角かな文字
   jaconv.h2z(u'ﾃｨﾛ･ﾌｨﾅｰﾚ')
   # => u'ティロ･フィナーレ'
 
-  # ASCII以外の半角文字 to 全角文字
-  jaconv.h2z(u'abc', ascii=True)
+  # 半角ASCII to 全角ASCII
+  jaconv.h2z(u'abc', kana=False, ascii=True, digit=False)
   # => u'ａｂｃ'
 
   # 数字以外の半角文字 to 全角文字
-  jaconv.h2z(u'123', digit=True)
+  jaconv.h2z(u'123', kana=False, ascii=False, digit=True)
   # => u'１２３'
 
   # カタカナ以外の半角文字 to 全角文字
   jaconv.h2z(u'ｱabc123', kana=False, digit=True, ascii=True)
   # => u'ｱａｂｃ１２３'
 
-  # 全角文字 to 半角文字
+  # 全角かな文字 to 半角かな文字
   jaconv.z2h(u'ティロ・フィナーレ')
   # => u'ﾃｨﾛ・ﾌｨﾅｰﾚ'
 
-  # ASCII以外の全角文字 to 半角文字
-  jaconv.z2h(u'ａｂｃ', ascii=True)
+  # 全角ASCII to 半角ASCII
+  jaconv.z2h(u'ａｂｃ', kana=False, ascii=True, digit=False)
   # => u'abc'
 
-  # 数字以外の全角文字 to 半角文字
-  jaconv.z2h(u'１２３', digit=True)
+  # 全角アラビア数字 to 半角アラビア数字
+  jaconv.z2h(u'１２３', kana=False, ascii=False, digit=True)
   # => u'123'
 
   # カタカナ以外の全角文字 to 半角文字
