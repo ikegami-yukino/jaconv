@@ -24,12 +24,14 @@ Usage:
     jaconv.normalize(text, [nomalizemode]) # 半角カナを全角カナへ、全角英数字を半角英数字に変換
     jaconv.kana2alphabet(text) # かなをヘボン式アルファベットに変換
     jaconv.alphabet2kana(text) # アルファベットをかなに変換
+    jaconv.kata2alphabet(text) # カタカナをアルファベットに変換
+    jaconv.alphabet2kata(text) # アルファベットをカタカナに変換
 """
 
 VERSION = (0, 2, 4)
 __version__ = '0.2.4'
 __all__ = ['hira2kata', 'hira2hkata', 'kata2hira', 'h2z', 'z2h', 'normalize',
-           'kana2alphabet', 'alphabet2kana']
+           'kana2alphabet', 'alphabet2kana', 'kata2alphabet', 'alphabet2kata']
 
 hira2kata = jaconv.hira2kata
 hira2hkata = jaconv.hira2hkata
@@ -43,3 +45,5 @@ zenkaku2hankaku = jaconv.z2h  # an alias of z2h
 normalize = jaconv.normalize
 kana2alphabet = jaconv.kana2alphabet
 alphabet2kana = jaconv.alphabet2kana
+kata2alphabet = lambda text: jaconv.kana2alphabet(jaconv.kata2hira(text))
+alphabet2kata = lambda text: jaconv.hira2kata(jaconv.alphabet2kana(text))
