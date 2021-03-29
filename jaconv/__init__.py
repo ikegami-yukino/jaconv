@@ -30,7 +30,8 @@ Usage:
 
 VERSION = (0, 2, 4)
 __version__ = '0.2.4'
-__all__ = ['hira2kata', 'hira2hkata', 'kata2hira', 'h2z', 'z2h', 'normalize',
+__all__ = ['hira2kata', 'hira2hkata', 'kata2hira', 'h2z', 'z2h',
+           'hankaku2zenkaku', 'zenkaku2hankaku', 'normalize',
            'kana2alphabet', 'alphabet2kana', 'kata2alphabet', 'alphabet2kata']
 
 hira2kata = jaconv.hira2kata
