@@ -19,8 +19,9 @@ setup(
     author='Yukino Ikegami',
     author_email='yknikgm@gmail.com',
     url='https://github.com/ikegami-yukino/jaconv',
-    keywords=['japanese converter', 'half-width kana', 'Hiragana', 'Katakana',
-              'Hankaku', 'Zenkaku'],
+    keywords=['Japanese converter', 'Japanese', 'text preprocessing',
+              'half-width kana', 'Hiragana', 'Katakana',
+              'Hankaku', 'Zenkaku', 'transliteration', 'Julius'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
@@ -36,6 +37,7 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
         'Topic :: Text Processing'
         ],
     data_files=[('', ['README.rst', 'CHANGES.rst'])],

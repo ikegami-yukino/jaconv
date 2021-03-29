@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+0.3 (2021-03-29)
+-------------------
+- Fix bug (alphabet2kana) thanks @Cuddlemuffin007
+- Support Python 3.8 and 3.9
+- Add handy functions: alphabet2kata and kata2alphabet. thanks @kokimame
+- Add function for julius: hiragana2julius
+
 0.2.4 (2018-02-04)
 -------------------
 - Fix bug (kana2alphabet)

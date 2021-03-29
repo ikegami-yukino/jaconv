@@ -482,6 +482,24 @@ def alphabet2kana(text):
 
 
 def hiragana2julius(text):
+    """Convert Hiragana to Julius's phoneme format.
+
+    Parameters
+    ----------
+    text : str
+        Hiragana string.
+
+    Return
+    ------
+    str
+        Alphabet string.
+
+    Examples
+    --------
+    >>> print(jaconv.hiragana2julius('てんきすごくいいいいいい'))
+    t e N k i s u g o k u i:
+    """
+
     # 3文字以上からなる変換規則
     text = text.replace('う゛ぁ', ' b a')
     text = text.replace('う゛ぃ', ' b i')
