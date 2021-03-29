@@ -93,6 +93,10 @@ USAGE
   jaconv.alphabet2kata('namba')
   # => 'ナンバ'
 
+  # ひらがな to Juliusの音素表現
+  jaconv.hiragana2julius('てんきすごくいいいいいい')
+  # => 't e N k i s u g o k u i:'
+
 
 NOTE
 ============

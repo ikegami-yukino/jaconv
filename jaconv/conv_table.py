@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+import re
+
 from .compat import map, zip
 
 HIRAGANA = list('ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすず'
@@ -80,6 +82,16 @@ Z2H_ALL = _to_dict(FULL_ASCII_ORD+FULL_DIGIT_ORD+FULL_KANA_ORD,
                    HALF_ASCII+HALF_DIGIT+HALF_KANA)
 KANA2HEP = _to_dict(_to_ord_list(HEPBURN_KANA), HEPBURN)
 HEP2KANA = _to_dict(_to_ord_list(HEPBURN), HEPBURN_KANA)
+
+JULIUS_LONG_VOWEL = tuple(
+    (
+        (re.compile('( a){2,}'), ' a:'),
+        (re.compile('( i){2,}'), ' i:'),
+        (re.compile('( u){2,}'), ' u:'),
+        (re.compile('( e){2,}'), ' e:'),
+        (re.compile('( o){2,}'), ' o:')
+    )
+)
 
 del _to_ord_list
 del _to_dict

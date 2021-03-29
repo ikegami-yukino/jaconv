@@ -103,6 +103,10 @@ See also `document <http://ikegami-yukino.github.io/jaconv/jaconv.html>`_
   jaconv.alphabet2kata('namba')
   # => 'ナンバ'
 
+  # Hiragana to Julius's phoneme format
+  jaconv.hiragana2julius('てんきすごくいいいいいい')
+  # => 't e N k i s u g o k u i:'
+
 
 NOTE
 ============

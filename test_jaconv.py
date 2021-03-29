@@ -117,3 +117,11 @@ def test_alphabet2kana():
     assert_equal(jaconv.alphabet2kana('itoh'), 'いとう')
     assert_equal(jaconv.alphabet2kana('ohtaku'), 'おおたく')
     assert_equal(jaconv.alphabet2kana('namba'), 'なんば')
+
+
+def test_alphabet2julius():
+    assert_equal(jaconv.hiragana2julius('てんき'), 't e N k i')
+    assert_equal(jaconv.hiragana2julius('やったー'), 'y a q t a:')
+    assert_equal(jaconv.hiragana2julius('かわいいいいい'), 'k a w a i:')
+    assert_equal(jaconv.hiragana2julius('やろうぜ'), 'y a r o: z e')
+    assert_equal(jaconv.hiragana2julius('てんきすごくいいいいいい'), 't e N k i s u g o k u i:')
