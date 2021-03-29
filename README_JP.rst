@@ -22,59 +22,59 @@ USAGE
   import jaconv
 
   # ひらがな to カタカナ
-  jaconv.hira2kata(u'ともえまみ')
-  # => u'トモエマミ'
+  jaconv.hira2kata('ともえまみ')
+  # => 'トモエマミ'
 
   # ひらがな to 半角カタカナ
-  jaconv.hira2hkata(u'ともえまみ')
-  # => u'ﾄﾓｴﾏﾐ'
+  jaconv.hira2hkata('ともえまみ')
+  # => 'ﾄﾓｴﾏﾐ'
 
   # カタカナ to ひらがな
-  jaconv.kata2hira(u'巴マミ')
-  # => u'巴まみ'
+  jaconv.kata2hira('巴マミ')
+  # => '巴まみ'
 
   # 半角かな文字 to 全角かな文字
-  jaconv.h2z(u'ﾃｨﾛ･ﾌｨﾅｰﾚ')
-  # => u'ティロ･フィナーレ'
+  jaconv.h2z('ﾃｨﾛ･ﾌｨﾅｰﾚ')
+  # => 'ティロ･フィナーレ'
 
   # 半角ASCII to 全角ASCII
-  jaconv.h2z(u'abc', kana=False, ascii=True, digit=False)
-  # => u'ａｂｃ'
+  jaconv.h2z('abc', kana=False, ascii=True, digit=False)
+  # => 'ａｂｃ'
 
   # 数字以外の半角文字 to 全角文字
-  jaconv.h2z(u'123', kana=False, ascii=False, digit=True)
-  # => u'１２３'
+  jaconv.h2z('123', kana=False, ascii=False, digit=True)
+  # => '１２３'
 
   # カタカナ以外の半角文字 to 全角文字
-  jaconv.h2z(u'ｱabc123', kana=False, digit=True, ascii=True)
-  # => u'ｱａｂｃ１２３'
+  jaconv.h2z('ｱabc123', kana=False, digit=True, ascii=True)
+  # => 'ｱａｂｃ１２３'
 
   # 全角かな文字 to 半角かな文字
-  jaconv.z2h(u'ティロ・フィナーレ')
-  # => u'ﾃｨﾛ・ﾌｨﾅｰﾚ'
+  jaconv.z2h('ティロ・フィナーレ')
+  # => 'ﾃｨﾛ・ﾌｨﾅｰﾚ'
 
   # 全角ASCII to 半角ASCII
-  jaconv.z2h(u'ａｂｃ', kana=False, ascii=True, digit=False)
-  # => u'abc'
+  jaconv.z2h('ａｂｃ', kana=False, ascii=True, digit=False)
+  # => 'abc'
 
   # 全角アラビア数字 to 半角アラビア数字
-  jaconv.z2h(u'１２３', kana=False, ascii=False, digit=True)
-  # => u'123'
+  jaconv.z2h('１２３', kana=False, ascii=False, digit=True)
+  # => '123'
 
   # カタカナ以外の全角文字 to 半角文字
-  jaconv.z2h(u'アａｂｃ１２３', kana=False, digit=True, ascii=True)
-  # => u'アabc123'
+  jaconv.z2h('アａｂｃ１２３', kana=False, digit=True, ascii=True)
+  # => 'アabc123'
 
   # normalize
-  jaconv.normalize(u'ティロ･フィナ〜レ', 'NFKC')
-  # => u'ティロ・フィナーレ'
+  jaconv.normalize('ティロ･フィナ〜レ', 'NFKC')
+  # => 'ティロ・フィナーレ'
 
   # ひらがな to アルファベット
-  jaconv.kana2alphabet(u'じゃぱん')
+  jaconv.kana2alphabet('じゃぱん')
   # => japan
 
   # アルファベット to ひらがな
-  jaconv.alphabet2kana(u'japan')
+  jaconv.alphabet2kana('japan')
   # => じゃぱん
 
 
