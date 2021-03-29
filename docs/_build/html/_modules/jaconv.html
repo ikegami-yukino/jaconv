@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jaconv &#8212; jaconv 0.2.3 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for jaconv</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">jaconv</span>
+<span class="sd">&quot;&quot;&quot;jaconv</span>
+
+<span class="sd">This module provides Japanese and ASCII character interconverting between</span>
+<span class="sd">Hiragana and full-/half-width Katakana/ASCII characters.</span>
+
+<span class="sd">Author:</span>
+<span class="sd">    Yukino Ikegami</span>
+
+<span class="sd">Lisence:</span>
+<span class="sd">    MIT License</span>
+
+<span class="sd">Usage:</span>
+<span class="sd">    import jaconv</span>
+<span class="sd">    jaconv.hira2kata(text, [ignore])  # ひらがなを全角カタカナに変換</span>
+<span class="sd">    jaconv.hira2hkata(text, [ignore])  # ひらがなを半角カタカナに変換</span>
+<span class="sd">    jaconv.kata2hira(text, [ignore])  # 全角カタカナをひらがなに変換</span>
+<span class="sd">    jaconv.h2z(text, [ignore, kana, ascii, digit])  # 半角文字を全角文字に変換</span>
+<span class="sd">    jaconv.z2h(text, [ignore, kana, ascii, digit])  # 全角文字を半角文字に変換</span>
+<span class="sd">    jaconv.han2zen(text, [ignore, kana, ascii, digit])  # 半角文字を全角文字に変換</span>
+<span class="sd">    jaconv.zen2han(text, [ignore, kana, ascii, digit])  # 全角文字を半角文字に変換</span>
+<span class="sd">    jaconv.normalize(text, [nomalizemode])  # 半角カナを全角カナへ、全角英数字を半角英数字に変換</span>
+<span class="sd">    jaconv.kana2alphabet(text)  # かなをヘボン式アルファベットに変換</span>
+<span class="sd">    jaconv.alphabet2kana(text)  # アルファベットをかなに変換</span>
+<span class="sd">    jaconv.kata2alphabet(text)  # カタカナをアルファベットに変換</span>
+<span class="sd">    jaconv.alphabet2kata(text)  # アルファベットをカタカナに変換</span>
+<span class="sd">    jaconv.hiragana2julius(text)  # ひらがなをJuliusの音素表現に変換</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">VERSION</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;0.3&#39;</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hira2kata&#39;</span><span class="p">,</span> <span class="s1">&#39;hira2hkata&#39;</span><span class="p">,</span> <span class="s1">&#39;kata2hira&#39;</span><span class="p">,</span> <span class="s1">&#39;h2z&#39;</span><span class="p">,</span> <span class="s1">&#39;z2h&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;hankaku2zenkaku&#39;</span><span class="p">,</span> <span class="s1">&#39;zenkaku2hankaku&#39;</span><span class="p">,</span> <span class="s1">&#39;normalize&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;kana2alphabet&#39;</span><span class="p">,</span> <span class="s1">&#39;alphabet2kana&#39;</span><span class="p">,</span> <span class="s1">&#39;kata2alphabet&#39;</span><span class="p">,</span> <span class="s1">&#39;alphabet2kata&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;hiragana2julius&#39;</span><span class="p">]</span>
+
+<span class="n">hira2kata</span> <span class="o">=</span> <span class="n">jaconv</span><span class="o">.</span><span class="n">hira2kata</span>
+<span class="n">hira2hkata</span> <span class="o">=</span> <span class="n">jaconv</span><span class="o">.</span><span class="n">hira2hkata</span>
+<span class="n">kata2hira</span> <span class="o">=</span> <span class="n">jaconv</span><span class="o">.</span><span class="n">kata2hira</span>
+<span class="n">h2z</span> <span class="o">=</span> <span class="n">jaconv</span><span class="o">.</span><span class="n">h2z</span>
+<span class="n">z2h</span> <span class="o">=</span> <span class="n">jaconv</span><span class="o">.</span><span class="n">z2h</span>
+<span class="n">han2zen</span> <span class="o">=</span> <span class="n">jaconv</span><span class="o">.</span><span class="n">h2z</span>  <span class="c1"># an alias of h2z</span>
+<span class="n">zen2han</span> <span class="o">=</span> <span class="n">jaconv</span><span class="o">.</span><span class="n">z2h</span>  <span class="c1"># an alias of z2h</span>
+<span class="n">hankaku2zenkaku</span> <span class="o">=</span> <span class="n">jaconv</span><span class="o">.</span><span class="n">h2z</span>  <span class="c1"># an alias of h2z</span>
+<span class="n">zenkaku2hankaku</span> <span class="o">=</span> <span class="n">jaconv</span><span class="o">.</span><span class="n">z2h</span>  <span class="c1"># an alias of z2h</span>
+<span class="n">normalize</span> <span class="o">=</span> <span class="n">jaconv</span><span class="o">.</span><span class="n">normalize</span>
+<span class="n">kana2alphabet</span> <span class="o">=</span> <span class="n">jaconv</span><span class="o">.</span><span class="n">kana2alphabet</span>
+<span class="n">alphabet2kana</span> <span class="o">=</span> <span class="n">jaconv</span><span class="o">.</span><span class="n">alphabet2kana</span>
+<span class="n">kata2alphabet</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="n">jaconv</span><span class="o">.</span><span class="n">kana2alphabet</span><span class="p">(</span><span class="n">jaconv</span><span class="o">.</span><span class="n">kata2hira</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+<span class="n">alphabet2kata</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="n">jaconv</span><span class="o">.</span><span class="n">hira2kata</span><span class="p">(</span><span class="n">jaconv</span><span class="o">.</span><span class="n">alphabet2kana</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+<span class="n">hiragana2julius</span> <span class="o">=</span> <span class="n">jaconv</span><span class="o">.</span><span class="n">hiragana2julius</span>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Yukino Ikegami.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
