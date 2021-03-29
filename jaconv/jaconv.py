@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+import re
 import unicodedata
 from .conv_table import (H2K_TABLE, H2HK_TABLE, K2H_TABLE, H2Z_A, H2Z_AD,
                          H2Z_AK, H2Z_D, H2Z_K, H2Z_DK, H2Z_ALL, Z2H_A, Z2H_AD,
@@ -7,6 +8,8 @@ from .conv_table import (H2K_TABLE, H2HK_TABLE, K2H_TABLE, H2Z_A, H2Z_AD,
 from .compat import map
 
 consonants = frozenset('sdfghjklqwrtypzxcvbnm')
+ending_h_pattern = re.compile(r'h$')
+
 
 def _exclude_ignorechar(ignore, conv_map):
     for character in map(ord, ignore):
@@ -349,6 +352,8 @@ def alphabet2kana(text):
     >>> print(jaconv.alphabet2kana('mamisan'))
     まみさん
     """
+    # replace final h with う, e.g., Itoh -> いとう
+    text = re.sub(ending_h_pattern, 'う', text)
     text = text.replace('kya', 'きゃ').replace('kyu', 'きゅ').replace('kyo', 'きょ')
     text = text.replace('gya', 'ぎゃ').replace('gyu', 'ぎゅ').replace('gyo', 'ぎょ')
     text = text.replace('sha', 'しゃ').replace('shu', 'しゅ').replace('sho', 'しょ')
@@ -364,7 +369,7 @@ def alphabet2kana(text):
     text = text.replace('rya', 'りゃ').replace('ryu', 'りゅ').replace('ryo', 'りょ')
     text = text.replace('bya', 'びゃ').replace('byu', 'びゅ').replace('byo', 'びょ')
     text = text.replace('pya', 'ぴゃ').replace('pyu', 'ぴゅ').replace('pyo', 'ぴょ')
-    text = text.replace('oh', 'おお')
+    text = text.replace('tsu', 'つ')
     text = text.replace('ga', 'が').replace('gi', 'ぎ').replace('gu', 'ぐ')
     text = text.replace('ge', 'げ').replace('go', 'ご').replace('za', 'ざ')
     text = text.replace('ji', 'じ').replace('zu', 'ず').replace('ze', 'ぜ')
@@ -373,7 +378,8 @@ def alphabet2kana(text):
     text = text.replace('ve', 'ゔぇ').replace('vo', 'ゔぉ').replace('vya', 'ゔゃ')
     text = text.replace('vyi', 'ゔぃ').replace('vyu', 'ゔゅ').replace('vye', 'ゔぇ')
     text = text.replace('vyo', 'ゔょ')
-    text = text.replace('zu', 'づ').replace('de', 'で').replace('do', 'ど')
+    text = text.replace('zu', 'づ').replace('du', 'づ')
+    text = text.replace('de', 'で').replace('do', 'ど')
     text = text.replace('ba', 'ば').replace('bi', 'び').replace('bu', 'ぶ')
     text = text.replace('be', 'べ').replace('bo', 'ぼ').replace('pa', 'ぱ')
     text = text.replace('pi', 'ぴ').replace('pu', 'ぷ').replace('pe', 'ぺ')
@@ -383,7 +389,7 @@ def alphabet2kana(text):
     text = text.replace('ke', 'け').replace('ko', 'こ').replace('sa', 'さ')
     text = text.replace('shi', 'し').replace('su', 'す').replace('se', 'せ')
     text = text.replace('so', 'そ').replace('ta', 'た').replace('chi', 'ち')
-    text = text.replace('tsu', 'つ').replace('te', 'て').replace('to', 'と')
+    text = text.replace('te', 'て').replace('to', 'と')
     text = text.replace('na', 'な').replace('ni', 'に').replace('nu', 'ぬ')
     text = text.replace('ne', 'ね').replace('no', 'の').replace('ha', 'は')
     text = text.replace('hi', 'ひ').replace('fu', 'ふ').replace('he', 'へ')
@@ -394,9 +400,10 @@ def alphabet2kana(text):
     text = text.replace('ya', 'や').replace('yu', 'ゆ').replace('yo', 'よ')
     text = text.replace('wa', 'わ').replace('wi', 'ゐ').replace('we', 'ゑ')
     text = text.replace('wo', 'を')
-    text = text.replace('nn', 'ん').replace('tu', 'つ').replace('hu', 'ふ')
+    text = text.replace('nn', 'ん').replace('m', 'ん')
+    text = text.replace('tu', 'つ').replace('hu', 'ふ')
     text = text.replace('fa', 'ふぁ').replace('fi', 'ふぃ').replace('fe', 'ふぇ')
-    text = text.replace('fo', 'ふぉ').replace('-', 'ー')
+    text = text.replace('fo', 'ふぉ').replace('oh', 'おお').replace('-', 'ー')
     text = _convert(text, HEP2KANA)
     ret = []
     for (i, char) in enumerate(text):
