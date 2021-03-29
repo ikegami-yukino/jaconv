@@ -36,8 +36,9 @@ See also `document <http://ikegami-yukino.github.io/jaconv/jaconv.html>`_
   # => '巴まみ'
 
   # half-width character to full-width character
+  # default parameters are followings: kana=True, ascii=False, digit=False
   jaconv.h2z('ﾃｨﾛ･ﾌｨﾅｰﾚ')
-  # => 'ティロ･フィナーレ'
+  # => 'ティロ・フィナーレ'
 
   # half-width character to full-width character
   # but only ascii characters
@@ -54,7 +55,12 @@ See also `document <http://ikegami-yukino.github.io/jaconv/jaconv.html>`_
   jaconv.h2z('ｱabc123', kana=False, digit=True, ascii=True)
   # => 'ｱａｂｃ１２３'
 
+  # an alias of h2z
+  jaconv.hankaku2zenkaku('ﾃｨﾛ･ﾌｨﾅｰﾚabc123')
+  # => 'ティロ・フィナーレabc123'
+
   # full-width character to half-width character
+  # default parameters are followings: kana=True, ascii=False, digit=False
   jaconv.z2h('ティロ・フィナーレ')
   # => 'ﾃｨﾛ・ﾌｨﾅｰﾚ'
 
@@ -73,6 +79,10 @@ See also `document <http://ikegami-yukino.github.io/jaconv/jaconv.html>`_
   jaconv.z2h('アａｂｃ１２３', kana=False, digit=True, ascii=True)
   # => 'アabc123'
 
+  # an alias of z2h
+  jaconv.zenkaku2hankaku('ティロ・フィナーレａｂｃ１２３')
+  # => 'ﾃｨﾛ･ﾌｨﾅｰﾚａｂｃ１２３'
+
   # normalize
   jaconv.normalize('ティロ･フィナ〜レ', 'NFKC')
   # => 'ティロ・フィナーレ'
@@ -84,6 +94,14 @@ See also `document <http://ikegami-yukino.github.io/jaconv/jaconv.html>`_
   # Alphabet to Hiragana
   jaconv.alphabet2kana('japan')
   # => 'じゃぱん'
+
+  # Katakana to Alphabet
+  jaconv.kata2alphabet('ケツイ')
+  # => 'ketsui'
+
+  # Alphabet to Katakana
+  jaconv.alphabet2kata('namba')
+  # => 'ナンバ'
 
 
 NOTE

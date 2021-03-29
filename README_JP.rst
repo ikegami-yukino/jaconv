@@ -35,7 +35,7 @@ USAGE
 
   # 半角かな文字 to 全角かな文字
   jaconv.h2z('ﾃｨﾛ･ﾌｨﾅｰﾚ')
-  # => 'ティロ･フィナーレ'
+  # => 'ティロ・フィナーレ'
 
   # 半角ASCII to 全角ASCII
   jaconv.h2z('abc', kana=False, ascii=True, digit=False)
@@ -48,6 +48,10 @@ USAGE
   # カタカナ以外の半角文字 to 全角文字
   jaconv.h2z('ｱabc123', kana=False, digit=True, ascii=True)
   # => 'ｱａｂｃ１２３'
+
+  # h2zのエイリアス
+  jaconv.hankaku2zenkaku('ﾃｨﾛ･ﾌｨﾅｰﾚabc123')
+  # => 'ティロ・フィナーレabc123'
 
   # 全角かな文字 to 半角かな文字
   jaconv.z2h('ティロ・フィナーレ')
@@ -65,6 +69,10 @@ USAGE
   jaconv.z2h('アａｂｃ１２３', kana=False, digit=True, ascii=True)
   # => 'アabc123'
 
+  # z2hのエイリアス
+  jaconv.zenkaku2hankaku('ティロ・フィナーレａｂｃ１２３')
+  # => 'ﾃｨﾛ･ﾌｨﾅｰﾚａｂｃ１２３'
+
   # normalize
   jaconv.normalize('ティロ･フィナ〜レ', 'NFKC')
   # => 'ティロ・フィナーレ'
@@ -76,6 +84,14 @@ USAGE
   # アルファベット to ひらがな
   jaconv.alphabet2kana('japan')
   # => じゃぱん
+
+  # カタカナ to アルファベット
+  jaconv.kata2alphabet('ケツイ')
+  # => 'ketsui'
+
+  # アルファベット to カタカナ
+  jaconv.alphabet2kata('namba')
+  # => 'ナンバ'
 
 
 NOTE
