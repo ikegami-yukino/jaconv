@@ -257,7 +257,7 @@ def normalize(text, mode='NFKC'):
     ティロ・フィナーレ
     """
     text = text.replace('〜', 'ー').replace('～', 'ー')
-    text = text.replace("’", "'").replace('”', '"').replace('“', '``')
+    text = text.replace("’", "'").replace('”', '"').replace('“', '"')
     text = text.replace('―', '-').replace('‐', '-').replace('˗', '-').replace('֊', '-')
     text = text.replace('‐', '-').replace('‑', '-').replace('‒', '-').replace('–', '-')
     text = text.replace('⁃', '-').replace('⁻', '-').replace('₋', '-').replace('−', '-')
