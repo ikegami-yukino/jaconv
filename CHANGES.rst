@@ -1,6 +1,12 @@
 CHANGES
 =======
 
+0.4 (2021-08-24)
+-------------------
+ - Add functions: is_han(char): Check if character is Hankaku
+ - Add Function: is_zen(char): Check if character is Zenkaku
+
+
 0.3 (2021-03-29)
 -------------------
 - Fix bug (alphabet2kana) thanks @Cuddlemuffin007

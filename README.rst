@@ -1,17 +1,17 @@
-jaconv
+jaconvV2
 ==========
 |travis| |coveralls| |pyversion| |version| |license|
 
-jaconv (Japanese Converter) is interconverter for Hiragana, Katakana, Hankaku (half-width character) and Zenkaku (full-width character)
+jaconvV2 (Japanese Converter) can detect whether a character is Zenkaku or Hankaku, and also support interconvertion for Hiragana, Katakana, Hankaku (half-width character) and Zenkaku (full-width character)
 
-`Japanese README <https://github.com/ikegami-yukino/jaconv/blob/master/README_JP.rst>`_ is available.
+`Japanese README <https://github.com/MikimotoH/jaconv/blob/master/README_JP.rst>`_ is available.
 
 INSTALLATION
 ==============
 
 ::
 
- $ pip install jaconv
+ $ pip install jaconvV2
 
 
 USAGE
@@ -21,105 +21,106 @@ See also `document <http://ikegami-yukino.github.io/jaconv/jaconv.html>`_
 
 .. code:: python
 
-  import jaconv
+  import jaconvV2
+
+
+  # Test if Zenkaku
+  jaconvV2.is_zen('Ｄ')
+  # => True
+
+  # Test if Hankaku
+  jaconvV2.is_han('D')
+  # => True
+
 
   # Hiragana to Katakana
-  jaconv.hira2kata('ともえまみ')
+  jaconvV2.hira2kata('ともえまみ')
   # => 'トモエマミ'
 
   # Hiragana to half-width Katakana
-  jaconv.hira2hkata('ともえまみ')
+  jaconvV2.hira2hkata('ともえまみ')
   # => 'ﾄﾓｴﾏﾐ'
 
   # Katakana to Hiragana
-  jaconv.kata2hira('巴マミ')
+  jaconvV2.kata2hira('巴マミ')
   # => '巴まみ'
 
   # half-width character to full-width character
   # default parameters are followings: kana=True, ascii=False, digit=False
-  jaconv.h2z('ﾃｨﾛ･ﾌｨﾅｰﾚ')
+  jaconvV2.h2z('ﾃｨﾛ･ﾌｨﾅｰﾚ')
   # => 'ティロ・フィナーレ'
 
   # half-width character to full-width character
   # but only ascii characters
-  jaconv.h2z('abc', kana=False, ascii=True, digit=False)
+  jaconvV2.h2z('abc', kana=False, ascii=True, digit=False)
   # => 'ａｂｃ'
 
   # half-width character to full-width character
   # but only digit characters
-  jaconv.h2z('123', kana=False, ascii=False, digit=True)
+  jaconvV2.h2z('123', kana=False, ascii=False, digit=True)
   # => '１２３'
 
   # half-width character to full-width character
   # except half-width Katakana
-  jaconv.h2z('ｱabc123', kana=False, digit=True, ascii=True)
+  jaconvV2.h2z('ｱabc123', kana=False, digit=True, ascii=True)
   # => 'ｱａｂｃ１２３'
 
   # an alias of h2z
-  jaconv.hankaku2zenkaku('ﾃｨﾛ･ﾌｨﾅｰﾚabc123')
+  jaconvV2.hankaku2zenkaku('ﾃｨﾛ･ﾌｨﾅｰﾚabc123')
   # => 'ティロ・フィナーレabc123'
 
   # full-width character to half-width character
   # default parameters are followings: kana=True, ascii=False, digit=False
-  jaconv.z2h('ティロ・フィナーレ')
+  jaconvV2.z2h('ティロ・フィナーレ')
   # => 'ﾃｨﾛ・ﾌｨﾅｰﾚ'
 
   # full-width character to half-width character
   # but only ascii characters
-  jaconv.z2h('ａｂｃ', kana=False, ascii=True, digit=False)
+  jaconvV2.z2h('ａｂｃ', kana=False, ascii=True, digit=False)
   # => 'abc'
 
   # full-width character to half-width character
   # but only digit characters
-  jaconv.z2h('１２３', kana=False, ascii=False, digit=True)
+  jaconvV2.z2h('１２３', kana=False, ascii=False, digit=True)
   # => '123'
 
   # full-width character to half-width character
   # except full-width Katakana
-  jaconv.z2h('アａｂｃ１２３', kana=False, digit=True, ascii=True)
+  jaconvV2.z2h('アａｂｃ１２３', kana=False, digit=True, ascii=True)
   # => 'アabc123'
 
   # an alias of z2h
-  jaconv.zenkaku2hankaku('ティロ・フィナーレａｂｃ１２３')
+  jaconvV2.zenkaku2hankaku('ティロ・フィナーレａｂｃ１２３')
   # => 'ﾃｨﾛ･ﾌｨﾅｰﾚａｂｃ１２３'
 
   # normalize
-  jaconv.normalize('ティロ･フィナ〜レ', 'NFKC')
+  jaconvV2.normalize('ティロ･フィナ〜レ', 'NFKC')
   # => 'ティロ・フィナーレ'
 
   # Hiragana to alphabet
-  jaconv.kana2alphabet('じゃぱん')
+  jaconvV2.kana2alphabet('じゃぱん')
   # => 'japan'
 
   # Alphabet to Hiragana
-  jaconv.alphabet2kana('japan')
+  jaconvV2.alphabet2kana('japan')
   # => 'じゃぱん'
 
   # Katakana to Alphabet
-  jaconv.kata2alphabet('ケツイ')
+  jaconvV2.kata2alphabet('ケツイ')
   # => 'ketsui'
 
   # Alphabet to Katakana
-  jaconv.alphabet2kata('namba')
+  jaconvV2.alphabet2kata('namba')
   # => 'ナンバ'
 
   # Hiragana to Julius's phoneme format
-  jaconv.hiragana2julius('てんきすごくいいいいいい')
+  jaconvV2.hiragana2julius('てんきすごくいいいいいい')
   # => 't e N k i s u g o k u i:'
-
-  # Test if Zenkaku
-  jaconv.is_zen('Ｄ')
-  # => True
-
-  # Test if Hankaku
-  jaconv.is_han('D')
-  # => True
-
 
 NOTE
 ============
 
-jaconv.normalize method expand unicodedata.normalize for Japanese language processing.
+jaconvV2.normalize method expand unicodedata.normalize for Japanese language processing.
 
 .. code::
 
@@ -151,11 +152,11 @@ jaconv.normalize method expand unicodedata.normalize for Japanese language proce
 
 
 
-.. |travis| image:: https://travis-ci.org/ikegami-yukino/jaconv.svg?branch=master
-    :target: https://travis-ci.org/ikegami-yukino/jaconv
+.. |travis| image:: https://travis-ci.org/MikimotoH/jaconv.svg?branch=master
+    :target: https://travis-ci.org/MikimotoH/jaconv
     :alt: travis-ci.org
 
-.. |coveralls| image:: https://coveralls.io/repos/ikegami-yukino/jaconv/badge.svg?branch=master&service=github
+.. |coveralls| image:: https://coveralls.io/repos/MikimotoH/jaconv/badge.svg?branch=master&service=github
     :target: https://coveralls.io/github/ikegami-yukino/jaconv?branch=master
     :alt: coveralls.io
 

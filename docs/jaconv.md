@@ -1,7 +1,7 @@
-jaconv package
+jaconvV2 package
 ==============
 
-.. automodule:: jaconv
+.. automodule:: jaconvV2
     :members:
     :undoc-members:
     :show-inheritance:

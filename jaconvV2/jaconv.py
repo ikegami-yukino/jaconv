@@ -5,7 +5,7 @@ import unicodedata
 from .conv_table import (H2K_TABLE, H2HK_TABLE, K2H_TABLE, H2Z_A, H2Z_AD,
                          H2Z_AK, H2Z_D, H2Z_K, H2Z_DK, H2Z_ALL, Z2H_A, Z2H_AD,
                          Z2H_AK, Z2H_D, Z2H_K, Z2H_DK, Z2H_ALL, KANA2HEP,
-                         HEP2KANA, JULIUS_LONG_VOWEL)
+                         HEP2KANA, JULIUS_LONG_VOWEL, HALF_CHARSET)
 from .compat import map
 
 consonants = frozenset('sdfghjklqwrtypzxcvbnm')
@@ -813,11 +813,8 @@ def hiragana2julius(text):
 
 def is_han(char):
     assert char and len(char) == 1
-    from .conv_table import HALF_ASCII, HALF_DIGIT, HALF_KANA_SEION, HALF_KANA
-    return char in (HALF_ASCII + HALF_DIGIT + HALF_KANA_SEION + HALF_KANA)
+    return char in HALF_CHARSET
 
 
 def is_zen(char):
-    # from .conv_table import HIRAGANA, FULL_ASCII, FULL_ASCII, FULL_DIGIT, FULL_KANA, FULL_KANA_SEION
-    # return char in (HIRAGANA + FULL_ASCII + FULL_ASCII + FULL_DIGIT + FULL_KANA + FULL_KANA_SEION)
     return not is_han(char)
