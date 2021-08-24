@@ -1,0 +1,49 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <Languages>
+        <language minSize="60" name="Python" />
+      </Languages>
+    </inspection_tool>
+    <inspection_tool class="LanguageDetectionInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="15">
+            <item index="0" class="java.lang.String" itemvalue="botocore" />
+            <item index="1" class="java.lang.String" itemvalue="azure" />
+            <item index="2" class="java.lang.String" itemvalue="PyYAML" />
+            <item index="3" class="java.lang.String" itemvalue="azure-mgmt-compute" />
+            <item index="4" class="java.lang.String" itemvalue="azure-mgmt-network" />
+            <item index="5" class="java.lang.String" itemvalue="msrestazure" />
+            <item index="6" class="java.lang.String" itemvalue="kombu" />
+            <item index="7" class="java.lang.String" itemvalue="azure-mgmt-resource" />
+            <item index="8" class="java.lang.String" itemvalue="humanfriendly" />
+            <item index="9" class="java.lang.String" itemvalue="azure-identity" />
+            <item index="10" class="java.lang.String" itemvalue="boto3" />
+            <item index="11" class="java.lang.String" itemvalue="haikunator" />
+            <item index="12" class="java.lang.String" itemvalue="pytz" />
+            <item index="13" class="java.lang.String" itemvalue="sre-yield" />
+            <item index="14" class="java.lang.String" itemvalue="azure-mgmt-storage" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8Inspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyPep8NamingInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N803" />
+          <option value="N802" />
+          <option value="N806" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="SpellCheckingInspection" enabled="false" level="TYPO" enabled_by_default="false">
+      <option name="processCode" value="true" />
+      <option name="processLiterals" value="true" />
+      <option name="processComments" value="true" />
+    </inspection_tool>
+  </profile>
+</component>
