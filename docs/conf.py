@@ -50,6 +50,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'jaconvV2'
+# noinspection PyShadowingBuiltins
 copyright = '2018, Yukino Ikegami'
 author = 'Yukino Ikegami'
 

@@ -57,6 +57,7 @@ def test_kata2hira():
     _compare(jaconvV2.kata2hira, FULL_KANA, HIRAGANA)
 
 
+# noinspection PyShadowingBuiltins
 def test_h2z():
     assert_equal(jaconvV2.h2z('ﾃｨﾛﾌｨﾅｰﾚ'), 'ティロフィナーレ')
     assert_equal(jaconvV2.h2z('ﾃｨﾛﾌｨﾅｰﾚ', ignore='ｨ'), 'テｨロフｨナーレ')
@@ -75,6 +76,7 @@ def test_h2z():
                     _concat(FULL_KANA, FULL_ASCII, FULL_DIGIT))
 
 
+# noinspection PyShadowingBuiltins
 def test_z2h():
     assert_equal(jaconvV2.z2h('ティロフィナーレ'), 'ﾃｨﾛﾌｨﾅｰﾚ')
     assert_equal(jaconvV2.z2h('ティロフィナーレ', ignore='ィ'), 'ﾃィﾛﾌィﾅｰﾚ')

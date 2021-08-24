@@ -106,6 +106,7 @@ def kata2hira(text, ignore=''):
     return _convert(text, K2H_TABLE)
 
 
+# noinspection PyShadowingBuiltins
 def h2z(text, ignore='', kana=True, ascii=False, digit=False):
     """Convert Half-width (Hankaku) Katakana to Full-width (Zenkaku) Katakana
 
@@ -139,6 +140,7 @@ def h2z(text, ignore='', kana=True, ascii=False, digit=False):
     １２３４
     """
 
+    # noinspection PyShadowingNames
     def _conv_dakuten(text):
         """Convert Hankaku Dakuten Kana to Zenkaku Dakuten Kana
         """
@@ -180,6 +182,7 @@ def h2z(text, ignore='', kana=True, ascii=False, digit=False):
     return _convert(text, h2z_map)
 
 
+# noinspection PyShadowingBuiltins
 def z2h(text, ignore='', kana=True, ascii=False, digit=False):
     """Convert Full-width (Zenkaku) Katakana to Half-width (Hankaku) Katakana
 
@@ -812,9 +815,31 @@ def hiragana2julius(text):
 
 
 def is_han(char):
+    """
+
+    Parameters
+    ----------
+    char: one-length string, a single character
+
+    Returns
+    -------
+    True if input character is Hankaku (半角); False otherwise
+
+    """
     assert char and len(char) == 1
     return char in HALF_CHARSET
 
 
 def is_zen(char):
+    """
+
+    Parameters
+    ----------
+    char: one-length string, a single character
+
+    Returns
+    -------
+    True if input character is Zenkaku (全角); False otherwise
+
+    """
     return not is_han(char)
