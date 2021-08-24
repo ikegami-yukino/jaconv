@@ -11,6 +11,6 @@ install:
   - "python setup.py install"
   - "pip install coveralls"
 script:
-  - "nosetests --with-coverage --cover-package=jaconv"
+  - "nosetests --with-coverage --cover-package=jaconvV2"
 after_success:
   - coveralls

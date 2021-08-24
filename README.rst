@@ -107,6 +107,14 @@ See also `document <http://ikegami-yukino.github.io/jaconv/jaconv.html>`_
   jaconv.hiragana2julius('てんきすごくいいいいいい')
   # => 't e N k i s u g o k u i:'
 
+  # Test if Zenkaku
+  jaconv.is_zen('Ｄ')
+  # => True
+
+  # Test if Hankaku
+  jaconv.is_han('D')
+  # => True
+
 
 NOTE
 ============

@@ -4,21 +4,21 @@ import os
 import re
 from setuptools import setup
 
-with open(os.path.join('jaconv', '__init__.py'), 'r', encoding='utf8') as f:
+with open(os.path.join('jaconvV2', '__init__.py'), 'r', encoding='utf8') as f:
     version = re.compile(
         r".*__version__ = '(.*?)'", re.S).match(f.read()).group(1)
 
 setup(
-    name='jaconv',
-    packages=['jaconv'],
+    name='jaconvV2',
+    packages=['jaconvV2'],
     version=version,
     license='MIT License',
     platforms=['POSIX', 'Windows', 'Unix', 'MacOS'],
     description='Pure-Python Japanese character interconverter for '
-                'Hiragana, Katakana, Hankaku, Zenkaku and more',
-    author='Yukino Ikegami',
-    author_email='yknikgm@gmail.com',
-    url='https://github.com/ikegami-yukino/jaconv',
+                'Hiragana, Katakana, Hankaku, Zenkaku, as well as Zenkaku or Hankaku Tester',
+    author='Miki Liu',
+    author_email='MikimotoH@gmail.com',
+    url='https://github.com/MikimotoH/jaconv',
     keywords=['Japanese converter', 'Japanese', 'text preprocessing',
               'half-width kana', 'Hiragana', 'Katakana',
               'Hankaku', 'Zenkaku', 'transliteration', 'Julius'],

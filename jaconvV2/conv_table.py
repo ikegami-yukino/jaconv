@@ -7,7 +7,7 @@ from .compat import map, zip
 HIRAGANA = list('ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすず'
                 'せぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴ'
                 'ふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろわ'
-                'をんーゎゐゑゕゖゔゝゞ・「」。、')
+                'をんーゎゐゑゕゖゔゝゞ・「」。、゜゛')
 HALF_ASCII = list('!"#$%&\'()*+,-./:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ'
                   '[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~ ')
 HALF_DIGIT = list('0123456789')
@@ -23,7 +23,7 @@ HALF_KANA = ['ｧ', 'ｱ', 'ｨ', 'ｲ', 'ｩ', 'ｳ', 'ｪ', 'ｴ', 'ｫ', 'ｵ
              'ﾓ', 'ｬ', 'ﾔ', 'ｭ', 'ﾕ', 'ｮ', 'ﾖ', 'ﾗ', 'ﾘ', 'ﾙ',
              'ﾚ', 'ﾛ', 'ﾜ', 'ｦ', 'ﾝ', 'ｰ',
              'ヮ', 'ヰ', 'ヱ', 'ヵ', 'ヶ', 'ｳﾞ', 'ヽ', 'ヾ', '･',
-             '｢', '｣', '｡', '､']
+             '｢', '｣', '｡', '､', 'ﾞ', 'ﾟ']
 FULL_ASCII = list('！＂＃＄％＆＇（）＊＋，－．／：；＜＝＞？＠'
                   'ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ'
                   '［＼］＾＿｀ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔ'
@@ -96,21 +96,21 @@ JULIUS_LONG_VOWEL = tuple(
 del _to_ord_list
 del _to_dict
 del HIRAGANA_ORD
-del HIRAGANA
-del HALF_KANA
+# del HIRAGANA
+# del HALF_KANA
 del FULL_KANA_ORD
-del FULL_KANA
+# del FULL_KANA
 del HALF_ASCII_ORD
-del HALF_ASCII
+# del HALF_ASCII
 del FULL_ASCII_ORD
-del FULL_ASCII
+# del FULL_ASCII
 del HALF_DIGIT_ORD
-del HALF_DIGIT
+# del HALF_DIGIT
 del FULL_DIGIT_ORD
-del FULL_DIGIT
+# del FULL_DIGIT
 del HALF_KANA_SEION_ORD
-del HALF_KANA_SEION
+# del HALF_KANA_SEION
 del FULL_KANA_SEION_ORD
-del FULL_KANA_SEION
+# del FULL_KANA_SEION
 del HEPBURN
 del HEPBURN_KANA

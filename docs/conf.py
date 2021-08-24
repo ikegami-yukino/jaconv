@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# jaconv documentation build configuration file, created by
+# jaconvV2 documentation build configuration file, created by
 # sphinx-quickstart on Sat Jun  2 01:28:00 2018.
 #
 # This file is execfile()d with the current directory set to its
@@ -49,7 +49,7 @@ source_suffix = '.md'
 master_doc = 'index'
 
 # General information about the project.
-project = 'jaconv'
+project = 'jaconvV2'
 copyright = '2018, Yukino Ikegami'
 author = 'Yukino Ikegami'
 
@@ -142,7 +142,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'jaconv.tex', 'jaconv Documentation',
+    (master_doc, 'jaconvV2.tex', 'jaconvV2 Documentation',
      'Author', 'manual'),
 ]
 
@@ -152,7 +152,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'jaconv', 'jaconv Documentation',
+    (master_doc, 'jaconvV2', 'jaconvV2 Documentation',
      [author], 1)
 ]
 
@@ -163,8 +163,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'jaconv', 'jaconv Documentation',
-     author, 'jaconv', 'One line description of project.',
+    (master_doc, 'jaconvV2', 'jaconvV2 Documentation',
+     author, 'jaconvV2', 'One line description of project.',
      'Miscellaneous'),
 ]
 

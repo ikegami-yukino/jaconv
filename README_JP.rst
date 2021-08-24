@@ -97,6 +97,13 @@ USAGE
   jaconv.hiragana2julius('てんきすごくいいいいいい')
   # => 't e N k i s u g o k u i:'
 
+  # 全角キャラクタの検査
+  jaconv.is_zen('Ｄ')
+  # => True
+
+  # 半角キャラクタの検査
+  jaconv.is_han('D')
+  # => True
 
 NOTE
 ============

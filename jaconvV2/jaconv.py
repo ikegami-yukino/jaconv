@@ -39,9 +39,9 @@ def hira2kata(text, ignore=''):
 
     Examples
     --------
-    >>> print(jaconv.hira2kata('ともえまみ'))
+    >>> print(jaconvV2.hira2kata('ともえまみ'))
     トモエマミ
-    >>> print(jaconv.hira2kata('まどまぎ', ignore='ど'))
+    >>> print(jaconvV2.hira2kata('まどまぎ', ignore='ど'))
     マどマギ
     """
     if ignore:
@@ -67,9 +67,9 @@ def hira2hkata(text, ignore=''):
 
     Examples
     --------
-    >>> print(jaconv.hira2hkata('ともえまみ'))
+    >>> print(jaconvV2.hira2hkata('ともえまみ'))
     ﾄﾓｴﾏﾐ
-    >>> print(jaconv.hira2hkata('ともえまみ', ignore='み'))
+    >>> print(jaconvV2.hira2hkata('ともえまみ', ignore='み'))
     ﾄﾓｴﾏみ
     """
     if ignore:
@@ -95,9 +95,9 @@ def kata2hira(text, ignore=''):
 
     Examples
     --------
-    >>> print(jaconv.kata2hira('巴マミ'))
+    >>> print(jaconvV2.kata2hira('巴マミ'))
     巴まみ
-    >>> print(jaconv.kata2hira('マミサン', ignore='ン'))
+    >>> print(jaconvV2.kata2hira('マミサン', ignore='ン'))
     まみさン
     """
     if ignore:
@@ -129,15 +129,16 @@ def h2z(text, ignore='', kana=True, ascii=False, digit=False):
 
     Examples
     --------
-    >>> print(jaconv.h2z('ﾃｨﾛﾌｨﾅｰﾚ'))
+    >>> print(jaconvV2.h2z('ﾃｨﾛﾌｨﾅｰﾚ'))
     ティロフィナーレ
-    >>> print(jaconv.h2z('ﾃｨﾛﾌｨﾅｰﾚ', ignore='ｨ'))
+    >>> print(jaconvV2.h2z('ﾃｨﾛﾌｨﾅｰﾚ', ignore='ｨ'))
     テｨロフｨナーレ
-    >>> print(jaconv.h2z('abcd', ascii=True))
+    >>> print(jaconvV2.h2z('abcd', ascii=True))
     ＡＢＣＤ
-    >>> print(jaconv.h2z('1234', digit=True))
+    >>> print(jaconvV2.h2z('1234', digit=True))
     １２３４
     """
+
     def _conv_dakuten(text):
         """Convert Hankaku Dakuten Kana to Zenkaku Dakuten Kana
         """
@@ -202,13 +203,13 @@ def z2h(text, ignore='', kana=True, ascii=False, digit=False):
 
     Examples
     --------
-    >>> print(jaconv.z2h('ティロフィナーレ'))
+    >>> print(jaconvV2.z2h('ティロフィナーレ'))
     ﾃｨﾛﾌｨﾅｰﾚ
-    >>> print(jaconv.z2h('ティロフィナーレ', ignore='ィ'))
+    >>> print(jaconvV2.z2h('ティロフィナーレ', ignore='ィ'))
     ﾃィﾛﾌィﾅｰﾚ
-    >>> print(jaconv.z2h('ＡＢＣＤ', ascii=True))
+    >>> print(jaconvV2.z2h('ＡＢＣＤ', ascii=True))
     abcd
-    >>> print(jaconv.z2h('１２３４', digit=True))
+    >>> print(jaconvV2.z2h('１２３４', digit=True))
     1234
     """
     if ascii:
@@ -253,7 +254,7 @@ def normalize(text, mode='NFKC'):
 
     Examples
     --------
-    >>> print(jaconv.normalize('ﾃｨﾛ･フィナ〜レ', 'NFKC'))
+    >>> print(jaconvV2.normalize('ﾃｨﾛ･フィナ〜レ', 'NFKC'))
     ティロ・フィナーレ
     """
     text = text.replace('〜', 'ー').replace('～', 'ー')
@@ -281,7 +282,7 @@ def kana2alphabet(text):
 
     Examples
     --------
-    >>> print(jaconv.kana2alphabet('まみさん'))
+    >>> print(jaconvV2.kana2alphabet('まみさん'))
     mamisan
     """
     text = text.replace('きゃ', 'kya').replace('きゅ', 'kyu').replace('きょ', 'kyo')
@@ -350,7 +351,7 @@ def alphabet2kana(text):
 
     Examples
     --------
-    >>> print(jaconv.alphabet2kana('mamisan'))
+    >>> print(jaconvV2.alphabet2kana('mamisan'))
     まみさん
     """
     # replace final h with う, e.g., Itoh -> いとう
@@ -496,7 +497,7 @@ def hiragana2julius(text):
 
     Examples
     --------
-    >>> print(jaconv.hiragana2julius('てんきすごくいいいいいい'))
+    >>> print(jaconvV2.hiragana2julius('てんきすごくいいいいいい'))
     t e N k i s u g o k u i:
     """
 
@@ -801,11 +802,22 @@ def hiragana2julius(text):
     text = text.replace('−', ':')
     text = text.replace('-', ':')
 
-
-    #その他特別な処理
+    # その他特別な処理
     text = text.replace('を', ' o')
 
     text = text.strip()
 
     text = text.replace(':+', ':')
     return text
+
+
+def is_han(char: str) -> bool:
+    assert char and len(char) == 1
+    from .conv_table import HALF_ASCII, HALF_DIGIT, HALF_KANA_SEION, HALF_KANA
+    return char in (HALF_ASCII + HALF_DIGIT + HALF_KANA_SEION + HALF_KANA)
+
+
+def is_zen(char: str) -> bool:
+    # from .conv_table import HIRAGANA, FULL_ASCII, FULL_ASCII, FULL_DIGIT, FULL_KANA, FULL_KANA_SEION
+    # return char in (HIRAGANA + FULL_ASCII + FULL_ASCII + FULL_DIGIT + FULL_KANA + FULL_KANA_SEION)
+    return not is_han(char)
