@@ -811,13 +811,13 @@ def hiragana2julius(text):
     return text
 
 
-def is_han(char: str) -> bool:
+def is_han(char):
     assert char and len(char) == 1
     from .conv_table import HALF_ASCII, HALF_DIGIT, HALF_KANA_SEION, HALF_KANA
     return char in (HALF_ASCII + HALF_DIGIT + HALF_KANA_SEION + HALF_KANA)
 
 
-def is_zen(char: str) -> bool:
+def is_zen(char):
     # from .conv_table import HIRAGANA, FULL_ASCII, FULL_ASCII, FULL_DIGIT, FULL_KANA, FULL_KANA_SEION
     # return char in (HIRAGANA + FULL_ASCII + FULL_ASCII + FULL_DIGIT + FULL_KANA + FULL_KANA_SEION)
     return not is_han(char)
