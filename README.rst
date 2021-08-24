@@ -152,12 +152,12 @@ jaconvV2.normalize method expand unicodedata.normalize for Japanese language pro
 
 
 
-.. |travis| image:: https://travis-ci.org/MikimotoH/jaconv.svg?branch=master
-    :target: https://travis-ci.org/MikimotoH/jaconv
+.. |travis| image:: https://app.travis-ci.com/MikimotoH/jaconv.svg?branch=master
+    :target: https://app.travis-ci.com/MikimotoH/jaconv
     :alt: travis-ci.org
 
-.. |coveralls| image:: https://coveralls.io/repos/MikimotoH/jaconv/badge.svg?branch=master&service=github
-    :target: https://coveralls.io/github/ikegami-yukino/jaconv?branch=master
+.. |coveralls| image:: https://coveralls.io/repos/github/MikimotoH/jaconv/badge.svg?branch=master
+    :target: https://coveralls.io/github/MikimotoH/jaconv?branch=master
     :alt: coveralls.io
 
 .. |pyversion| image:: https://img.shields.io/pypi/pyversions/jaconv.svg

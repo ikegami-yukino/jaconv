@@ -142,8 +142,8 @@ normalizeメソッドは、unicodedata.normalize を日本語処理向けに特�
     :target: https://travis-ci.org/MikimotoH/jaconv
     :alt: travis-ci.org
 
-.. |coveralls| image:: https://coveralls.io/repos/MikimotoH/jaconv/badge.svg?branch=master&service=github
-    :target: https://coveralls.io/github/MikimotoH/jaconvV2?branch=master
+.. |coveralls| image:: https://coveralls.io/repos/github/MikimotoH/jaconv/badge.svg?branch=master
+    :target: https://coveralls.io/github/MikimotoH/jaconv?branch=master
     :alt: coveralls.io
 
 .. |pyversion| image:: https://img.shields.io/pypi/pyversions/jaconv.svg
