@@ -125,3 +125,14 @@ def test_alphabet2julius():
     assert_equal(jaconv.hiragana2julius('かわいいいいい'), 'k a w a i:')
     assert_equal(jaconv.hiragana2julius('やろうぜ'), 'y a r o: z e')
     assert_equal(jaconv.hiragana2julius('てんきすごくいいいいいい'), 't e N k i s u g o k u i:')
+
+def test_yosoku2kana():
+    assert_equal(jaconv.enlargesmallkana('キュゥべえ'), 'キユウべえ')
+    assert_equal(jaconv.enlargesmallkana('しゃえい'), 'しやえい')
+    assert_equal(jaconv.enlargesmallkana('しゅみ'), 'しゆみ')
+    assert_equal(jaconv.enlargesmallkana('きょういっぱい'), 'きよういつぱい')
+    assert_equal(jaconv.enlargesmallkana('シャトー'), 'シヤトー')
+    assert_equal(jaconv.enlargesmallkana('チューリップ'), 'チユーリツプ')
+    assert_equal(jaconv.enlargesmallkana('ショート'), 'シヨート')
+    assert_equal(jaconv.enlargesmallkana('きょういっぱい', 'っ'), 'きよういっぱい')
+    assert_equal(jaconv.enlargesmallkana('きょういっぱい', 'ょっ'), 'きょういっぱい')
