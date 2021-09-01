@@ -38,8 +38,8 @@ FULL_KANA_SEION = list('ァアィイゥウェエォオカキクケコサシス�
                        'ワヲンーヮヰヱヵヶヽヾ・「」。、')
 HEPBURN = list('aiueoaiueon')
 HEPBURN_KANA = list('ぁぃぅぇぉあいうえおん')
-SMALL_KANA = list('ぁぃぅぇぉゃゅょっァィゥェォャュョッ')
-SMALL_KANA_NORMALIZED = list('あいうえおやゆよつアイウエオヤユヨツ')
+SMALL_KANA = list('ぁぃぅぇぉゃゅょっァィゥェォヵヶャュョッ')
+SMALL_KANA_NORMALIZED = list('あいうえおやゆよつアイウエオカケヤユヨツ')
 
 
 def _to_ord_list(chars):

@@ -131,6 +131,8 @@ def test_yosoku2kana():
     assert_equal(jaconv.enlargesmallkana('しゃえい'), 'しやえい')
     assert_equal(jaconv.enlargesmallkana('しゅみ'), 'しゆみ')
     assert_equal(jaconv.enlargesmallkana('きょういっぱい'), 'きよういつぱい')
+    assert_equal(jaconv.enlargesmallkana('霞ヶ関'), '霞ケ関')
+    assert_equal(jaconv.enlargesmallkana('一ヵ月'), '一カ月')
     assert_equal(jaconv.enlargesmallkana('シャトー'), 'シヤトー')
     assert_equal(jaconv.enlargesmallkana('チューリップ'), 'チユーリツプ')
     assert_equal(jaconv.enlargesmallkana('ショート'), 'シヨート')
