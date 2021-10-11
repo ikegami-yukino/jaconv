@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 import re
+import typing
 import unicodedata
 from .conv_table import (H2K_TABLE, H2HK_TABLE, K2H_TABLE, H2Z_A, H2Z_AD,
-                         H2Z_AK, H2Z_D, H2Z_K, H2Z_DK, H2Z_ALL, Z2H_A, Z2H_AD,
+                         H2Z_AK, H2Z_D, H2Z_K, H2Z_DK, H2Z_ALL, SMALL_KANA2BIG_KANA, Z2H_A, Z2H_AD,
                          Z2H_AK, Z2H_D, Z2H_K, Z2H_DK, Z2H_ALL, KANA2HEP,
                          HEP2KANA, JULIUS_LONG_VOWEL)
 from .compat import map
@@ -20,6 +21,13 @@ def _exclude_ignorechar(ignore, conv_map):
 
 def _convert(text, conv_map):
     return text.translate(conv_map)
+
+
+def _translate(text: str, ignore: str, conv_map: typing.Dict) -> str:
+    if ignore:
+        _conv_map = _exclude_ignorechar(ignore, conv_map.copy())
+        return _convert(text, _conv_map)
+    return _convert(text, conv_map)
 
 
 def hira2kata(text, ignore=''):
@@ -44,10 +52,7 @@ def hira2kata(text, ignore=''):
     >>> print(jaconv.hira2kata('まどまぎ', ignore='ど'))
     マどマギ
     """
-    if ignore:
-        h2k_map = _exclude_ignorechar(ignore, H2K_TABLE.copy())
-        return _convert(text, h2k_map)
-    return _convert(text, H2K_TABLE)
+    return _translate(text, ignore, H2K_TABLE)
 
 
 def hira2hkata(text, ignore=''):
@@ -72,10 +77,7 @@ def hira2hkata(text, ignore=''):
     >>> print(jaconv.hira2hkata('ともえまみ', ignore='み'))
     ﾄﾓｴﾏみ
     """
-    if ignore:
-        h2hk_map = _exclude_ignorechar(ignore, H2HK_TABLE.copy())
-        return _convert(text, h2hk_map)
-    return _convert(text, H2HK_TABLE)
+    return _translate(text, ignore, H2HK_TABLE)
 
 
 def kata2hira(text, ignore=''):
@@ -100,10 +102,32 @@ def kata2hira(text, ignore=''):
     >>> print(jaconv.kata2hira('マミサン', ignore='ン'))
     まみさン
     """
-    if ignore:
-        k2h_map = _exclude_ignorechar(ignore, K2H_TABLE.copy())
-        return _convert(text, k2h_map)
-    return _convert(text, K2H_TABLE)
+    return _translate(text, ignore, K2H_TABLE)
+
+
+def enlargesmallkana(text: str, ignore: str='') -> str:
+    """Convert small Hiragana or Katakana to normal size
+
+    Parameters
+    ----------
+    text : str
+        Full-width Hiragana or Katakana string.
+    ignore : str
+        Characters to be ignored in converting.
+
+    Return
+    ------
+    str
+        Hiragana or Katakana string, enlarged small Kana
+
+    Examples
+    --------
+    >>> print(jaconv.enlargesmallkana('さくらきょうこ'))
+    さくらきようこ
+    >>> print(jaconv.enlargesmallkana('キュゥべえ'))
+    キユウべえ
+    """
+    return _translate(text, ignore, SMALL_KANA2BIG_KANA)
 
 
 def h2z(text, ignore='', kana=True, ascii=False, digit=False):

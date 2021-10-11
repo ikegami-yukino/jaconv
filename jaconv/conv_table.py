@@ -38,6 +38,8 @@ FULL_KANA_SEION = list('ァアィイゥウェエォオカキクケコサシス�
                        'ワヲンーヮヰヱヵヶヽヾ・「」。、')
 HEPBURN = list('aiueoaiueon')
 HEPBURN_KANA = list('ぁぃぅぇぉあいうえおん')
+SMALL_KANA = list('ぁぃぅぇぉゃゅょっァィゥェォヵヶャュョッ')
+SMALL_KANA_NORMALIZED = list('あいうえおやゆよつアイウエオカケヤユヨツ')
 
 
 def _to_ord_list(chars):
@@ -51,6 +53,7 @@ HALF_DIGIT_ORD = _to_ord_list(HALF_DIGIT)
 FULL_DIGIT_ORD = _to_ord_list(FULL_DIGIT)
 HALF_KANA_SEION_ORD = _to_ord_list(HALF_KANA_SEION)
 FULL_KANA_SEION_ORD = _to_ord_list(FULL_KANA_SEION)
+SMALL_KANA_ORD = _to_ord_list(SMALL_KANA)
 
 
 def _to_dict(_from, _to):
@@ -93,6 +96,8 @@ JULIUS_LONG_VOWEL = tuple(
     )
 )
 
+SMALL_KANA2BIG_KANA = _to_dict(SMALL_KANA_ORD, SMALL_KANA_NORMALIZED)
+
 del _to_ord_list
 del _to_dict
 del HIRAGANA_ORD
@@ -114,3 +119,6 @@ del FULL_KANA_SEION_ORD
 del FULL_KANA_SEION
 del HEPBURN
 del HEPBURN_KANA
+del SMALL_KANA
+del SMALL_KANA_ORD
+del SMALL_KANA_NORMALIZED
