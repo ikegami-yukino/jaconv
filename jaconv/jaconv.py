@@ -353,6 +353,8 @@ def kana2alphabet(text):
             return ''.join(text[:-1]) + 'xtsu'
         if tsu_pos == 0:
             text[tsu_pos] = 'xtsu'
+        elif text[tsu_pos + 1] == 'っ':
+            text[tsu_pos] = 'xtsu'
         else:
             text[tsu_pos] = text[tsu_pos + 1]
         text = ''.join(text)
