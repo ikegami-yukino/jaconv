@@ -1,6 +1,10 @@
 CHANGES
 =======
 
+0.3.1 (2022-12-14)
+-------------------
+- Fix alpha2kana infinite loop bug (thanks @frog42)
+
 0.3 (2021-03-29)
 -------------------
 - Fix bug (alphabet2kana) thanks @Cuddlemuffin007

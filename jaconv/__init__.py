@@ -23,19 +23,20 @@ Usage:
     jaconv.han2zen(text, [ignore, kana, ascii, digit])  # 半角文字を全角文字に変換
     jaconv.zen2han(text, [ignore, kana, ascii, digit])  # 全角文字を半角文字に変換
     jaconv.normalize(text, [nomalizemode])  # 半角カナを全角カナへ、全角英数字を半角英数字に変換
-    jaconv.kana2alphabet(text)  # かなをヘボン式アルファベットに変換
-    jaconv.alphabet2kana(text)  # アルファベットをかなに変換
-    jaconv.kata2alphabet(text)  # カタカナをアルファベットに変換
-    jaconv.alphabet2kata(text)  # アルファベットをカタカナに変換
+    jaconv.kana2alphabet(text)  # かなをローマ字入力アルファベットに変換
+    jaconv.alphabet2kana(text)  # ローマ字入力アルファベットをかなに変換
+    jaconv.kata2alphabet(text)  # カタカナをローマ字入力アルファベットに変換
+    jaconv.alphabet2kata(text)  # ローマ字入力アルファベットをカタカナに変換
     jaconv.hiragana2julius(text)  # ひらがなをJuliusの音素表現に変換
 """
 
-VERSION = (0, 3)
-__version__ = '0.3'
-__all__ = ['hira2kata', 'hira2hkata', 'kata2hira', 'h2z', 'z2h',
-           'hankaku2zenkaku', 'zenkaku2hankaku', 'normalize',
-           'kana2alphabet', 'alphabet2kana', 'kata2alphabet', 'alphabet2kata',
-           'hiragana2julius', 'enlargesmallkana']
+VERSION = (0, 3, 1)
+__version__ = '0.3.1'
+__all__ = [
+    'hira2kata', 'hira2hkata', 'kata2hira', 'h2z', 'z2h', 'hankaku2zenkaku',
+    'zenkaku2hankaku', 'normalize', 'kana2alphabet', 'alphabet2kana',
+    'kata2alphabet', 'alphabet2kata', 'hiragana2julius', 'enlargesmallkana'
+]
 
 hira2kata = jaconv.hira2kata
 hira2hkata = jaconv.hira2hkata

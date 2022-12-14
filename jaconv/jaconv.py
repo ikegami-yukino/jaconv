@@ -4,9 +4,10 @@ import re
 import typing
 import unicodedata
 from .conv_table import (H2K_TABLE, H2HK_TABLE, K2H_TABLE, H2Z_A, H2Z_AD,
-                         H2Z_AK, H2Z_D, H2Z_K, H2Z_DK, H2Z_ALL, SMALL_KANA2BIG_KANA, Z2H_A, Z2H_AD,
-                         Z2H_AK, Z2H_D, Z2H_K, Z2H_DK, Z2H_ALL, KANA2HEP,
-                         HEP2KANA, JULIUS_LONG_VOWEL)
+                         H2Z_AK, H2Z_D, H2Z_K, H2Z_DK, H2Z_ALL,
+                         SMALL_KANA2BIG_KANA, Z2H_A, Z2H_AD, Z2H_AK, Z2H_D,
+                         Z2H_K, Z2H_DK, Z2H_ALL, KANA2HEP, HEP2KANA,
+                         JULIUS_LONG_VOWEL)
 from .compat import map
 
 consonants = frozenset('sdfghjklqwrtypzxcvbnm')
@@ -105,7 +106,7 @@ def kata2hira(text, ignore=''):
     return _translate(text, ignore, K2H_TABLE)
 
 
-def enlargesmallkana(text: str, ignore: str='') -> str:
+def enlargesmallkana(text: str, ignore: str = '') -> str:
     """Convert small Hiragana or Katakana to normal size
 
     Parameters
@@ -162,6 +163,7 @@ def h2z(text, ignore='', kana=True, ascii=False, digit=False):
     >>> print(jaconv.h2z('1234', digit=True))
     １２３４
     """
+
     def _conv_dakuten(text):
         """Convert Hankaku Dakuten Kana to Zenkaku Dakuten Kana
         """
@@ -282,10 +284,18 @@ def normalize(text, mode='NFKC'):
     """
     text = text.replace('〜', 'ー').replace('～', 'ー')
     text = text.replace("’", "'").replace('”', '"').replace('“', '"')
-    text = text.replace('―', '-').replace('‐', '-').replace('˗', '-').replace('֊', '-')
-    text = text.replace('‐', '-').replace('‑', '-').replace('‒', '-').replace('–', '-')
-    text = text.replace('⁃', '-').replace('⁻', '-').replace('₋', '-').replace('−', '-')
-    text = text.replace('﹣', 'ー').replace('－', 'ー').replace('—', 'ー').replace('―', 'ー')
+    text = text.replace('―', '-').replace('‐',
+                                          '-').replace('˗',
+                                                       '-').replace('֊', '-')
+    text = text.replace('‐', '-').replace('‑',
+                                          '-').replace('‒',
+                                                       '-').replace('–', '-')
+    text = text.replace('⁃', '-').replace('⁻',
+                                          '-').replace('₋',
+                                                       '-').replace('−', '-')
+    text = text.replace('﹣', 'ー').replace('－',
+                                          'ー').replace('—',
+                                                       'ー').replace('―', 'ー')
     text = text.replace('━', 'ー').replace('─', 'ー')
     return unicodedata.normalize(mode, text)
 
@@ -301,7 +311,7 @@ def kana2alphabet(text):
     Return
     ------
     str
-        Hepburn-style alphabets string.
+        Roman-input-style alphabets string.
 
     Examples
     --------
@@ -367,7 +377,7 @@ def alphabet2kana(text):
     Parameters
     ----------
     text : str
-        Alphabets string.
+        Roman-input-style alphabets string.
 
     Return
     ------
@@ -406,7 +416,8 @@ def alphabet2kana(text):
     text = text.replace('tsa', 'つぁ').replace('tsi', 'つぃ').replace('tse', 'つぇ')
     text = text.replace('tso', 'つぉ')
     text = text.replace('thi', 'てぃ').replace('t\'i', 'てぃ')
-    text = text.replace('tha', 'てゃ').replace('thu', 'てゅ').replace('t\'yu', 'てゅ')
+    text = text.replace('tha', 'てゃ').replace('thu',
+                                             'てゅ').replace('t\'yu', 'てゅ')
     text = text.replace('the', 'てぇ').replace('tho', 'てょ')
     text = text.replace('dha', 'でゃ').replace('dhi', 'でぃ').replace('d\'i', 'でぃ')
     text = text.replace('dhu', 'でゅ').replace('dhe', 'でぇ').replace('dho', 'でょ')
@@ -826,7 +837,6 @@ def hiragana2julius(text):
     text = text.replace('〜', ':')
     text = text.replace('−', ':')
     text = text.replace('-', ':')
-
 
     #その他特別な処理
     text = text.replace('を', ' o')
