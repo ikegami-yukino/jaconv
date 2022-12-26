@@ -197,7 +197,10 @@ def h2z(text, ignore='', kana=True, ascii=False, digit=False):
         else:
             h2z_map = H2Z_D
     else:
-        h2z_map = H2Z_K
+        if kana:
+            h2z_map = H2Z_K
+        else:
+            h2z_map = {}  # empty
     if kana:
         text = _conv_dakuten(text)
     if ignore:
@@ -253,7 +256,10 @@ def z2h(text, ignore='', kana=True, ascii=False, digit=False):
         else:
             z2h_map = Z2H_D
     else:
-        z2h_map = Z2H_K
+        if kana:
+            z2h_map = Z2H_K
+        else:
+            z2h_map = {}  # empty
     if ignore:
         z2h_map = _exclude_ignorechar(ignore, z2h_map.copy())
     return _convert(text, z2h_map)
