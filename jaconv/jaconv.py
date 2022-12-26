@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 import re
-import typing
 import unicodedata
 from .conv_table import (H2K_TABLE, H2HK_TABLE, K2H_TABLE, H2Z_A, H2Z_AD,
                          H2Z_AK, H2Z_D, H2Z_K, H2Z_DK, H2Z_ALL,
@@ -14,25 +13,24 @@ consonants = frozenset('sdfghjklqwrtypzxcvbnm')
 ending_h_pattern = re.compile(r'h$')
 
 
-def _exclude_ignorechar(ignore: str,
-                        conv_map: typing.Dict[int, str]) -> typing.Dict[int, str]:
+def _exclude_ignorechar(ignore, conv_map):
     for character in map(ord, ignore):
         del conv_map[character]
     return conv_map
 
 
-def _convert(text: str, conv_map: typing.Dict[int, str]) -> str:
+def _convert(text, conv_map):
     return text.translate(conv_map)
 
 
-def _translate(text: str, ignore: str, conv_map: typing.Dict[int, str]) -> str:
+def _translate(text, ignore, conv_map):
     if ignore:
         _conv_map = _exclude_ignorechar(ignore, conv_map.copy())
         return _convert(text, _conv_map)
     return _convert(text, conv_map)
 
 
-def hira2kata(text: str, ignore: str = '') -> str:
+def hira2kata(text, ignore=''):
     """Convert Hiragana to Full-width (Zenkaku) Katakana.
 
     Parameters
@@ -57,7 +55,7 @@ def hira2kata(text: str, ignore: str = '') -> str:
     return _translate(text, ignore, H2K_TABLE)
 
 
-def hira2hkata(text: str, ignore: str = '') -> str:
+def hira2hkata(text, ignore=''):
     """Convert Hiragana to Half-width (Hankaku) Katakana
 
     Parameters
@@ -82,7 +80,7 @@ def hira2hkata(text: str, ignore: str = '') -> str:
     return _translate(text, ignore, H2HK_TABLE)
 
 
-def kata2hira(text: str, ignore: str = '') -> str:
+def kata2hira(text, ignore=''):
     """Convert Full-width Katakana to Hiragana
 
     Parameters
@@ -107,7 +105,7 @@ def kata2hira(text: str, ignore: str = '') -> str:
     return _translate(text, ignore, K2H_TABLE)
 
 
-def enlargesmallkana(text: str, ignore: str = '') -> str:
+def enlargesmallkana(text, ignore='') -> str:
     """Convert small Hiragana or Katakana to normal size
 
     Parameters
@@ -132,8 +130,7 @@ def enlargesmallkana(text: str, ignore: str = '') -> str:
     return _translate(text, ignore, SMALL_KANA2BIG_KANA)
 
 
-def h2z(text: str, ignore: str = '',
-        kana: bool = True, ascii: bool = False, digit: bool = False) -> str:
+def h2z(text, ignore='', kana=True, ascii=False, digit=False):
     """Convert Half-width (Hankaku) Katakana to Full-width (Zenkaku) Katakana
 
     Parameters
@@ -166,7 +163,7 @@ def h2z(text: str, ignore: str = '',
     １２３４
     """
 
-    def _conv_dakuten(text: str) -> str:
+    def _conv_dakuten(text):
         """Convert Hankaku Dakuten Kana to Zenkaku Dakuten Kana
         """
         text = text.replace("ｶﾞ", "ガ").replace("ｷﾞ", "ギ")
@@ -210,8 +207,7 @@ def h2z(text: str, ignore: str = '',
     return _convert(text, h2z_map)
 
 
-def z2h(text: str, ignore: str = '',
-        kana: bool = True, ascii: bool = False, digit: bool = False) -> str:
+def z2h(text, ignore='', kana=True, ascii=False, digit=False):
     """Convert Full-width (Zenkaku) Katakana to Half-width (Hankaku) Katakana
 
     Parameters
@@ -268,7 +264,7 @@ def z2h(text: str, ignore: str = '',
     return _convert(text, z2h_map)
 
 
-def normalize(text: str, mode: str = 'NFKC') -> str:
+def normalize(text, mode='NFKC'):
     """Convert Half-width (Hankaku) Katakana to Full-width (Zenkaku) Katakana,
     Full-width (Zenkaku) ASCII and DIGIT to Half-width (Hankaku) ASCII
     and DIGIT.
@@ -309,7 +305,7 @@ def normalize(text: str, mode: str = 'NFKC') -> str:
     return unicodedata.normalize(mode, text)
 
 
-def kana2alphabet(text: str) -> str:
+def kana2alphabet(text):
     """Convert Hiragana to hepburn-style alphabets
 
     Parameters
@@ -380,7 +376,7 @@ def kana2alphabet(text: str) -> str:
     return text
 
 
-def alphabet2kana(text: str) -> str:
+def alphabet2kana(text):
     """Convert alphabets to Hiragana
 
     Parameters
@@ -527,7 +523,7 @@ def alphabet2kana(text: str) -> str:
     return ''.join(ret)
 
 
-def hiragana2julius(text: str) -> str:
+def hiragana2julius(text):
     """Convert Hiragana to Julius's phoneme format.
 
     Parameters
