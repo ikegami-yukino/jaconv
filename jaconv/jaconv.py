@@ -38,7 +38,7 @@ def hira2kata(text, ignore=''):
     ----------
     text : str
         Hiragana string.
-    ignore : str
+    ignore : str, optional
         Characters to be ignored in converting.
 
     Return
@@ -63,7 +63,7 @@ def hira2hkata(text, ignore=''):
     ----------
     text : str
         Hiragana string.
-    ignore : str
+    ignore : str, optional
         Characters to be ignored in converting.
 
     Return
@@ -88,7 +88,7 @@ def kata2hira(text, ignore=''):
     ----------
     text : str
         Full-width Katakana string.
-    ignore : str
+    ignore : str, optional
         Characters to be ignored in converting.
 
     Return
@@ -113,7 +113,7 @@ def enlargesmallkana(text: str, ignore: str = '') -> str:
     ----------
     text : str
         Full-width Hiragana or Katakana string.
-    ignore : str
+    ignore : str, optional
         Characters to be ignored in converting.
 
     Return
@@ -138,13 +138,13 @@ def h2z(text, ignore='', kana=True, ascii=False, digit=False):
     ----------
     text : str
         Half-width Katakana string.
-    ignore : str
+    ignore : str, optional
         Characters to be ignored in converting.
-    kana : bool
+    kana : bool, optional
         Either converting Kana or not.
-    ascii : bool
+    ascii : bool, optional
         Either converting ascii or not.
-    digit : bool
+    digit : bool, optional
         Either converting digit or not.
 
     Return
@@ -215,13 +215,13 @@ def z2h(text, ignore='', kana=True, ascii=False, digit=False):
     ----------
     text : str
         Full-width Katakana string.
-    ignore : str
+    ignore : str, optional
         Characters to be ignored in converting.
-    kana : bool
+    kana : bool, optional
         Either converting Kana or not.
-    ascii : bool
+    ascii : bool, optional
         Either converting ascii or not.
-    digit : bool
+    digit : bool, optional
         Either converting digit or not.
 
     Return
@@ -275,7 +275,7 @@ def normalize(text, mode='NFKC'):
     ----------
     text : str
         Source string.
-    mode : str
+    mode : str, optional
         Unicode normalization mode.
 
     Return
