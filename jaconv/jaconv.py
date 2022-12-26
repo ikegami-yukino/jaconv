@@ -363,17 +363,17 @@ def kana2alphabet(text):
     text = text.replace('ゑ', 'we')
     text = _convert(text, KANA2HEP)
     while 'っ' in text:
-        text = list(text)
-        tsu_pos = text.index('っ')
-        if len(text) <= tsu_pos + 1:
-            return ''.join(text[:-1]) + 'xtsu'
+        chars = list(text)
+        tsu_pos = chars.index('っ')
+        if len(chars) <= tsu_pos + 1:
+            return ''.join(chars[:-1]) + 'xtsu'
         if tsu_pos == 0:
-            text[tsu_pos] = 'xtsu'
-        elif text[tsu_pos + 1] == 'っ':
-            text[tsu_pos] = 'xtsu'
+            chars[tsu_pos] = 'xtsu'
+        elif chars[tsu_pos + 1] == 'っ':
+            chars[tsu_pos] = 'xtsu'
         else:
-            text[tsu_pos] = text[tsu_pos + 1]
-        text = ''.join(text)
+            chars[tsu_pos] = chars[tsu_pos + 1]
+        text = ''.join(chars)
     return text
 
 
