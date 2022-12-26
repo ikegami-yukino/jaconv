@@ -16,7 +16,7 @@ ending_h_pattern = re.compile(r'h$')
 
 def _exclude_ignorechar(ignore, conv_map):
     for character in map(ord, ignore):
-        conv_map[character] = character
+        del conv_map[character]
     return conv_map
 
 
