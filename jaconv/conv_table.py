@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 import re
+import typing
 
 from .compat import map, zip
 
@@ -42,8 +43,9 @@ SMALL_KANA = list('ぁぃぅぇぉゃゅょっァィゥェォヵヶャュョッ'
 SMALL_KANA_NORMALIZED = list('あいうえおやゆよつアイウエオカケヤユヨツ')
 
 
-def _to_ord_list(chars):
+def _to_ord_list(chars: typing.List[str]) -> typing.List[int]:
     return list(map(ord, chars))
+
 
 HIRAGANA_ORD = _to_ord_list(HIRAGANA)
 FULL_KANA_ORD = _to_ord_list(FULL_KANA)
@@ -56,7 +58,8 @@ FULL_KANA_SEION_ORD = _to_ord_list(FULL_KANA_SEION)
 SMALL_KANA_ORD = _to_ord_list(SMALL_KANA)
 
 
-def _to_dict(_from, _to):
+def _to_dict(_from: typing.List[int],
+             _to:   typing.List[str]) -> typing.Dict[int, str]:
     return dict(zip(_from, _to))
 
 
