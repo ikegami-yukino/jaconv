@@ -67,12 +67,15 @@ def test_h2z():
     for ascii in (True, False):
         for digit in (True, False):
             for kana in (True, False):
-                assert_equal(
-                    jaconv.h2z(_concat(HALF_KANA if kana else FULL_KANA,
-                                        HALF_ASCII if ascii else FULL_ASCII,
-                                        HALF_DIGIT if digit else FULL_DIGIT),
-                                ascii=ascii, digit=digit, kana=kana),
-                    _concat(FULL_KANA, FULL_ASCII, FULL_DIGIT))
+                before = _concat(FULL_KANA,  HALF_KANA,
+                                 FULL_ASCII, HALF_ASCII,
+                                 FULL_DIGIT, HALF_DIGIT)
+                after = _concat(FULL_KANA,  FULL_KANA  if kana  else HALF_KANA,
+                                FULL_ASCII, FULL_ASCII if ascii else HALF_ASCII,
+                                FULL_DIGIT, FULL_DIGIT if digit else HALF_DIGIT)
+                converted = jaconv.h2z(before,
+                                       ascii=ascii, digit=digit, kana=kana)
+                assert_equal(converted, after)
 
 
 def test_z2h():
@@ -85,12 +88,15 @@ def test_z2h():
     for ascii in (True, False):
         for digit in (True, False):
             for kana in (True, False):
-                assert_equal(
-                    jaconv.z2h(_concat(FULL_KANA if kana else HALF_KANA,
-                                        FULL_ASCII if ascii else HALF_ASCII,
-                                        FULL_DIGIT if digit else HALF_DIGIT),
-                                ascii=ascii, digit=digit, kana=kana),
-                    _concat(HALF_KANA, HALF_ASCII, HALF_DIGIT))
+                before = _concat(FULL_KANA,  HALF_KANA,
+                                 FULL_ASCII, HALF_ASCII,
+                                 FULL_DIGIT, HALF_DIGIT)
+                after = _concat(HALF_KANA  if kana  else FULL_KANA,  HALF_KANA,
+                                HALF_ASCII if ascii else FULL_ASCII, HALF_ASCII,
+                                HALF_DIGIT if digit else FULL_DIGIT, HALF_DIGIT)
+                converted = jaconv.z2h(before,
+                                       ascii=ascii, digit=digit, kana=kana)
+                assert_equal(converted, after)
 
 
 def test_normalize():
