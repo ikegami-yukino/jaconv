@@ -1,6 +1,12 @@
 CHANGES
 =======
 
+0.3.3 (2022-12-31)
+-------------------
+- Support Python 3.10
+- Re-support Python2.7 ~ 3.4 (thanks @manjuu-eater)
+- Fix z2h, h2z all flag off bug (thanks @manjuu-eater)
+
 0.3.1 (2022-12-14)
 -------------------
 - Fix alpha2kana infinite loop bug (thanks @frog42)
