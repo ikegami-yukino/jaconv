@@ -45,6 +45,7 @@ SMALL_KANA_NORMALIZED = list('あいうえおやゆよつアイウエオカケ�
 def _to_ord_list(chars):
     return list(map(ord, chars))
 
+
 HIRAGANA_ORD = _to_ord_list(HIRAGANA)
 FULL_KANA_ORD = _to_ord_list(FULL_KANA)
 HALF_ASCII_ORD = _to_ord_list(HALF_ASCII)

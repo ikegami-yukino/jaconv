@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 import re
-import typing
 import unicodedata
 from .conv_table import (H2K_TABLE, H2HK_TABLE, K2H_TABLE, H2Z_A, H2Z_AD,
                          H2Z_AK, H2Z_D, H2Z_K, H2Z_DK, H2Z_ALL,
@@ -16,7 +15,7 @@ ending_h_pattern = re.compile(r'h$')
 
 def _exclude_ignorechar(ignore, conv_map):
     for character in map(ord, ignore):
-        conv_map[character] = character
+        del conv_map[character]
     return conv_map
 
 
@@ -24,7 +23,7 @@ def _convert(text, conv_map):
     return text.translate(conv_map)
 
 
-def _translate(text: str, ignore: str, conv_map: typing.Dict) -> str:
+def _translate(text, ignore, conv_map):
     if ignore:
         _conv_map = _exclude_ignorechar(ignore, conv_map.copy())
         return _convert(text, _conv_map)
@@ -38,7 +37,7 @@ def hira2kata(text, ignore=''):
     ----------
     text : str
         Hiragana string.
-    ignore : str
+    ignore : str, optional
         Characters to be ignored in converting.
 
     Return
@@ -63,7 +62,7 @@ def hira2hkata(text, ignore=''):
     ----------
     text : str
         Hiragana string.
-    ignore : str
+    ignore : str, optional
         Characters to be ignored in converting.
 
     Return
@@ -88,7 +87,7 @@ def kata2hira(text, ignore=''):
     ----------
     text : str
         Full-width Katakana string.
-    ignore : str
+    ignore : str, optional
         Characters to be ignored in converting.
 
     Return
@@ -106,14 +105,14 @@ def kata2hira(text, ignore=''):
     return _translate(text, ignore, K2H_TABLE)
 
 
-def enlargesmallkana(text: str, ignore: str = '') -> str:
+def enlargesmallkana(text, ignore='') -> str:
     """Convert small Hiragana or Katakana to normal size
 
     Parameters
     ----------
     text : str
         Full-width Hiragana or Katakana string.
-    ignore : str
+    ignore : str, optional
         Characters to be ignored in converting.
 
     Return
@@ -138,13 +137,13 @@ def h2z(text, ignore='', kana=True, ascii=False, digit=False):
     ----------
     text : str
         Half-width Katakana string.
-    ignore : str
+    ignore : str, optional
         Characters to be ignored in converting.
-    kana : bool
+    kana : bool, optional
         Either converting Kana or not.
-    ascii : bool
+    ascii : bool, optional
         Either converting ascii or not.
-    digit : bool
+    digit : bool, optional
         Either converting digit or not.
 
     Return
@@ -215,13 +214,13 @@ def z2h(text, ignore='', kana=True, ascii=False, digit=False):
     ----------
     text : str
         Full-width Katakana string.
-    ignore : str
+    ignore : str, optional
         Characters to be ignored in converting.
-    kana : bool
+    kana : bool, optional
         Either converting Kana or not.
-    ascii : bool
+    ascii : bool, optional
         Either converting ascii or not.
-    digit : bool
+    digit : bool, optional
         Either converting digit or not.
 
     Return
@@ -275,7 +274,7 @@ def normalize(text, mode='NFKC'):
     ----------
     text : str
         Source string.
-    mode : str
+    mode : str, optional
         Unicode normalization mode.
 
     Return
@@ -363,17 +362,17 @@ def kana2alphabet(text):
     text = text.replace('ゑ', 'we')
     text = _convert(text, KANA2HEP)
     while 'っ' in text:
-        text = list(text)
-        tsu_pos = text.index('っ')
-        if len(text) <= tsu_pos + 1:
-            return ''.join(text[:-1]) + 'xtsu'
+        chars = list(text)
+        tsu_pos = chars.index('っ')
+        if len(chars) <= tsu_pos + 1:
+            return ''.join(chars[:-1]) + 'xtsu'
         if tsu_pos == 0:
-            text[tsu_pos] = 'xtsu'
-        elif text[tsu_pos + 1] == 'っ':
-            text[tsu_pos] = 'xtsu'
+            chars[tsu_pos] = 'xtsu'
+        elif chars[tsu_pos + 1] == 'っ':
+            chars[tsu_pos] = 'xtsu'
         else:
-            text[tsu_pos] = text[tsu_pos + 1]
-        text = ''.join(text)
+            chars[tsu_pos] = chars[tsu_pos + 1]
+        text = ''.join(chars)
     return text
 
 
