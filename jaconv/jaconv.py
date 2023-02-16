@@ -105,7 +105,7 @@ def kata2hira(text, ignore=''):
     return _translate(text, ignore, K2H_TABLE)
 
 
-def enlargesmallkana(text, ignore='') -> str:
+def enlargesmallkana(text, ignore=''):
     """Convert small Hiragana or Katakana to normal size
 
     Parameters
