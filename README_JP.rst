@@ -1,6 +1,6 @@
 jaconv
 ==========
-|travis| |coveralls| |pyversion| |version| |license|
+|travis| |coveralls| |pyversion| |version| |license| |download|
 
 jaconv (Japanese Converter) はひらがな・カタカナ・全角・半角の文字種変換を高速に行います。
 Pythonのみで実装されているので、Cコンパイラが使えない環境でも利用できます。
@@ -148,3 +148,7 @@ normalizeメソッドは、unicodedata.normalize を日本語処理向けに特�
 .. |license| image:: https://img.shields.io/pypi/l/jaconv.svg
     :target: http://pypi.python.org/pypi/jaconv/
     :alt: license
+
+.. |download| image:: https://static.pepy.tech/personalized-badge/neologdn?period=total&units=international_system&left_color=black&right_color=blue&left_text=Downloads
+    :target: https://pepy.tech/project/neologdn
+    :alt: download

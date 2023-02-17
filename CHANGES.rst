@@ -1,6 +1,11 @@
 CHANGES
 =======
 
+0.3.4 (2023-2-18)
+-------------------
+- Fix to support Python2.7 ~ 3.4 (thanks @manjuu-eater)
+- Support Python 3.11
+
 0.3.3 (2022-12-31)
 -------------------
 - Support Python 3.10
