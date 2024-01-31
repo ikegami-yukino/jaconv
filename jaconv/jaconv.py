@@ -394,6 +394,8 @@ def alphabet2kana(text):
     >>> print(jaconv.alphabet2kana('mamisan'))
     まみさん
     """
+    text = text.lower()  # ensure lower case.
+  
     # replace final h with う, e.g., Itoh -> いとう
     text = re.sub(ending_h_pattern, 'う', text)
 
