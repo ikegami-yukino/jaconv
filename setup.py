@@ -10,6 +10,9 @@ with open(os.path.join('jaconv', '__init__.py'), 'r', encoding='utf8') as f:
 
 setup(name='jaconv',
       packages=['jaconv'],
+      package_data={
+          "jaconv": ["py.typed", "*.pyi"],
+      },
       version=version,
       license='MIT License',
       platforms=['POSIX', 'Windows', 'Unix', 'MacOS'],
