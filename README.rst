@@ -1,6 +1,6 @@
 jaconv
 ==========
-|travis| |coveralls| |pyversion| |version| |license| |download|
+|coveralls| |pyversion| |version| |license| |download|
 
 jaconv (Japanese Converter) is interconverter for Hiragana, Katakana, Hankaku (half-width character) and Zenkaku (full-width character)
 
@@ -141,11 +141,6 @@ jaconv.normalize method expand unicodedata.normalize for Japanese language proce
 
 
 
-
-
-.. |travis| image:: https://travis-ci.org/ikegami-yukino/jaconv.svg?branch=master
-    :target: https://travis-ci.org/ikegami-yukino/jaconv
-    :alt: travis-ci.org
 
 .. |coveralls| image:: https://coveralls.io/repos/ikegami-yukino/jaconv/badge.svg?branch=master&service=github
     :target: https://coveralls.io/github/ikegami-yukino/jaconv?branch=master

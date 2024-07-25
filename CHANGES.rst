@@ -1,6 +1,10 @@
 CHANGES
 =======
 
+0.4.0 (2024-7-26)
+-------------------
+- Add stub files according to PEP 561 for mypy (thanks @ernix)
+
 0.3.4 (2023-2-18)
 -------------------
 - Fix to support Python2.7 ~ 3.4 (thanks @manjuu-eater)

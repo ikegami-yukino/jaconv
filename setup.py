@@ -40,7 +40,8 @@ setup(name='jaconv',
           'Programming Language :: Python :: 3.8',
           'Programming Language :: Python :: 3.9',
           'Programming Language :: Python :: 3.10',
-          'Programming Language :: Python :: 3.11', 'Topic :: Text Processing'
+          'Programming Language :: Python :: 3.11',
+          'Programming Language :: Python :: 3.12', 'Topic :: Text Processing'
       ],
       data_files=[('', ['README.rst', 'CHANGES.rst'])],
       long_description='%s\n\n%s' %
