@@ -1,0 +1,45 @@
+[project]
+name = "jaconv"
+version = "0.4.0"
+requires-python = ">= 2.7"
+description = "Pure-Python Japanese character interconverter for Hiragana, Katakana, Hankaku, Zenkaku and more"
+authors = [
+  {name = "Yukino Ikegami", email = "yknikgm@gmail.com"}
+]
+readme = {file = "README.rst", content-type = "text/x-rst"}
+license = {text = "MIT License"}
+keywords = [
+  "Japanese converter", "Japanese", "text preprocessing",
+  "half-width kana", "Hiragana", "Katakana", "Hankaku", "Zenkaku",
+  "transliteration", "Julius"
+]
+classifiers = [
+  "Development Status :: 4 - Beta", "Intended Audience :: Developers",
+  "Intended Audience :: Information Technology",
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: Japanese", "Operating System :: MacOS",
+  "Operating System :: Microsoft", "Operating System :: POSIX",
+  "Programming Language :: Python :: 2.7",
+  "Programming Language :: Python :: 3.4",
+  "Programming Language :: Python :: 3.5",
+  "Programming Language :: Python :: 3.6",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12", "Topic :: Text Processing"
+]
+
+[project.urls]
+source = "https://github.com/ikegami-yukino/jaconv"
+
+[build-system]
+requires = ["setuptools>=61.0.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["jaconv"]
+
+[tool.setuptools.package-data]
+jaconv = ["py.typed", "*.pyi"]
