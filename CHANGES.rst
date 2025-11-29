@@ -1,10 +1,11 @@
 CHANGES
 =======
 
-0.4.1 (2025-4-29)
+0.4.1 (2025-11-30)
 -------------------
 - port static configs to setup.cfg (thanks @eli-schwartz)
 - migrate testsuite to pytest (thanks @eli-schwartz)
+- Support Python 3.13 and 3.14
 
 0.4.0 (2024-7-26)
 -------------------
