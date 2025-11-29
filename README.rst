@@ -140,13 +140,9 @@ jaconv.normalize method expand unicodedata.normalize for Japanese language proce
     '─' => 'ー'
 
 
-
-
-.. |coveralls| image:: https://coveralls.io/repos/ikegami-yukino/jaconv/badge.svg?branch=master&service=github
-    :target: https://coveralls.io/github/ikegami-yukino/jaconv?branch=master
-    :alt: coveralls.io
-
 .. |pyversion| image:: https://img.shields.io/pypi/pyversions/jaconv.svg
+    :target: http://pypi.python.org/pypi/jaconv/
+    :alt: Python version
 
 .. |version| image:: https://img.shields.io/pypi/v/jaconv.svg
     :target: http://pypi.python.org/pypi/jaconv/
@@ -156,8 +152,8 @@ jaconv.normalize method expand unicodedata.normalize for Japanese language proce
     :target: http://pypi.python.org/pypi/jaconv/
     :alt: license
 
-.. |download| image:: https://static.pepy.tech/personalized-badge/neologdn?period=total&units=international_system&left_color=black&right_color=blue&left_text=Downloads
-    :target: https://pepy.tech/project/neologdn
+.. |download| image:: https://static.pepy.tech/personalized-badge/jaconv?period=total&units=international_system&left_color=black&right_color=blue&left_text=Downloads
+    :target: https://pepy.tech/project/jaconv
     :alt: download
 
 .. |nowar| image:: https://img.shields.io/badge/%F0%9F%A4%9D%20NO%20WAR-FF0000?style=plastic

@@ -1,5 +1,7 @@
-from .compat import map as map, zip as zip
 from _typeshed import Incomplete
+
+from .compat import map as map
+from .compat import zip as zip
 
 H2K_TABLE: Incomplete
 H2HK_TABLE: Incomplete

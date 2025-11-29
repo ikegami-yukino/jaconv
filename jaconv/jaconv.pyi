@@ -1,7 +1,29 @@
 import typing
-from .compat import map as map
-from .conv_table import H2HK_TABLE as H2HK_TABLE, H2K_TABLE as H2K_TABLE, H2Z_A as H2Z_A, H2Z_AD as H2Z_AD, H2Z_AK as H2Z_AK, H2Z_ALL as H2Z_ALL, H2Z_D as H2Z_D, H2Z_DK as H2Z_DK, H2Z_K as H2Z_K, HEP2KANA as HEP2KANA, JULIUS_LONG_VOWEL as JULIUS_LONG_VOWEL, K2H_TABLE as K2H_TABLE, KANA2HEP as KANA2HEP, SMALL_KANA2BIG_KANA as SMALL_KANA2BIG_KANA, Z2H_A as Z2H_A, Z2H_AD as Z2H_AD, Z2H_AK as Z2H_AK, Z2H_ALL as Z2H_ALL, Z2H_D as Z2H_D, Z2H_DK as Z2H_DK, Z2H_K as Z2H_K
+
 from _typeshed import Incomplete
+
+from .compat import map as map
+from .conv_table import H2HK_TABLE as H2HK_TABLE
+from .conv_table import H2K_TABLE as H2K_TABLE
+from .conv_table import H2Z_A as H2Z_A
+from .conv_table import H2Z_AD as H2Z_AD
+from .conv_table import H2Z_AK as H2Z_AK
+from .conv_table import H2Z_ALL as H2Z_ALL
+from .conv_table import H2Z_D as H2Z_D
+from .conv_table import H2Z_DK as H2Z_DK
+from .conv_table import H2Z_K as H2Z_K
+from .conv_table import HEP2KANA as HEP2KANA
+from .conv_table import JULIUS_LONG_VOWEL as JULIUS_LONG_VOWEL
+from .conv_table import K2H_TABLE as K2H_TABLE
+from .conv_table import KANA2HEP as KANA2HEP
+from .conv_table import SMALL_KANA2BIG_KANA as SMALL_KANA2BIG_KANA
+from .conv_table import Z2H_A as Z2H_A
+from .conv_table import Z2H_AD as Z2H_AD
+from .conv_table import Z2H_AK as Z2H_AK
+from .conv_table import Z2H_ALL as Z2H_ALL
+from .conv_table import Z2H_D as Z2H_D
+from .conv_table import Z2H_DK as Z2H_DK
+from .conv_table import Z2H_K as Z2H_K
 
 consonants: Incomplete
 ending_h_pattern: Incomplete

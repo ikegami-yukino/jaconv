@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-import jaconv
+
 from functools import partial
 
+import jaconv
 
 HIRAGANA = ('ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞた',
             'だちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽま',

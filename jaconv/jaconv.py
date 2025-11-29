@@ -1,13 +1,33 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+
 import re
 import unicodedata
-from .conv_table import (H2K_TABLE, H2HK_TABLE, K2H_TABLE, H2Z_A, H2Z_AD,
-                         H2Z_AK, H2Z_D, H2Z_K, H2Z_DK, H2Z_ALL,
-                         SMALL_KANA2BIG_KANA, Z2H_A, Z2H_AD, Z2H_AK, Z2H_D,
-                         Z2H_K, Z2H_DK, Z2H_ALL, KANA2HEP, HEP2KANA,
-                         JULIUS_LONG_VOWEL)
+
 from .compat import map
+from .conv_table import (
+    H2HK_TABLE,
+    H2K_TABLE,
+    H2Z_A,
+    H2Z_AD,
+    H2Z_AK,
+    H2Z_ALL,
+    H2Z_D,
+    H2Z_DK,
+    H2Z_K,
+    HEP2KANA,
+    JULIUS_LONG_VOWEL,
+    K2H_TABLE,
+    KANA2HEP,
+    SMALL_KANA2BIG_KANA,
+    Z2H_A,
+    Z2H_AD,
+    Z2H_AK,
+    Z2H_ALL,
+    Z2H_D,
+    Z2H_DK,
+    Z2H_K,
+)
 
 consonants = frozenset('sdfghjklqwrtypzxcvbnm')
 ending_h_pattern = re.compile(r'h$')

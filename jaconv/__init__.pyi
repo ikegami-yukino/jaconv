@@ -1,5 +1,6 @@
-from . import jaconv
 from _typeshed import Incomplete
+
+from . import jaconv
 
 __all__ = ['hira2kata', 'hira2hkata', 'kata2hira', 'h2z', 'z2h', 'hankaku2zenkaku', 'zenkaku2hankaku', 'normalize', 'kana2alphabet', 'alphabet2kana', 'kata2alphabet', 'alphabet2kata', 'hiragana2julius', 'enlargesmallkana']
 

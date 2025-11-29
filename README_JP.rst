@@ -141,8 +141,8 @@ normalizeメソッドは、unicodedata.normalize を日本語処理向けに特�
     :target: http://pypi.python.org/pypi/jaconv/
     :alt: license
 
-.. |download| image:: https://static.pepy.tech/personalized-badge/neologdn?period=total&units=international_system&left_color=black&right_color=blue&left_text=Downloads
-    :target: https://pepy.tech/project/neologdn
+.. |download| image:: https://static.pepy.tech/personalized-badge/jaconv?period=total&units=international_system&left_color=black&right_color=blue&left_text=Downloads
+    :target: https://pepy.tech/project/jaconv
     :alt: download
 
 .. |nowar| image:: https://img.shields.io/badge/%F0%9F%A4%9D%20NO%20WAR-FF0000?style=plastic
