@@ -1,8 +1,14 @@
 CHANGES
 =======
 
+0.4.1 (2025-4-29)
+-------------------
+- port static configs to setup.cfg (thanks @eli-schwartz)
+- migrate testsuite to pytest (thanks @eli-schwartz)
+
 0.4.0 (2024-7-26)
 -------------------
+- Support Python 3.12
 - Add stub files according to PEP 561 for mypy (thanks @ernix)
 
 0.3.4 (2023-2-18)

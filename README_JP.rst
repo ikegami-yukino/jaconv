@@ -1,6 +1,6 @@
 jaconv
 ==========
-|travis| |coveralls| |pyversion| |version| |license| |download|
+|coveralls| |pyversion| |version| |license| |download| |nowar| |nonuke|
 
 jaconv (Japanese Converter) はひらがな・カタカナ・全角・半角の文字種変換を高速に行います。
 Pythonのみで実装されているので、Cコンパイラが使えない環境でも利用できます。
@@ -131,14 +131,6 @@ normalizeメソッドは、unicodedata.normalize を日本語処理向けに特�
     '─' => 'ー'
 
 
-.. |travis| image:: https://travis-ci.org/ikegami-yukino/jaconv.svg?branch=master
-    :target: https://travis-ci.org/ikegami-yukino/jaconv
-    :alt: travis-ci.org
-
-.. |coveralls| image:: https://coveralls.io/repos/ikegami-yukino/jaconv/badge.svg?branch=master&service=github
-    :target: https://coveralls.io/github/ikegami-yukino/jaconv?branch=master
-    :alt: coveralls.io
-
 .. |pyversion| image:: https://img.shields.io/pypi/pyversions/jaconv.svg
 
 .. |version| image:: https://img.shields.io/pypi/v/jaconv.svg
@@ -152,3 +144,9 @@ normalizeメソッドは、unicodedata.normalize を日本語処理向けに特�
 .. |download| image:: https://static.pepy.tech/personalized-badge/neologdn?period=total&units=international_system&left_color=black&right_color=blue&left_text=Downloads
     :target: https://pepy.tech/project/neologdn
     :alt: download
+
+.. |nowar| image:: https://img.shields.io/badge/%F0%9F%A4%9D%20NO%20WAR-FF0000?style=plastic
+   :alt: NO WAR budge
+
+.. |nonuke| image:: https://img.shields.io/badge/%E2%98%A2%20NO%20NUKE-FFFF00?style=plastic
+   :alt: NO NUKE budge
