@@ -1,6 +1,6 @@
 jaconv
 ==========
-|coveralls| |pyversion| |version| |license| |download| |nowar| |nonuke|
+|pyversion| |version| |license| |download| |nowar| |nonuke|
 
 jaconv (Japanese Converter) はひらがな・カタカナ・全角・半角の文字種変換を高速に行います。
 Pythonのみで実装されているので、Cコンパイラが使えない環境でも利用できます。
@@ -146,7 +146,7 @@ normalizeメソッドは、unicodedata.normalize を日本語処理向けに特�
     :alt: download
 
 .. |nowar| image:: https://img.shields.io/badge/%F0%9F%A4%9D%20NO%20WAR-FF0000?style=plastic
-   :alt: NO WAR budge
+    :alt: NO WAR budge
 
 .. |nonuke| image:: https://img.shields.io/badge/%E2%98%A2%20NO%20NUKE-FFFF00?style=plastic
-   :alt: NO NUKE budge
+    :alt: NO NUKE budge
