@@ -101,8 +101,8 @@ USAGE
 NOTE
 ============
 
-normalizeメソッドは、unicodedata.normalize を日本語処理向けに特化した拡張を行っています。
-具体的には以下のように変換します。
+normalize メソッドは、Python の unicodedata.normalize をベースに日本語処理向けに特化した拡張を行っています。
+具体的には以下の変換処理を追加して実行します。
 
 .. code::
 
