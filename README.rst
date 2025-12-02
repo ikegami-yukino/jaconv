@@ -1,6 +1,6 @@
 jaconv
 ==========
-|pyversion| |version| |license| |download| |nowar| |nonuke|
+|version| |pyversion| |license| |download| |usedby| |githubstars| |nowar| |nonuke|
 
 jaconv (Japanese Converter) is interconverter for Hiragana, Katakana, Hankaku (half-width character) and Zenkaku (full-width character)
 
@@ -141,8 +141,6 @@ jaconv.normalize method expand unicodedata.normalize for Japanese language proce
 
 
 .. |pyversion| image:: https://img.shields.io/pypi/pyversions/jaconv.svg
-    :target: http://pypi.python.org/pypi/jaconv/
-    :alt: Python version
 
 .. |version| image:: https://img.shields.io/pypi/v/jaconv.svg
     :target: http://pypi.python.org/pypi/jaconv/
@@ -155,6 +153,14 @@ jaconv.normalize method expand unicodedata.normalize for Japanese language proce
 .. |download| image:: https://static.pepy.tech/personalized-badge/jaconv?period=total&units=international_system&left_color=black&right_color=blue&left_text=Downloads
     :target: https://pepy.tech/project/jaconv
     :alt: download
+
+.. |usedby| image:: https://img.shields.io/github/search?query=import%20jaconv%20language%3Apython&label=Used%20in%20GitHub
+    :target: https://github.com/search?q=import+jaconv+language%3Apython&type=code
+    :alt: GitHub code search count
+
+.. |githubstars| image:: https://img.shields.io/github/stars/ikegami-yukino/jaconv
+    :target: https://github.com/ikegami-yukino/jaconv
+    :alt: GitHub Repo stars
 
 .. |nowar| image:: https://img.shields.io/badge/%F0%9F%A4%9D%20NO%20WAR-FF0000?style=plastic
     :alt: NO WAR budge
