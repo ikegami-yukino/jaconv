@@ -184,21 +184,20 @@ def h2z(text, ignore='', kana=True, ascii=False, digit=False):
     """
 
     def _conv_dakuten(text):
-        """Convert Hankaku Dakuten Kana to Zenkaku Dakuten Kana
-        """
-        text = text.replace("ｶﾞ", "ガ").replace("ｷﾞ", "ギ")
-        text = text.replace("ｸﾞ", "グ").replace("ｹﾞ", "ゲ")
-        text = text.replace("ｺﾞ", "ゴ").replace("ｻﾞ", "ザ")
-        text = text.replace("ｼﾞ", "ジ").replace("ｽﾞ", "ズ")
-        text = text.replace("ｾﾞ", "ゼ").replace("ｿﾞ", "ゾ")
-        text = text.replace("ﾀﾞ", "ダ").replace("ﾁﾞ", "ヂ")
-        text = text.replace("ﾂﾞ", "ヅ").replace("ﾃﾞ", "デ")
-        text = text.replace("ﾄﾞ", "ド").replace("ﾊﾞ", "バ")
-        text = text.replace("ﾋﾞ", "ビ").replace("ﾌﾞ", "ブ")
-        text = text.replace("ﾍﾞ", "ベ").replace("ﾎﾞ", "ボ")
-        text = text.replace("ﾊﾟ", "パ").replace("ﾋﾟ", "ピ")
-        text = text.replace("ﾌﾟ", "プ").replace("ﾍﾟ", "ペ")
-        return text.replace("ﾎﾟ", "ポ").replace("ｳﾞ", "ヴ")
+        """Convert Hankaku Dakuten Kana to Zenkaku Dakuten Kana"""
+        text = text.replace('ｶﾞ', 'ガ').replace('ｷﾞ', 'ギ')
+        text = text.replace('ｸﾞ', 'グ').replace('ｹﾞ', 'ゲ')
+        text = text.replace('ｺﾞ', 'ゴ').replace('ｻﾞ', 'ザ')
+        text = text.replace('ｼﾞ', 'ジ').replace('ｽﾞ', 'ズ')
+        text = text.replace('ｾﾞ', 'ゼ').replace('ｿﾞ', 'ゾ')
+        text = text.replace('ﾀﾞ', 'ダ').replace('ﾁﾞ', 'ヂ')
+        text = text.replace('ﾂﾞ', 'ヅ').replace('ﾃﾞ', 'デ')
+        text = text.replace('ﾄﾞ', 'ド').replace('ﾊﾞ', 'バ')
+        text = text.replace('ﾋﾞ', 'ビ').replace('ﾌﾞ', 'ブ')
+        text = text.replace('ﾍﾞ', 'ベ').replace('ﾎﾞ', 'ボ')
+        text = text.replace('ﾊﾟ', 'パ').replace('ﾋﾟ', 'ピ')
+        text = text.replace('ﾌﾟ', 'プ').replace('ﾍﾟ', 'ペ')
+        return text.replace('ﾎﾟ', 'ポ').replace('ｳﾞ', 'ヴ')
 
     if ascii:
         if digit:
@@ -308,19 +307,16 @@ def normalize(text, mode='NFKC'):
     ティロ・フィナーレ
     """
     text = text.replace('〜', 'ー').replace('～', 'ー')
-    text = text.replace("’", "'").replace('”', '"').replace('“', '"')
-    text = text.replace('―', '-').replace('‐',
-                                          '-').replace('˗',
-                                                       '-').replace('֊', '-')
-    text = text.replace('‐', '-').replace('‑',
-                                          '-').replace('‒',
-                                                       '-').replace('–', '-')
-    text = text.replace('⁃', '-').replace('⁻',
-                                          '-').replace('₋',
-                                                       '-').replace('−', '-')
-    text = text.replace('﹣', 'ー').replace('－',
-                                          'ー').replace('—',
-                                                       'ー').replace('―', 'ー')
+    text = text.replace('’', "'").replace('”', '"').replace('“', '"')
+    text = text.replace('―', '-').replace('‐', '-').replace('˗', '-').replace('֊', '-')
+    text = text.replace('‐', '-').replace('‑', '-').replace('‒', '-').replace('–', '-')
+    text = text.replace('⁃', '-').replace('⁻', '-').replace('₋', '-').replace('−', '-')
+    text = (
+        text.replace('﹣', 'ー')
+        .replace('－', 'ー')
+        .replace('—', 'ー')
+        .replace('―', 'ー')
+    )
     text = text.replace('━', 'ー').replace('─', 'ー')
     return unicodedata.normalize(mode, text)
 
@@ -415,7 +411,7 @@ def alphabet2kana(text):
     まみさん
     """
     text = text.lower()  # ensure lower case.
-  
+
     # replace final h with う, e.g., Itoh -> いとう
     text = re.sub(ending_h_pattern, 'う', text)
 
@@ -442,17 +438,16 @@ def alphabet2kana(text):
     text = text.replace('tye', 'ちぇ').replace('tyo', 'ちょ')
     text = text.replace('tsa', 'つぁ').replace('tsi', 'つぃ').replace('tse', 'つぇ')
     text = text.replace('tso', 'つぉ')
-    text = text.replace('thi', 'てぃ').replace('t\'i', 'てぃ')
-    text = text.replace('tha', 'てゃ').replace('thu',
-                                             'てゅ').replace('t\'yu', 'てゅ')
+    text = text.replace('thi', 'てぃ').replace("t'i", 'てぃ')
+    text = text.replace('tha', 'てゃ').replace('thu', 'てゅ').replace("t'yu", 'てゅ')
     text = text.replace('the', 'てぇ').replace('tho', 'てょ')
-    text = text.replace('dha', 'でゃ').replace('dhi', 'でぃ').replace('d\'i', 'でぃ')
+    text = text.replace('dha', 'でゃ').replace('dhi', 'でぃ').replace("d'i", 'でぃ')
     text = text.replace('dhu', 'でゅ').replace('dhe', 'でぇ').replace('dho', 'でょ')
-    text = text.replace('d\'yu', 'でゅ')
+    text = text.replace("d'yu", 'でゅ')
     text = text.replace('twa', 'とぁ').replace('twi', 'とぃ').replace('twu', 'とぅ')
-    text = text.replace('twe', 'とぇ').replace('two', 'とぉ').replace('t\'u', 'とぅ')
+    text = text.replace('twe', 'とぇ').replace('two', 'とぉ').replace("t'u", 'とぅ')
     text = text.replace('dwa', 'どぁ').replace('dwi', 'どぃ').replace('dwu', 'どぅ')
-    text = text.replace('dwe', 'どぇ').replace('dwo', 'どぉ').replace('d\'u', 'どぅ')
+    text = text.replace('dwe', 'どぇ').replace('dwo', 'どぉ').replace("d'u", 'どぅ')
     text = text.replace('nya', 'にゃ').replace('nyi', 'にぃ').replace('nyu', 'にゅ')
     text = text.replace('nye', 'にぇ').replace('nyo', 'にょ')
     text = text.replace('hya', 'ひゃ').replace('hyi', 'ひぃ').replace('hyu', 'ひゅ')
@@ -515,7 +510,12 @@ def alphabet2kana(text):
     text = text.replace('po', 'ぽ')
     text = text.replace('ka', 'か').replace('ki', 'き').replace('ku', 'く')
     text = text.replace('ke', 'け').replace('ko', 'こ').replace('sa', 'さ')
-    text = text.replace('shi', 'し').replace('si', 'し').replace('su', 'す').replace('se', 'せ')
+    text = (
+        text.replace('shi', 'し')
+        .replace('si', 'し')
+        .replace('su', 'す')
+        .replace('se', 'せ')
+    )
     text = text.replace('so', 'そ').replace('ta', 'た').replace('chi', 'ち')
     text = text.replace('te', 'て').replace('to', 'と')
     text = text.replace('na', 'な').replace('ni', 'に').replace('nu', 'ぬ')
@@ -538,7 +538,7 @@ def alphabet2kana(text):
     text = text.replace('l', 'る').replace('-', 'ー')
     text = _convert(text, HEP2KANA)
     ret = []
-    for (i, char) in enumerate(text):
+    for i, char in enumerate(text):
         if char in consonants:
             char = 'っ'
         ret.append(char)
@@ -857,7 +857,7 @@ def hiragana2julius(text):
     text = text.replace('ぉ', ' o')
 
     # 長音の処理
-    for (pattern, replace_str) in JULIUS_LONG_VOWEL:
+    for pattern, replace_str in JULIUS_LONG_VOWEL:
         text = pattern.sub(replace_str, text)
     text = text.replace('o u', 'o:')  # おう -> おーの音便
     text = text.replace('ー', ':')
@@ -865,7 +865,7 @@ def hiragana2julius(text):
     text = text.replace('−', ':')
     text = text.replace('-', ':')
 
-    #その他特別な処理
+    # その他特別な処理
     text = text.replace('を', ' o')
 
     text = text.strip()
