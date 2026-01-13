@@ -12,7 +12,8 @@ repos:
     # Run the linter.
     - id: ruff-check
       types_or: [ python, pyi ]
-      args: [ --select I --fix ]
+      args: [ --select, I, --fix ]
     # Run the formatter.
     - id: ruff-format
       types_or: [ python, pyi ]
+      args: [ --config, "format.quote-style = 'single'" ]
