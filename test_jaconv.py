@@ -119,6 +119,8 @@ def test_alphabet2kana():
     assert jaconv.alphabet2kana('itoh') == 'いとう'
     assert jaconv.alphabet2kana('ohtaku') == 'おおたく'
     assert jaconv.alphabet2kana('namba') == 'なんば'
+    assert jaconv.alphabet2kana('siba') == 'しば'
+    assert jaconv.alphabet2kana('shiba') == 'しば'
 
 
 def test_alphabet2julius():

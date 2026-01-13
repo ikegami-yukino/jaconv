@@ -515,7 +515,7 @@ def alphabet2kana(text):
     text = text.replace('po', 'ぽ')
     text = text.replace('ka', 'か').replace('ki', 'き').replace('ku', 'く')
     text = text.replace('ke', 'け').replace('ko', 'こ').replace('sa', 'さ')
-    text = text.replace('shi', 'し').replace('su', 'す').replace('se', 'せ')
+    text = text.replace('shi', 'し').replace('si', 'し').replace('su', 'す').replace('se', 'せ')
     text = text.replace('so', 'そ').replace('ta', 'た').replace('chi', 'ち')
     text = text.replace('te', 'て').replace('to', 'と')
     text = text.replace('na', 'な').replace('ni', 'に').replace('nu', 'ぬ')
