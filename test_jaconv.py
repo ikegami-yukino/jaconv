@@ -5,22 +5,32 @@ from functools import partial
 
 import jaconv
 
-HIRAGANA = ('ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞた',
-            'だちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽま',
-            'みむめもゃやゅゆょよらりるれろわをんーゎゐゑゕゖゔゝゞ・「」。、')
-FULL_KANA = ('ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタ',
-             'ダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマ',
-             'ミムメモャヤュユョヨラリルレロワヲンーヮヰヱヵヶヴヽヾ・「」。、')
-HALF_KANA = ('ｧｱｨｲｩｳｪｴｫｵｶｶﾞｷｷﾞｸｸﾞｹｹﾞｺｺﾞｻｻﾞｼｼﾞｽｽﾞｾｾﾞｿｿﾞﾀ',
-             'ﾀﾞﾁﾁﾞｯﾂﾂﾞﾃﾃﾞﾄﾄﾞﾅﾆﾇﾈﾉﾊﾊﾞﾊﾟﾋﾋﾞﾋﾟﾌﾌﾞﾌﾟﾍﾍﾞﾍﾟﾎﾎﾞﾎﾟﾏ',
-             'ﾐﾑﾒﾓｬﾔｭﾕｮﾖﾗﾘﾙﾚﾛﾜｦﾝｰヮヰヱヵヶｳﾞヽヾ･｢｣｡､')
-HALF_ASCII = ('!"#$%&\'()*+,-./:;<=>?@[\\]^_`~',
-              'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-              'abcdefghijklmnopqrstuvwxyz{|} ')
+HIRAGANA = (
+    'ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞた',
+    'だちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽま',
+    'みむめもゃやゅゆょよらりるれろわをんーゎゐゑゕゖゔゝゞ・「」。、',
+)
+FULL_KANA = (
+    'ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタ',
+    'ダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマ',
+    'ミムメモャヤュユョヨラリルレロワヲンーヮヰヱヵヶヴヽヾ・「」。、',
+)
+HALF_KANA = (
+    'ｧｱｨｲｩｳｪｴｫｵｶｶﾞｷｷﾞｸｸﾞｹｹﾞｺｺﾞｻｻﾞｼｼﾞｽｽﾞｾｾﾞｿｿﾞﾀ',
+    'ﾀﾞﾁﾁﾞｯﾂﾂﾞﾃﾃﾞﾄﾄﾞﾅﾆﾇﾈﾉﾊﾊﾞﾊﾟﾋﾋﾞﾋﾟﾌﾌﾞﾌﾟﾍﾍﾞﾍﾟﾎﾎﾞﾎﾟﾏ',
+    'ﾐﾑﾒﾓｬﾔｭﾕｮﾖﾗﾘﾙﾚﾛﾜｦﾝｰヮヰヱヵヶｳﾞヽヾ･｢｣｡､',
+)
+HALF_ASCII = (
+    '!"#$%&\'()*+,-./:;<=>?@[\\]^_`~',
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    'abcdefghijklmnopqrstuvwxyz{|} ',
+)
 HALF_DIGIT = '0123456789'
-FULL_ASCII = ('！＂＃＄％＆＇（）＊＋，－．／：；＜＝＞？＠［＼］＾＿｀～',
-              'ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ',
-              'ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ｛｜｝　')
+FULL_ASCII = (
+    '！＂＃＄％＆＇（）＊＋，－．／：；＜＝＞？＠［＼］＾＿｀～',
+    'ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ',
+    'ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ｛｜｝　',
+)
 FULL_DIGIT = '０１２３４５６７８９'
 
 
@@ -64,14 +74,18 @@ def test_h2z():
     for ascii in (True, False):
         for digit in (True, False):
             for kana in (True, False):
-                before = _concat(FULL_KANA,  HALF_KANA,
-                                 FULL_ASCII, HALF_ASCII,
-                                 FULL_DIGIT, HALF_DIGIT)
-                after = _concat(FULL_KANA,  FULL_KANA  if kana  else HALF_KANA,
-                                FULL_ASCII, FULL_ASCII if ascii else HALF_ASCII,
-                                FULL_DIGIT, FULL_DIGIT if digit else HALF_DIGIT)
-                converted = jaconv.h2z(before,
-                                       ascii=ascii, digit=digit, kana=kana)
+                before = _concat(
+                    FULL_KANA, HALF_KANA, FULL_ASCII, HALF_ASCII, FULL_DIGIT, HALF_DIGIT
+                )
+                after = _concat(
+                    FULL_KANA,
+                    FULL_KANA if kana else HALF_KANA,
+                    FULL_ASCII,
+                    FULL_ASCII if ascii else HALF_ASCII,
+                    FULL_DIGIT,
+                    FULL_DIGIT if digit else HALF_DIGIT,
+                )
+                converted = jaconv.h2z(before, ascii=ascii, digit=digit, kana=kana)
                 assert converted == after
 
 
@@ -85,20 +99,26 @@ def test_z2h():
     for ascii in (True, False):
         for digit in (True, False):
             for kana in (True, False):
-                before = _concat(FULL_KANA,  HALF_KANA,
-                                 FULL_ASCII, HALF_ASCII,
-                                 FULL_DIGIT, HALF_DIGIT)
-                after = _concat(HALF_KANA  if kana  else FULL_KANA,  HALF_KANA,
-                                HALF_ASCII if ascii else FULL_ASCII, HALF_ASCII,
-                                HALF_DIGIT if digit else FULL_DIGIT, HALF_DIGIT)
-                converted = jaconv.z2h(before,
-                                       ascii=ascii, digit=digit, kana=kana)
+                before = _concat(
+                    FULL_KANA, HALF_KANA, FULL_ASCII, HALF_ASCII, FULL_DIGIT, HALF_DIGIT
+                )
+                after = _concat(
+                    HALF_KANA if kana else FULL_KANA,
+                    HALF_KANA,
+                    HALF_ASCII if ascii else FULL_ASCII,
+                    HALF_ASCII,
+                    HALF_DIGIT if digit else FULL_DIGIT,
+                    HALF_DIGIT,
+                )
+                converted = jaconv.z2h(before, ascii=ascii, digit=digit, kana=kana)
                 assert converted == after
 
 
 def test_normalize():
     assert jaconv.normalize('ﾃｨﾛ･フィナ〜レ', 'NFKC') == 'ティロ・フィナーレ'
-    assert jaconv.normalize(_concat(HALF_KANA, FULL_DIGIT), 'NFKC') == ''.join(FULL_KANA)+''.join(HALF_DIGIT)
+    assert jaconv.normalize(_concat(HALF_KANA, FULL_DIGIT), 'NFKC') == ''.join(
+        FULL_KANA
+    ) + ''.join(HALF_DIGIT)
 
 
 def test_kana2alphabet():
@@ -119,6 +139,8 @@ def test_alphabet2kana():
     assert jaconv.alphabet2kana('itoh') == 'いとう'
     assert jaconv.alphabet2kana('ohtaku') == 'おおたく'
     assert jaconv.alphabet2kana('namba') == 'なんば'
+    assert jaconv.alphabet2kana('siba') == 'しば'
+    assert jaconv.alphabet2kana('shiba') == 'しば'
 
 
 def test_alphabet2julius():
@@ -126,7 +148,10 @@ def test_alphabet2julius():
     assert jaconv.hiragana2julius('やったー') == 'y a q t a:'
     assert jaconv.hiragana2julius('かわいいいいい') == 'k a w a i:'
     assert jaconv.hiragana2julius('やろうぜ') == 'y a r o: z e'
-    assert jaconv.hiragana2julius('てんきすごくいいいいいい') == 't e N k i s u g o k u i:'
+    assert (
+        jaconv.hiragana2julius('てんきすごくいいいいいい') == 't e N k i s u g o k u i:'
+    )
+
 
 def test_enlargesmallkana():
     assert jaconv.enlargesmallkana('キュゥべえ') == 'キユウべえ'
