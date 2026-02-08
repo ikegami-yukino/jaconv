@@ -35,10 +35,10 @@ Usage:
 VERSION = (0, 4, 1)
 __version__ = '0.4.1'
 __all__ = [
-    'hira2kata', 'hira2hkata', 'kata2hira', 'h2z', 'z2h', 'hankaku2zenkaku',
-    'zenkaku2hankaku', 'normalize', 'kana2alphabet', 'alphabet2kana',
-    'kata2alphabet', 'alphabet2kata', 'hiragana2julius', 'enlarge_smallkana',
-    'enlargesmallkana',
+    'hira2kata', 'hira2hkata', 'kata2hira',
+    'h2z', 'z2h', 'hankaku2zenkaku', 'zenkaku2hankaku', 'han2zen', 'zen2han',
+    'normalize', 'kana2alphabet', 'alphabet2kana', 'kata2alphabet', 'alphabet2kata',
+    'hiragana2julius', 'enlarge_smallkana', 'enlargesmallkana',
 ]
 
 hira2kata = jaconv.hira2kata
@@ -46,15 +46,15 @@ hira2hkata = jaconv.hira2hkata
 kata2hira = jaconv.kata2hira
 h2z = jaconv.h2z
 z2h = jaconv.z2h
-han2zen = jaconv.h2z  # an alias of h2z
-zen2han = jaconv.z2h  # an alias of z2h
-hankaku2zenkaku = jaconv.h2z  # an alias of h2z
-zenkaku2hankaku = jaconv.z2h  # an alias of z2h
+han2zen = jaconv.han2zen  # an alias of h2z
+zen2han = jaconv.zen2han  # an alias of z2h
+hankaku2zenkaku = jaconv.hankaku2zenkaku  # an alias of h2z
+zenkaku2hankaku = jaconv.zenkaku2hankaku  # an alias of z2h
 normalize = jaconv.normalize
 kana2alphabet = jaconv.kana2alphabet
 alphabet2kana = jaconv.alphabet2kana
-kata2alphabet = lambda text: jaconv.kana2alphabet(jaconv.kata2hira(text))
-alphabet2kata = lambda text: jaconv.hira2kata(jaconv.alphabet2kana(text))
+kata2alphabet = jaconv.kata2alphabet
+alphabet2kata = jaconv.alphabet2kata
 hiragana2julius = jaconv.hiragana2julius
-enlargesmallkana = jaconv.enlargesmallkana
+enlargesmallkana = jaconv.enlargesmallkana  # an alias of enlarge_smallkana
 enlarge_smallkana = jaconv.enlarge_smallkana

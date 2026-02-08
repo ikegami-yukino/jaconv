@@ -234,6 +234,16 @@ def h2z(text, ignore='', kana=True, ascii=False, digit=False):
     return _convert(text, h2z_map)
 
 
+def hankaku2zenkaku(text, ignore='', kana=True, ascii=False, digit=False):
+    """An alias of h2z"""
+    return h2z(text, ignore, kana, ascii, digit)
+
+
+def han2zen(text, ignore='', kana=True, ascii=False, digit=False):
+    """An alias of h2z"""
+    return h2z(text, ignore, kana, ascii, digit)
+
+
 def z2h(text, ignore='', kana=True, ascii=False, digit=False):
     """Convert Full-width (Zenkaku) Katakana to Half-width (Hankaku) Katakana
 
@@ -291,6 +301,16 @@ def z2h(text, ignore='', kana=True, ascii=False, digit=False):
     return _convert(text, z2h_map)
 
 
+def zenkaku2hankaku(text, ignore='', kana=True, ascii=False, digit=False):
+    """An alias of z2h"""
+    return z2h(text, ignore, kana, ascii, digit)
+
+
+def zen2han(text, ignore='', kana=True, ascii=False, digit=False):
+    """An alias of z2h"""
+    return z2h(text, ignore, kana, ascii, digit)
+
+
 def normalize(text, mode='NFKC'):
     """Convert Half-width (Hankaku) Katakana to Full-width (Zenkaku) Katakana,
     Full-width (Zenkaku) ASCII and DIGIT to Half-width (Hankaku) ASCII
@@ -301,7 +321,7 @@ def normalize(text, mode='NFKC'):
     ----------
     text : str
         Source string.
-    mode : str, optional
+    mode : Literal['NFC', 'NFD', 'NFKC', 'NFKD'], optional
         Unicode normalization mode.
 
     Return
@@ -326,11 +346,11 @@ def normalize(text, mode='NFKC'):
         .replace('―', 'ー')
     )
     text = text.replace('━', 'ー').replace('─', 'ー')
-    return unicodedata.normalize(mode, text)
+    return unicodedata.normalize(mode, text) # pyright: ignore[reportArgumentType]
 
 
 def kana2alphabet(text):
-    """Convert Hiragana to hepburn-style alphabets
+    """Convert Hiragana to Roman-input-style alphabets
 
     Parameters
     ----------
@@ -406,6 +426,27 @@ def kana2alphabet(text):
             chars[tsu_pos] = chars[tsu_pos + 1]
         text = ''.join(chars)
     return text
+
+
+def kata2alphabet(text):
+    """Convert Katakana to Roman-input-style alphabets
+
+    Parameters
+    ----------
+    text : str
+        Katakana string.
+
+    Return
+    ------
+    str
+        Roman-input-style alphabets string.
+
+    Examples
+    --------
+    >>> print(jaconv.kata2alphabet('マミサン'))
+    mamisan
+    """
+    return kana2alphabet(kata2hira(text))
 
 
 def alphabet2kana(text):
@@ -566,6 +607,27 @@ def alphabet2kana(text):
             char = 'っ'
         ret.append(char)
     return ''.join(ret)
+
+
+def alphabet2kata(text):
+    """Convert alphabets to Katakana
+
+    Parameters
+    ----------
+    text : str
+        Roman-input-style alphabets string.
+
+    Return
+    ------
+    str
+        Katakana string.
+
+    Examples
+    --------
+    >>> print(jaconv.alphabet2kata('mamisan'))
+    マミサン
+    """
+    return hira2kata(alphabet2kana(text))
 
 
 def hiragana2julius(text):
