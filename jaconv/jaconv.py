@@ -496,6 +496,7 @@ def alphabet2kana(text):
     text = text.replace('xka', 'ヵ').replace('lka', 'ヵ')
     text = text.replace('xke', 'ヶ').replace('lke', 'ヶ')
     text = text.replace('tsu', 'つ')
+    text = text.replace('nn', 'ん')
     text = text.replace('ja', 'じゃ').replace('ji', 'じ').replace('ju', 'じゅ')
     text = text.replace('je', 'じぇ').replace('jo', 'じょ')
     text = text.replace('ga', 'が').replace('gi', 'ぎ').replace('gu', 'ぐ')
@@ -536,10 +537,10 @@ def alphabet2kana(text):
     text = text.replace('ye', 'いぇ')
     text = text.replace('wa', 'わ').replace('wi', 'うぃ').replace('wyi', 'ゐ')
     text = text.replace('wu', 'う').replace('wo', 'を')
-    text = text.replace('nn', 'ん').replace("n'", 'ん').replace('xn', 'ん')
     text = text.replace('oh', 'おお')
     text = text.replace('xa', 'ぁ').replace('xi', 'ぃ').replace('xu', 'ぅ')
     text = text.replace('xe', 'ぇ').replace('xo', 'ぉ')
+    text = text.replace("n'", 'ん').replace('xn', 'ん').replace("m", 'ん')
     text = _convert(text, HEP2KANA)
     ret = []
     for i, char in enumerate(text):

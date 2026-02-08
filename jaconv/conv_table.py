@@ -37,8 +37,8 @@ FULL_KANA = list('ァアィイゥウェエォオカガキギクグケゲコゴ�
 FULL_KANA_SEION = list('ァアィイゥウェエォオカキクケコサシスセソタチッツテト'
                        'ナニヌネノハヒフヘホマミムメモャヤュユョヨラリルレロ'
                        'ワヲンーヮヰヱヵヶヽヾ・「」。、')
-HEPBURN = list('aiueoaiueonlm~-')
-HEPBURN_KANA = list('ぁぃぅぇぉあいうえおんるん〜ー')
+HEPBURN = list('aiueoaiueonl~-')
+HEPBURN_KANA = list('ぁぃぅぇぉあいうえおんる〜ー')
 SMALL_KANA = list('ぁぃぅぇぉゃゅょっァィゥェォヵヶャュョッ')
 SMALL_KANA_NORMALIZED = list('あいうえおやゆよつアイウエオカケヤユヨツ')
 
