@@ -87,6 +87,12 @@ See also `document <http://ikegami-yukino.github.io/jaconv/jaconv.html>`_
   jaconv.normalize('ティロ･フィナ〜レ', 'NFKC')
   # => 'ティロ・フィナーレ'
 
+  # Convert small Hiragana or Katakana to normal size
+  jaconv.enlarge_smallkana('わぁい')
+  # => 'わあい'
+  jaconv.enlarge_smallkana('きょういっぱい', ignore='っ')
+  # => 'きよういっぱい'
+
   # Hiragana to alphabet
   jaconv.kana2alphabet('じゃぱん')
   # => 'japan'

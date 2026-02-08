@@ -77,6 +77,12 @@ USAGE
   jaconv.normalize('ティロ･フィナ〜レ', 'NFKC')
   # => 'ティロ・フィナーレ'
 
+  # 小文字のひらがなやカタカナを大文字のかなに変換
+  jaconv.enlarge_smallkana('わぁい')
+  # => 'わあい'
+  jaconv.enlarge_smallkana('きょういっぱい', ignore='っ')
+  # => 'きよういっぱい'
+
   # ひらがな to アルファベット
   jaconv.kana2alphabet('じゃぱん')
   # => japan
