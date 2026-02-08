@@ -2,7 +2,11 @@ from _typeshed import Incomplete
 
 from . import jaconv
 
-__all__ = ['hira2kata', 'hira2hkata', 'kata2hira', 'h2z', 'z2h', 'hankaku2zenkaku', 'zenkaku2hankaku', 'normalize', 'kana2alphabet', 'alphabet2kana', 'kata2alphabet', 'alphabet2kata', 'hiragana2julius', 'enlargesmallkana']
+__all__ = [
+    'hira2kata', 'hira2hkata', 'kata2hira', 'h2z', 'z2h', 'hankaku2zenkaku', 'zenkaku2hankaku',
+    'normalize', 'kana2alphabet', 'alphabet2kana', 'kata2alphabet', 'alphabet2kata',
+    'hiragana2julius', 'enlargesmallkana', 'enlarge_smallkana'
+]
 
 hira2kata = jaconv.hira2kata
 hira2hkata = jaconv.hira2hkata
@@ -20,3 +24,4 @@ kata2alphabet: Incomplete
 alphabet2kata: Incomplete
 hiragana2julius = jaconv.hiragana2julius
 enlargesmallkana = jaconv.enlargesmallkana
+enlarge_smallkana = jaconv.enlarge_smallkana

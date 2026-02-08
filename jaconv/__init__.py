@@ -19,7 +19,7 @@ Usage:
     jaconv.hira2kata(text, [ignore])  # ひらがなを全角カタカナに変換
     jaconv.hira2hkata(text, [ignore])  # ひらがなを半角カタカナに変換
     jaconv.kata2hira(text, [ignore])  # 全角カタカナをひらがなに変換
-    jaconv.enlargesmallkana(text, [ignore])  # 小文字かなを大文字かなに変換
+    jaconv.enlarge_smallkana(text, [ignore])  # 小文字かなを大文字かなに変換
     jaconv.h2z(text, [ignore, kana, ascii, digit])  # 半角文字を全角文字に変換
     jaconv.z2h(text, [ignore, kana, ascii, digit])  # 全角文字を半角文字に変換
     jaconv.han2zen(text, [ignore, kana, ascii, digit])  # 半角文字を全角文字に変換
@@ -37,7 +37,8 @@ __version__ = '0.4.1'
 __all__ = [
     'hira2kata', 'hira2hkata', 'kata2hira', 'h2z', 'z2h', 'hankaku2zenkaku',
     'zenkaku2hankaku', 'normalize', 'kana2alphabet', 'alphabet2kana',
-    'kata2alphabet', 'alphabet2kata', 'hiragana2julius', 'enlargesmallkana'
+    'kata2alphabet', 'alphabet2kata', 'hiragana2julius', 'enlarge_smallkana',
+    'enlargesmallkana',
 ]
 
 hira2kata = jaconv.hira2kata
@@ -56,3 +57,4 @@ kata2alphabet = lambda text: jaconv.kana2alphabet(jaconv.kata2hira(text))
 alphabet2kata = lambda text: jaconv.hira2kata(jaconv.alphabet2kana(text))
 hiragana2julius = jaconv.hiragana2julius
 enlargesmallkana = jaconv.enlargesmallkana
+enlarge_smallkana = jaconv.enlarge_smallkana

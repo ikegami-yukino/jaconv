@@ -193,15 +193,15 @@ def test_alphabet2julius():
     )
 
 
-def test_enlargesmallkana():
-    assert jaconv.enlargesmallkana('キュゥべえ') == 'キユウべえ'
-    assert jaconv.enlargesmallkana('しゃえい') == 'しやえい'
-    assert jaconv.enlargesmallkana('しゅみ') == 'しゆみ'
-    assert jaconv.enlargesmallkana('きょういっぱい') == 'きよういつぱい'
-    assert jaconv.enlargesmallkana('霞ヶ関') == '霞ケ関'
-    assert jaconv.enlargesmallkana('一ヵ月') == '一カ月'
-    assert jaconv.enlargesmallkana('シャトー') == 'シヤトー'
-    assert jaconv.enlargesmallkana('チューリップ') == 'チユーリツプ'
-    assert jaconv.enlargesmallkana('ショート') == 'シヨート'
-    assert jaconv.enlargesmallkana('きょういっぱい', 'っ') == 'きよういっぱい'
-    assert jaconv.enlargesmallkana('きょういっぱい', 'ょっ') == 'きょういっぱい'
+def test_enlarge_smallkana():
+    assert jaconv.enlarge_smallkana('キュゥべえ') == 'キユウべえ'
+    assert jaconv.enlarge_smallkana('しゃえい') == 'しやえい'
+    assert jaconv.enlarge_smallkana('しゅみ') == 'しゆみ'
+    assert jaconv.enlarge_smallkana('きょういっぱい') == 'きよういつぱい'
+    assert jaconv.enlarge_smallkana('霞ヶ関') == '霞ケ関'
+    assert jaconv.enlarge_smallkana('一ヵ月') == '一カ月'
+    assert jaconv.enlarge_smallkana('シャトー') == 'シヤトー'
+    assert jaconv.enlarge_smallkana('チューリップ') == 'チユーリツプ'
+    assert jaconv.enlarge_smallkana('ショート') == 'シヨート'
+    assert jaconv.enlarge_smallkana('きょういっぱい', 'っ') == 'きよういっぱい'
+    assert jaconv.enlarge_smallkana('きょういっぱい', 'ょっ') == 'きょういっぱい'

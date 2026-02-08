@@ -23,4 +23,4 @@ Z2H_ALL: Incomplete
 KANA2HEP: Incomplete
 HEP2KANA: Incomplete
 JULIUS_LONG_VOWEL: Incomplete
-SMALL_KANA2BIG_KANA: Incomplete
+SMALL_KANA2NORMAL_KANA: Incomplete

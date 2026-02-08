@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 import unicodedata
+import warnings
 
 from .compat import map
 from .conv_table import (
@@ -18,7 +19,7 @@ from .conv_table import (
     JULIUS_LONG_VOWEL,
     K2H_TABLE,
     KANA2HEP,
-    SMALL_KANA2BIG_KANA,
+    SMALL_KANA2NORMAL_KANA,
     Z2H_A,
     Z2H_AD,
     Z2H_AK,
@@ -124,6 +125,15 @@ def kata2hira(text, ignore=''):
 
 
 def enlargesmallkana(text, ignore=''):
+    warn_msg = (
+        '`enlargesmallkana` is deprecated and will be removed in future versions.'
+        ' Use `enlarge_smallkana` instead.'
+    )
+    warnings.warn(warn_msg, UserWarning)
+    return enlarge_smallkana(text, ignore)
+
+
+def enlarge_smallkana(text, ignore=''):
     """Convert small Hiragana or Katakana to normal size
 
     Parameters
@@ -145,7 +155,7 @@ def enlargesmallkana(text, ignore=''):
     >>> print(jaconv.enlargesmallkana('キュゥべえ'))
     キユウべえ
     """
-    return _translate(text, ignore, SMALL_KANA2BIG_KANA)
+    return _translate(text, ignore, SMALL_KANA2NORMAL_KANA)
 
 
 def h2z(text, ignore='', kana=True, ascii=False, digit=False):
