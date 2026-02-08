@@ -145,6 +145,7 @@ def test_kana2alphabet():
     assert jaconv.kana2alphabet('きゅ') == 'kyu'
     assert jaconv.kana2alphabet('りゅう') == 'ryuu'
 
+
 def text_kata2alphabet():
     assert jaconv.kata2alphabet('マミサン') == 'mamisan'
     assert jaconv.kata2alphabet('ドッグ ドグー') == 'doggu doguu'
