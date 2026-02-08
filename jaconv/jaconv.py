@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-import re
 import unicodedata
 
 from .compat import map
@@ -30,7 +29,6 @@ from .conv_table import (
 )
 
 consonants = frozenset('sdfghjklqwrtypzxcvbnm')
-ending_h_pattern = re.compile(r'h$')
 
 
 def _exclude_ignorechar(ignore, conv_map):
@@ -413,7 +411,8 @@ def alphabet2kana(text):
     text = text.lower()  # ensure lower case.
 
     # replace final h with う, e.g., Itoh -> いとう
-    text = re.sub(ending_h_pattern, 'う', text)
+    if text.endswith('h') and len(text) >= 2:
+        text = text[:-1] + 'う'
 
     text = text.replace('kya', 'きゃ').replace('kyi', 'きぃ').replace('kyu', 'きゅ')
     text = text.replace('kye', 'きぇ').replace('kyo', 'きょ')
