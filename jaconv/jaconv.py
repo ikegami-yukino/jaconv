@@ -877,7 +877,6 @@ def hiragana2julius(text):
     text = text.replace('ぇ', ' e')
     text = text.replace('ぉ', ' o')
     text = text.replace('ゎ', ' w a')
-    text = text.replace('ぉ', ' o')
 
     # 長音の処理
     for pattern, replace_str in JULIUS_LONG_VOWEL:

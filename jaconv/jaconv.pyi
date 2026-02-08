@@ -26,7 +26,6 @@ from .conv_table import Z2H_DK as Z2H_DK
 from .conv_table import Z2H_K as Z2H_K
 
 consonants: Incomplete
-ending_h_pattern: Incomplete
 
 def _exclude_ignorechar(ignore: str, conv_map: typing.Dict[int, str]) -> typing.Dict[int, str]: ...
 def _convert(text: str, conv_map: typing.Dict[int, str]) -> str: ...
