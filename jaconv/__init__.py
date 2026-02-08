@@ -32,8 +32,8 @@ Usage:
     jaconv.hiragana2julius(text)  # ひらがなをJuliusの音素表現に変換
 """
 
-VERSION = (0, 4, 1)
-__version__ = '0.4.1'
+VERSION = (0, 5, 0)
+__version__ = '0.5.0'
 __all__ = [
     'hira2kata',
     'hira2hkata',
