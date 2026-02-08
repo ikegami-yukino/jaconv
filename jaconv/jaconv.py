@@ -374,6 +374,14 @@ def kana2alphabet(text):
     text = text.replace('や', 'ya').replace('ゆ', 'yu').replace('よ', 'yo')
     text = text.replace('わ', 'wa').replace('ゐ', 'wi').replace('を', 'wo')
     text = text.replace('ゑ', 'we')
+    text = text.replace('ゔぁ', 'va').replace('ゔぃ', 'vi').replace('ゔぅ', 'vuu')
+    text = text.replace('ゔぇ', 've').replace('ゔぉ', 'vo')
+    text = text.replace('ゃ', 'ya').replace('ゅ', 'yu').replace('ょ', 'yo')
+    text = text.replace('ぁ', 'a').replace('ぃ', 'i').replace('ぅ', 'u')
+    text = text.replace('ぇ', 'e').replace('ぉ', 'o')
+    text = text.replace('ゎ', 'wa')
+    text = text.replace('ゔ', 'vu')
+    text = text.replace('ヵ', 'ka')  # Strictly, it's kanji, not kana.
     text = _convert(text, KANA2HEP)
     while 'っ' in text:
         chars = list(text)

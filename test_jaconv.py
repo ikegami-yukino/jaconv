@@ -128,6 +128,45 @@ def test_kana2alphabet():
     assert jaconv.kana2alphabet('ぽっ') == 'poxtsu'
     assert jaconv.kana2alphabet('ふぁふぃふぇふぉ') == 'fafifefo'
     assert jaconv.kana2alphabet('っって') == 'xtsutte'
+    assert jaconv.kana2alphabet('ゔぃーた') == 'vi-ta'
+
+    # Single small kana
+    assert jaconv.kana2alphabet('ゅ') == 'yu'
+    assert jaconv.kana2alphabet('ゃ') == 'ya'
+    assert jaconv.kana2alphabet('ょ') == 'yo'
+
+    # Small kana at start
+    assert jaconv.kana2alphabet('ゅい') == 'yui'
+
+    # Small kana in middle (non-standard pattern)
+    assert jaconv.kana2alphabet('さくらゅい') == 'sakurayui'
+
+    # Valid 拗音 patterns should still work
+    assert jaconv.kana2alphabet('きゅ') == 'kyu'
+    assert jaconv.kana2alphabet('りゅう') == 'ryuu'
+
+def text_kata2alphabet():
+    assert jaconv.kata2alphabet('マミサン') == 'mamisan'
+    assert jaconv.kata2alphabet('ドッグ ドグー') == 'doggu doguu'
+    assert jaconv.kata2alphabet('ボッチ') == 'botchi'
+    assert jaconv.kata2alphabet('ファイナルファンタジー') == 'fainarufantaji-'
+    assert jaconv.kata2alphabet('アツイ') == 'atsui'
+    assert jaconv.kata2alphabet('イトウ') == 'itoh'
+    assert jaconv.kata2alphabet('オオタク') == 'ohtaku'
+    assert jaconv.kata2alphabet('ナンバ') == 'namba'
+    assert jaconv.kata2alphabet('シバ') == 'siba'
+    assert jaconv.kata2alphabet('シバ') == 'shiba'
+    assert jaconv.kata2alphabet('ハンエイ') == 'hannei'
+
+    # Small kana at start
+    assert jaconv.kana2alphabet('ュイ') == 'yui'
+
+    # Small kana in middle (non-standard pattern)
+    assert jaconv.kana2alphabet('サクラュイ') == 'sakurayui'
+
+    # Valid 拗音 patterns should still work
+    assert jaconv.kana2alphabet('キュ') == 'kyu'
+    assert jaconv.kana2alphabet('リュウ') == 'ryuu'
 
 
 def test_alphabet2kana():
