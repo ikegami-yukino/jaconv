@@ -1,19 +1,29 @@
+default_stages: [commit]
+
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
     - id: end-of-file-fixer
     - id: trailing-whitespace
     - id: mixed-line-ending
-- repo: https://github.com/astral-sh/ruff-pre-commit
-  # Ruff version.
-  rev: v0.14.7
-  hooks:
-    # Run the linter.
-    - id: ruff-check
-      types_or: [ python, pyi ]
-      args: [ --select, I, --fix ]
-    # Run the formatter.
-    - id: ruff-format
-      types_or: [ python, pyi ]
-      args: [ --config, "format.quote-style = 'single'" ]
+    - id: forbid-submodules
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # Ruff version.
+    rev: v0.14.7
+    hooks:
+      # Run the linter.
+      - id: ruff-check
+        types_or: [ python, pyi ]
+        args: [ --select, I, --fix ]
+      # Run the formatter.
+      - id: ruff-format
+        types_or: [ python, pyi ]
+        args: [ --config, "format.quote-style = 'single'" ]
+
+# sets up .pre-commit-ci.yaml to ensure pre-commit dependencies stay up to date
+ci:
+  autoupdate_schedule: weekly
+  skip: []
+  submodules: false
