@@ -531,11 +531,10 @@ def alphabet2kana(text):
     text = text.replace('wa', 'わ').replace('wyi', 'ゐ').replace('wu', 'う')
     text = text.replace('wye', 'ゑ')
     text = text.replace('wo', 'を')
-    text = text.replace('nn', 'ん').replace('m', 'ん')
     text = text.replace('tu', 'つ').replace('hu', 'ふ')
     text = text.replace('fa', 'ふぁ').replace('fi', 'ふぃ').replace('fe', 'ふぇ')
     text = text.replace('fo', 'ふぉ').replace('oh', 'おお')
-    text = text.replace('l', 'る').replace('-', 'ー')
+    text = text.replace('nn', 'ん').replace('n\'', 'ん').replace('xn', 'ん')
     text = _convert(text, HEP2KANA)
     ret = []
     for i, char in enumerate(text):
