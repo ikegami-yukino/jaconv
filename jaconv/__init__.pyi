@@ -3,10 +3,23 @@ from _typeshed import Incomplete
 from . import jaconv
 
 __all__ = [
-    'hira2kata', 'hira2hkata', 'kata2hira',
-    'h2z', 'z2h', 'hankaku2zenkaku', 'zenkaku2hankaku', 'han2zen', 'zen2han',
-    'normalize', 'kana2alphabet', 'alphabet2kana', 'kata2alphabet', 'alphabet2kata',
-    'hiragana2julius', 'enlargesmallkana', 'enlarge_smallkana'
+    'hira2kata',
+    'hira2hkata',
+    'kata2hira',
+    'h2z',
+    'z2h',
+    'hankaku2zenkaku',
+    'zenkaku2hankaku',
+    'han2zen',
+    'zen2han',
+    'normalize',
+    'kana2alphabet',
+    'alphabet2kana',
+    'kata2alphabet',
+    'alphabet2kata',
+    'hiragana2julius',
+    'enlargesmallkana',
+    'enlarge_smallkana',
 ]
 
 hira2kata = jaconv.hira2kata

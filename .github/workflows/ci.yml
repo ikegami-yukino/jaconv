@@ -1,6 +1,7 @@
 name: ci
 on:
   push:
+    branches: ["master"]
   pull_request:
   workflow_dispatch:
 jobs:
@@ -24,13 +25,15 @@ jobs:
       - run: pip install pytest pytest-asyncio
       - run: pip install --editable .
       - run: pytest
-  doc_format:
+  format:
     strategy:
       fail-fast: true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
+      - name: Run pre-commit
+        uses: pre-commit/action@v3.0.1
       - run: python -m pip install --upgrade pip
       - run: python -m pip install 'readme-renderer[md]'
       - run: python -m readme_renderer README.rst -o /dev/null

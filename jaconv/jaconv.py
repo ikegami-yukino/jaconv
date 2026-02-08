@@ -346,7 +346,7 @@ def normalize(text, mode='NFKC'):
         .replace('―', 'ー')
     )
     text = text.replace('━', 'ー').replace('─', 'ー')
-    return unicodedata.normalize(mode, text) # pyright: ignore[reportArgumentType]
+    return unicodedata.normalize(mode, text)  # pyright: ignore[reportArgumentType]
 
 
 def kana2alphabet(text):
@@ -599,7 +599,7 @@ def alphabet2kana(text):
     text = text.replace('oh', 'おお')
     text = text.replace('xa', 'ぁ').replace('xi', 'ぃ').replace('xu', 'ぅ')
     text = text.replace('xe', 'ぇ').replace('xo', 'ぉ')
-    text = text.replace("n'", 'ん').replace('xn', 'ん').replace("m", 'ん')
+    text = text.replace("n'", 'ん').replace('xn', 'ん').replace('m', 'ん')
     text = _convert(text, HEP2KANA)
     ret = []
     for i, char in enumerate(text):
