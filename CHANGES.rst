@@ -1,18 +1,26 @@
 CHANGES
 =======
 
+0.5.0 (2026-02-08)
+-------------------
+- Add new func. enlarge_smallkana.
+- The alphabet2kana func. converts "si" to "し".
+- Fix conversion bugs in alphabet2kana and kana2alphabet func.
+- Fix bugs about small-kana in kana2alphabet func.
+- Add docstring to alias functions
+
 0.4.1 (2025-11-30)
 -------------------
 - port static configs to setup.cfg (thanks @eli-schwartz)
 - migrate testsuite to pytest (thanks @eli-schwartz)
 - Support Python 3.13 and 3.14
 
-0.4.0 (2024-7-26)
+0.4.0 (2024-07-26)
 -------------------
 - Support Python 3.12
 - Add stub files according to PEP 561 for mypy (thanks @ernix)
 
-0.3.4 (2023-2-18)
+0.3.4 (2023-02-18)
 -------------------
 - Fix to support Python2.7 ~ 3.4 (thanks @manjuu-eater)
 - Support Python 3.11
