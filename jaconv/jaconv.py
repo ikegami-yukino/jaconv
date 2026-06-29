@@ -411,7 +411,10 @@ def kana2alphabet(text):
     text = text.replace('ぇ', 'e').replace('ぉ', 'o')
     text = text.replace('ゎ', 'wa')
     text = text.replace('ゔ', 'vu')
-    text = text.replace('ヵ', 'ka')  # Strictly, it's kanji, not kana.
+    # Small ka/ke (strictly kanji, not kana), plus their hiragana forms,
+    # which kata2hira produces from ヵ/ヶ.
+    text = text.replace('ヵ', 'ka').replace('ヶ', 'ke')
+    text = text.replace('ゕ', 'ka').replace('ゖ', 'ke')
     text = _convert(text, KANA2HEP)
     while 'っ' in text:
         chars = list(text)
