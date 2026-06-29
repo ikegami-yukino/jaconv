@@ -145,6 +145,21 @@ def test_kana2alphabet():
     assert jaconv.kana2alphabet('きゅ') == 'kyu'
     assert jaconv.kana2alphabet('りゅう') == 'ryuu'
 
+    # Small ka/ke must not leak into the output as raw kana.
+    # The katakana small ka was already handled (ヵ -> ka); its small-ke
+    # sibling and both hiragana forms (ゕ/ゖ) were not.
+    assert jaconv.kana2alphabet('ヵ') == 'ka'
+    assert jaconv.kana2alphabet('ヶ') == 'ke'
+    assert jaconv.kana2alphabet('ゕ') == 'ka'
+    assert jaconv.kana2alphabet('ゖ') == 'ke'
+
+
+def test_kata2alphabet_small_kake():
+    # kata2alphabet routes through kata2hira, which maps ヵ/ヶ to ゕ/ゖ,
+    # so the hiragana small ka/ke must be romanized too.
+    assert jaconv.kata2alphabet('ヵ') == 'ka'
+    assert jaconv.kata2alphabet('ヶ') == 'ke'
+
 
 def text_kata2alphabet():
     assert jaconv.kata2alphabet('マミサン') == 'mamisan'
